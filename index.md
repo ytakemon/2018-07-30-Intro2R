@@ -196,23 +196,6 @@ and our administrator may contact you if we need any extra information.</h4>
  SURVEYS - DO NOT EDIT SURVEY LINKS
 {% endcomment %}
 
-<h2 id="surveys">Surveys</h2>
-
-{% if page.carpentry == "swc" %}
-<p>Please be sure to complete these surveys before and after the workshop.</p>
-<p><a href="{{ site.swc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.swc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% elsif page.carpentry == "dc" %}
-  <p>Please be sure to complete these surveys before and after the workshop.</p>
-<p><a href="{{ site.dc_pre_survey }}{{ site.github.project_title }}">Pre-workshop Survey</a></p>
-<p><a href="{{ site.dc_post_survey }}{{ site.github.project_title }}">Post-workshop Survey</a></p>
-{% elsif page.carpentry == "lc" %}
-<p>Ask your instructor about pre- and post-workshop Survey details.</p>
-{% endif %}
-
-<hr/>
-
-
 {% comment %}
   SCHEDULE
 
@@ -223,13 +206,26 @@ and our administrator may contact you if we need any extra information.</h4>
 
 <h2 id="schedule">Schedule</h2>
 
-{% if page.carpentry == "swc" %}
-  {% include sc/schedule.html %}
-{% elsif page.carpentry == "dc" %}
-  {% include dc/schedule.html %}
-{% elsif page.carpentry == "lc" %}
-  {% include lc/schedule.html %}
-{% endif %}
+<div class="row">
+<div class="col-md-6">
+<h3>Thursday, March 15</h3>
+<table class="table table-striped">
+<tr> <td>09:00</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/">Workshop Overview</a></td> </tr>
+<tr> <td>09:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
+<tr> <td>10:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/02-project-intro/">Project Management With RStudio</a></td> </tr>
+<tr> <td>10:30</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/">Seeking Help</a></td> </tr>
+<tr> <td>10:35</td>  <td><a href="http://www.datacarpentry.org/shell-ecology/01-filedir.html">Understanding the File System</a></td> </tr>
+<tr> <td>10:45</td>  <td>Coffee</td> </tr>
+<tr> <td>11:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/">Producing Reports With knitr</a></td> </tr>
+<tr> <td>12:00</td>  <td>Lunch break</td> </tr>
+<tr> <td>13:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/07-control-flow/">Control Flow</a></td> </tr>
+<tr> <td>14:30</td>  <td>Coffee</td> </tr>
+<tr> <td>14:45</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/">Creating Publication-Quality Graphics</a> </td> </tr>
+<tr> <td>16:15</td>  <td>Wrap-up</td> </tr>
+</table>
+</div>
+</div>
+
 
 {% comment %}
   Collaborative Notes
