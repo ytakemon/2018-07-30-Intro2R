@@ -3,7 +3,7 @@
 #------------------------------------------------------------
 
 # Which carpentry is this ("swc", "dc", or "lc")?
-carpentry: "swc"
+carpentry: ""
 
 # Overall title for pages.
 title: "MDIBL Compariative Aging: Introduction to R"
@@ -20,9 +20,12 @@ kind: "workshop"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
-repository: ytakemon/<2018-07-30-MDIBL-CompAging-Intro2R
+repository: <USERNAME>/<PROJECT>
 
 # Sites.
+amy_site: "https://amy.software-carpentry.org/workshops"
+lc_site: "https://librarycarpentry.github.io/"
+dc_site: "http://datacarpentry.org"
 swc_github: "https://github.com/swcarpentry"
 swc_site: "https://software-carpentry.org"
 swc_pages: "https://swcarpentry.github.io"
@@ -31,13 +34,17 @@ example_repo: "https://github.com/swcarpentry/lesson-example"
 example_site: "https://swcarpentry.github.com/lesson-example"
 workshop_repo: "https://github.com/swcarpentry/workshop-template"
 workshop_site: "https://swcarpentry.github.io/workshop-template"
+training_site: "https://swcarpentry.github.io/instructor-training"
+swc_installer: "https://github.com/swcarpentry/windows-installer/releases/download/v0.3/SWCarpentryInstaller.exe"
 
 # Surveys.
 swc_pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
 swc_post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+dc_pre_survey: "https://www.surveymonkey.com/r/dcpreworkshopassessment?workshop_id="
+dc_post_survey: "https://www.surveymonkey.com/r/dcpostworkshopassessment?workshop_id="
 
 # Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am)
-start_time: 780
+start_time: 0
 
 # Specify that things in the episodes collection should be output.
 collections:
