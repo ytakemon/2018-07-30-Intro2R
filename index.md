@@ -18,105 +18,18 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 ---
 <h2 id="general">General Information</h2>
 
-{% comment %}
-  INTRODUCTION
-
-  Edit the general explanatory paragraph below if you want to change
-  the pitch.
-{% endcomment %}
-
-{% comment %}
-  AUDIENCE
-
-  Explain who your audience is.  (In particular, tell readers if the
-  workshop is only open to people from a particular institution.
-{% endcomment %}
-
-{% comment %}
-  LOCATION
-
-  This block displays the address and links to maps showing directions
-  if the latitude and longitude of the workshop have been set.  You
-  can use http://itouchmap.com/latlong.html to find the lat/long of an
-  address.
-{% endcomment %}
-
-{% if page.latlng %}
-<p id="where">
-  <strong>Where:</strong>
-  {{page.address}}.
-  Get directions with
-  <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
-  or
-  <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
-</p>
-{% endif %}
-
-{% comment %}
-  DATE
-
-  This block displays the date and links to Google Calendar.
-{% endcomment %}
-
-{% if page.humandate %}
-<p id="when">
-  <strong>When:</strong>
-  {{page.humandate}}.
-  {% include workshop_calendar.html %}
-</p>
-{% endif %}
-
-{% comment %}
-  SPECIAL REQUIREMENTS
-
-  Modify the block below if there are any special requirements.
-{% endcomment %}
+  This workshop is intended for those with limited or no experience in using R language and or any form of coding language. We will work towards becoming familiar with how to read and write data, types of data structures, data manipulation, and other forms of general utilities that can help speed up data processing and analyses.
+  
+  Our goal is to introduce (new) concepts and vocabulary, and most importantly exposure to working in R. 
+  
+  We encourage those with coding experience (python, C, C++, unix, etc.) to help your neighbours!
 
 <p id="requirements">
   <strong>Requirements:</strong> Participants must bring a laptop with a
   Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges
   on. They should have a few specific software packages installed (listed
-  <a href="#setup">below</a>). They are also required to abide by
-  {% if page.carpentry == "swc" %}
-  Software Carpentry's
-  {% elsif page.carpentry == "dc" %}
-  Data Carpentry's
-  {% elsif page.carpentry == "lc" %}
-  Library Carpentry's
-  {% endif %}
-  <a href="{{site.swc_site}}/conduct.html">Code of Conduct</a>.
+  <a href="#setup">below</a>). 
 </p>
-
-{% comment %}
-  ACCESSIBILITY
-
-  Modify the block below if there are any barriers to accessibility or
-  special instructions.
-{% endcomment %}
-
-<p id="accessibility">
-  <strong>Accessibility:</strong> We are committed to making this workshop
-  accessible to everybody.
-  The workshop organizers have checked that:
-</p>
-<ul>
-  <li>The room is wheelchair / scooter accessible.</li>
-  <li>Accessible restrooms are available.</li>
-</ul>
-<p>
-  Materials will be provided in advance of the workshop and
-  large-print handouts are available if needed by notifying the
-  organizers in advance.  If we can help making learning easier for
-  you (e.g. sign-language interpreters, lactation facilities) please
-  get in touch (using contact details below) and we will
-  attempt to provide them.
-</p>
-
-{% comment %}
-  CONTACT EMAIL ADDRESS
-
-  Display the contact email address set in the configuration file.
-{% endcomment %}
 
 <p id="contact">
   <strong>Contact</strong>:
@@ -139,10 +52,6 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 </p>
 
 <hr/>
-
-{% comment %}
- SURVEYS - DO NOT EDIT SURVEY LINKS
-{% endcomment %}
 
 {% comment %}
   SCHEDULE
@@ -205,36 +114,6 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <p id="collaborative_notes">
   We will use this <a href="{{page.collaborative_notes}}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
 </p>
-{% endif %}
-
-<hr/>
-
-{% comment %}
-  SYLLABUS
-
-  Show what topics will be covered.
-
-  1. If your workshop is R rather than Python, remove the comment
-     around that section and put a comment around the Python section.
-  2. Some workshops will delete SQL.
-  3. Please make sure the list of topics is synchronized with what you
-     intend to teach.
-  4. You may need to move the div's with class="col-md-6" around inside
-     the div's with class="row" to balance the multi-column layout.
-
-  This is one of the places where people frequently make mistakes, so
-  please preview your site before committing, and make sure to run
-  'tools/check' as well.
-{% endcomment %}
-
-<h2 id="syllabus">Syllabus</h2>
-
-{% if page.carpentry == "swc" %}
-  {% include sc/syllabus.html %}
-{% elsif page.carpentry == "dc" %}
-  {% include dc/syllabus.html %}
-{% elsif page.carpentry == "lc" %}
-  {% include lc/syllabus.html %}
 {% endif %}
 
 <hr/>
