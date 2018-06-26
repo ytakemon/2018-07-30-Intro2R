@@ -201,4 +201,12 @@ We will use this <a href="https://drive.google.com/open?id=1g4yI-JSKs7N1_-TQ-Evu
       </p>
     </div>
   </div>
-</div> {% comment %} End of 'R' section. {% endcomment %}
+</div> 
+
+
+<h2 id="attribution">Attribution</h2>
+<p>
+This website is derived from the <a href="{{site.workshop_site}}">Software Carpentry Workshop Template</a> 
+under a <a href="{{ page.root }}/license/">Creative Commons Attribution (CC BY 4.0) License</a>. 
+Changes were made to branding and some content.
+</p>
