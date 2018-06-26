@@ -18,7 +18,7 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 ---
 <h2 id="general">General Information</h2>
 
-  This workshop is intended for those with limited or no experience in using R language and or any form of coding language. We will work towards becoming familiar with how to read and write data, types of data structures, data manipulation, and other forms of general utilities that can help speed up data processing and analyses.
+  This workshop is intended for those with limited or no experience in the R language and/or any form of coding language. We will work towards becoming familiar with how to read and write data, types of data structures, data manipulation, and other forms of general utilities that can help speed up data processing and analyses.
   
   Our goal is to introduce (new) concepts and vocabulary, and most importantly exposure to working in R. 
   
@@ -109,6 +109,8 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
   where 'YYYY-MM-DD-site' is the identifier for your workshop,
   e.g., '2015-06-10-esu'.
 {% endcomment %}
+
+We will use this <a href="https://drive.google.com/open?id=1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb">Google Drive</a> to get our data and work collabortively in the google doc. The <a href="">Google Doc</a> will be used for chatting, taking notes, and sharing URLs and bits of codes.
 
 {% if page.collaborative_notes %}
 <p id="collaborative_notes">
