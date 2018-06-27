@@ -19,16 +19,16 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <h2 id="general">General Information</h2>
 
   This workshop is intended for those with limited or no experience in the R language and/or any form of coding language. We will work towards becoming familiar with how to read and write data, types of data structures, data manipulation, and other forms of general utilities that can help speed up data processing and analyses.
-  
-  Our goal is to introduce (new) concepts and vocabulary, and most importantly exposure to working in R. 
-  
+
+  Our goal is to introduce (new) concepts and vocabulary, and most importantly exposure to working in R.
+
   We encourage those with coding experience (python, C, C++, unix, etc.) to help your neighbours!
 
 <p id="requirements">
   <strong>Requirements:</strong> Participants must bring a laptop with a
   Mac, Linux, or Windows operating system (not a tablet, Chromebook, etc.) that they have administrative privileges
   on. They should have a few specific software packages installed (listed
-  <a href="#setup">below</a>). 
+  <a href="#setup">below</a>).
 </p>
 
 <p id="contact">
@@ -63,36 +63,39 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 
 <h2 id="schedule">Schedule</h2>
 
+https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/
+
+
 <div class="row">
 <div class="col-md-6">
 <h3>Monday, July 30th</h3>
 <table class="table table-striped">
-<tr> <td>09:00</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/">Workshop Overview</a></td> </tr>
-<tr> <td>09:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
-<tr> <td>10:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/02-project-intro/">Project Management With RStudio</a></td> </tr>
-<tr> <td>10:30</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/">Seeking Help</a></td> </tr>
-<tr> <td>10:35</td>  <td><a href="http://www.datacarpentry.org/shell-ecology/01-filedir.html">Understanding the File System</a></td> </tr>
-<tr> <td>10:45</td>  <td>Coffee</td> </tr>
-<tr> <td>11:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/">Producing Reports With knitr</a></td> </tr>
-<tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-<tr> <td>13:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/07-control-flow/">Control Flow</a></td> </tr>
-<tr> <td>14:30</td>  <td>Coffee</td> </tr>
-<tr> <td>14:45</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/">Creating Publication-Quality Graphics</a> </td> </tr>
+<tr> <td>09:00</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/">Workshop Overview</a></td> </tr>
+<tr> <td>09:15</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
+<tr> <td>10:15</td>  <td> TBD </td> </tr>
+<tr> <td>10:30</td>  <td> TBD </td> </tr>
+<tr> <td>10:35</td>  <td> TBD </td> </tr>
+<tr> <td>10:45</td>  <td> TBD </td> </tr>
+<tr> <td>11:00</td>  <td> TBD </td> </tr>
+<tr> <td>12:00</td>  <td> TBD </td> </tr>
+<tr> <td>13:00</td>  <td> TBD </td> </tr>
+<tr> <td>14:30</td>  <td> TBD </td> </tr>
+<tr> <td>14:45</td>  <td> TBD </td> </tr>
 <tr> <td>16:15</td>  <td>Wrap-up</td> </tr>
 </table>
 <h3>Tuesday, July 31st</h3>
 <table class="table table-striped">
-<tr> <td>09:00</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/">Workshop Overview</a></td> </tr>
-<tr> <td>09:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
-<tr> <td>10:15</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/02-project-intro/">Project Management With RStudio</a></td> </tr>
-<tr> <td>10:30</td>  <td><a href="http://swcarpentry.github.io/r-novice-gapminder/03-seeking-help/">Seeking Help</a></td> </tr>
-<tr> <td>10:35</td>  <td><a href="http://www.datacarpentry.org/shell-ecology/01-filedir.html">Understanding the File System</a></td> </tr>
-<tr> <td>10:45</td>  <td>Coffee</td> </tr>
-<tr> <td>11:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/15-knitr-markdown/">Producing Reports With knitr</a></td> </tr>
-<tr> <td>12:00</td>  <td>Lunch break</td> </tr>
-<tr> <td>13:00</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/07-control-flow/">Control Flow</a></td> </tr>
-<tr> <td>14:30</td>  <td>Coffee</td> </tr>
-<tr> <td>14:45</td>  <td><a href="https://swcarpentry.github.io/r-novice-gapminder/08-plot-ggplot2/">Creating Publication-Quality Graphics</a> </td> </tr>
+<tr> <td>09:00</td>  <td> TBD </td> </tr>
+<tr> <td>09:15</td>  <td> TBD </td> </tr>
+<tr> <td>10:15</td>  <td> TBD </td> </tr>
+<tr> <td>10:30</td>  <td> TBD </td> </tr>
+<tr> <td>10:35</td>  <td> TBD </td> </tr>
+<tr> <td>10:45</td>  <td> TBD </td> </tr>
+<tr> <td>11:00</td>  <td> TBD </td> </tr>
+<tr> <td>12:00</td>  <td> TBD </td> </tr>
+<tr> <td>13:00</td>  <td> TBD </td> </tr>
+<tr> <td>14:30</td>  <td> TBD </td> </tr>
+<tr> <td>14:45</td>  <td> TBD </td> </tr>
 <tr> <td>16:15</td>  <td>Wrap-up</td> </tr>
 </table>
 </div>
@@ -201,12 +204,12 @@ We will use this <a href="https://drive.google.com/open?id=1g4yI-JSKs7N1_-TQ-Evu
       </p>
     </div>
   </div>
-</div> 
+</div>
 
 
 <h2 id="attribution">Attribution</h2>
 <p>
-This website is derived from the <a href="{{site.workshop_site}}">Software Carpentry Workshop Template</a> 
-under a <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/LICENSE.html">Creative Commons Attribution (CC BY 4.0) License</a>. 
+This website is derived from the <a href="{{site.workshop_site}}">Software Carpentry Workshop Template</a>
+under a <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/LICENSE.html">Creative Commons Attribution (CC BY 4.0) License</a>.
 Changes were made to branding and some content.
 </p>
