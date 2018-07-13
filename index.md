@@ -80,12 +80,12 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 
 <h3>Tuesday, July 31st</h3>
 <table class="table table-striped">
-<tr> <td>01:00</td>  <td> Recap </td> </tr>
+<tr> <td>01:00</td>  <td>Recap</td></tr>
 <tr> <td>01:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/07-control-flow/">Control flow</a> </td> </tr>
-<tr> <td>02:00/td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/10-functions/">Creating functions</a> </td> </tr>
+<tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/10-functions/">Creating functions</a> </td> </tr>
 <tr> <td>02:45</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/08-plot-ggplot2/">Publication quality graphics</a> </td> </tr>
 <tr> <td>03:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/11-writing-data/">Writing data</a> </td> </tr>
-<tr> <td>03:45</td>  <td>Wrap-up</td> </tr>
+<tr> <td>03:45</td>  <td>Wrap-up</td></tr>
 </table>
 </div>
 </div>
