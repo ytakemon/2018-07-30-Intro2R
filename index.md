@@ -1,7 +1,7 @@
 ---
 layout: workshop      # DON'T CHANGE THIS.
 carpentry: ""    # what kind of Carpentry (must be either "lc" or "dc" or "swc")
-venue: "Introduction to the R programming"        # brief name of host site without address (e.g., "Euphoric State University")
+venue: "Introduction to R programming"        # brief name of host site without address (e.g., "Euphoric State University")
 address: "159 Old Bar Harbor Rd, Bar Harbor"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria")
 country: "us"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1)
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/ISO_639-1)
