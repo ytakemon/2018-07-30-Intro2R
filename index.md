@@ -63,17 +63,14 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 
 <h2 id="schedule">Schedule</h2>
 
-https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/
-
-
 <div class="row">
 <div class="col-md-6">
 <h3>Monday, July 30th</h3>
 <table class="table table-striped">
 <tr> <td>01:00</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/">Workshop Overview</a></td> </tr>
 <tr> <td>01:15</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
-<tr> <td>02:30</td>  <td> TBD </td> </tr>
-<tr> <td>02:45</td>  <td> TBD </td> </tr>
+<tr> <td>02:30</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/02-project-intro/">Project management</a> </td> </tr>
+<tr> <td>02:45</td>  <td><a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/03-seeking-help/">Seeking help</a> </td> </tr>
 <tr> <td>03:15</td>  <td> TBD </td> </tr>
 <tr> <td></td>  <td> TBD </td> </tr>
 <tr> <td>13:00</td>  <td> TBD </td> </tr>
