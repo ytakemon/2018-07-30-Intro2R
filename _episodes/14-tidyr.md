@@ -50,7 +50,7 @@ installed dplyr in the previous lesson):
 #install.packages("tidyr")
 #install.packages("dplyr")
 ~~~
-{: .r}
+{: .language-r}
 
 Load the packages
 
@@ -59,7 +59,7 @@ Load the packages
 library("tidyr")
 library("dplyr")
 ~~~
-{: .r}
+{: .language-r}
 
 First, lets look at the structure of our original gapminder dataframe:
 
@@ -67,7 +67,7 @@ First, lets look at the structure of our original gapminder dataframe:
 ~~~
 str(gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -130,7 +130,7 @@ country columns to be factors, so we use the stringsAsFactors argument for
 gap_wide <- read.csv("data/gapminder_wide.csv", stringsAsFactors = FALSE)
 str(gap_wide)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -190,7 +190,7 @@ gap_long <- gap_wide %>%
            starts_with('lifeExp'), starts_with('gdpPercap'))
 str(gap_long)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -223,7 +223,7 @@ gathered (i.e. ID variables)
 gap_long <- gap_wide %>% gather(obstype_year,obs_values,-continent,-country)
 str(gap_long)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -250,7 +250,7 @@ type (`pop`,`lifeExp`, or `gdpPercap`) and the `year`. We can use the
 gap_long <- gap_long %>% separate(obstype_year,into=c('obs_type','year'),sep="_")
 gap_long$year <- as.integer(gap_long$year)
 ~~~
-{: .r}
+{: .language-r}
 
 
 > ## Challenge 2
@@ -264,31 +264,30 @@ gap_long$year <- as.integer(gap_long$year)
 > >gap_long %>% group_by(continent,obs_type) %>%
 > >    summarize(means=mean(obs_values))
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > >
 > >
 > >
 > >~~~
-> >Source: local data frame [15 x 3]
-> >Groups: continent [?]
-> >
-> >   continent  obs_type        means
-> >       <chr>     <chr>        <dbl>
-> >1     Africa gdpPercap 2.193755e+03
-> >2     Africa   lifeExp 4.886533e+01
-> >3     Africa       pop 9.916003e+06
-> >4   Americas gdpPercap 7.136110e+03
-> >5   Americas   lifeExp 6.465874e+01
-> >6   Americas       pop 2.450479e+07
-> >7       Asia gdpPercap 7.902150e+03
-> >8       Asia   lifeExp 6.006490e+01
-> >9       Asia       pop 7.703872e+07
-> >10    Europe gdpPercap 1.446948e+04
-> >11    Europe   lifeExp 7.190369e+01
-> >12    Europe       pop 1.716976e+07
-> >13   Oceania gdpPercap 1.862161e+04
-> >14   Oceania   lifeExp 7.432621e+01
-> >15   Oceania       pop 8.874672e+06
+> ># A tibble: 15 x 3
+> ># Groups:   continent [?]
+> >   continent obs_type       means
+> >   <chr>     <chr>          <dbl>
+> > 1 Africa    gdpPercap     2194. 
+> > 2 Africa    lifeExp         48.9
+> > 3 Africa    pop        9916003. 
+> > 4 Americas  gdpPercap     7136. 
+> > 5 Americas  lifeExp         64.7
+> > 6 Americas  pop       24504795. 
+> > 7 Asia      gdpPercap     7902. 
+> > 8 Asia      lifeExp         60.1
+> > 9 Asia      pop       77038722. 
+> >10 Europe    gdpPercap    14469. 
+> >11 Europe    lifeExp         71.9
+> >12 Europe    pop       17169765. 
+> >13 Oceania   gdpPercap    18622. 
+> >14 Oceania   lifeExp         74.3
+> >15 Oceania   pop        8874672. 
 > >~~~
 > >{: .output}
 > {: .solution}
@@ -306,7 +305,7 @@ widest format. Let's start with the intermediate format.
 gap_normal <- gap_long %>% spread(obs_type,obs_values)
 dim(gap_normal)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -320,7 +319,7 @@ dim(gap_normal)
 ~~~
 dim(gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -334,7 +333,7 @@ dim(gapminder)
 ~~~
 names(gap_normal)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -348,7 +347,7 @@ names(gap_normal)
 ~~~
 names(gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -366,7 +365,7 @@ that before checking if they are `all.equal()`.
 gap_normal <- gap_normal[,names(gapminder)]
 all.equal(gap_normal,gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -384,7 +383,7 @@ all.equal(gap_normal,gapminder)
 ~~~
 head(gap_normal)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -404,7 +403,7 @@ head(gap_normal)
 ~~~
 head(gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -427,7 +426,7 @@ We're almost there, the original was sorted by `country`, `continent`, then
 gap_normal <- gap_normal %>% arrange(country,continent,year)
 all.equal(gap_normal,gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -451,7 +450,7 @@ of defining `gap_wide`
 gap_temp <- gap_long %>% unite(var_ID,continent,country,sep="_")
 str(gap_temp)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -472,7 +471,7 @@ gap_temp <- gap_long %>%
     unite(var_names,obs_type,year,sep="_")
 str(gap_temp)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -496,7 +495,7 @@ gap_wide_new <- gap_long %>%
     spread(var_names,obs_values)
 str(gap_wide_new)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -554,7 +553,7 @@ str(gap_wide_new)
 > >    unite(var_names,obs_type,year,country,sep="_") %>%
 > >    spread(var_names,obs_values)
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -572,7 +571,7 @@ gap_wide_betterID <- gap_long %>%
     separate(ID_var, c("continent","country"),sep="_")
 str(gap_wide_betterID)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -624,7 +623,7 @@ str(gap_wide_betterID)
 ~~~
 all.equal(gap_wide, gap_wide_betterID)
 ~~~
-{: .r}
+{: .language-r}
 
 
 

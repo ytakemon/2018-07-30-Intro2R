@@ -23,7 +23,7 @@ concise, easy to read, and less error prone.
 x <- 1:4
 x * 2
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -41,7 +41,7 @@ We can also add two vectors together:
 y <- 6:9
 x + y
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -60,7 +60,7 @@ y:  6  7  8  9
 ---------------
     7  9 11 13
 ~~~
-{: .r}
+{: .language-r}
 
 
 > ## Challenge 1
@@ -86,7 +86,7 @@ y:  6  7  8  9
 > > gapminder$pop_millions <- gapminder$pop / 1e6
 > > head(gapminder)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -122,7 +122,7 @@ y:  6  7  8  9
 > > ggplot(gapminder, aes(x = year, y = pop_millions)) +
 > >  geom_point()
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > <img src="../fig/rmd-09-ch2-sol-1.png" title="plot of chunk ch2-sol" alt="plot of chunk ch2-sol" style="display: block; margin: auto;" />
 > > 
@@ -132,7 +132,7 @@ y:  6  7  8  9
 > >        aes(x = year, y = pop_millions)) +
 > >   geom_point()
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > <img src="../fig/rmd-09-ch2-sol-2.png" title="plot of chunk ch2-sol" alt="plot of chunk ch2-sol" style="display: block; margin: auto;" />
 > {: .solution}
@@ -149,7 +149,7 @@ vectorized:
 ~~~
 x > 2
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -164,7 +164,7 @@ x > 2
 a <- x > 3  # or, for clarity, a <- (x > 3)
 a
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -187,7 +187,7 @@ Most functions also operate element-wise on vectors:
 x <- 1:4
 log(x)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -203,7 +203,7 @@ Vectorized operations work element-wise on matrices:
 m <- matrix(1:12, nrow=3, ncol=4)
 m * -1
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -225,7 +225,7 @@ m * -1
 > ~~~
 > m %*% matrix(1, nrow=4, ncol=1)
 > ~~~
-> {: .r}
+> {: .language-r}
 > 
 > 
 > 
@@ -242,7 +242,7 @@ m * -1
 > ~~~
 > matrix(1:4, nrow=1) %*% matrix(1:4, ncol=1)
 > ~~~
-> {: .r}
+> {: .language-r}
 > 
 > 
 > 
@@ -266,7 +266,7 @@ m * -1
 > m <- matrix(1:12, nrow=3, ncol=4)
 > m
 > ~~~
-> {: .r}
+> {: .language-r}
 > 
 > 
 > 
@@ -296,7 +296,7 @@ m * -1
 > > m <- matrix(1:12, nrow=3, ncol=4)
 > > m
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -357,7 +357,7 @@ m * -1
 > ~~~
 >  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 > ~~~
-> {: .r}
+> {: .language-r}
 >
 > This would be tedious to type out, and impossible for high values of
 > n.  Use vectorisation to compute x when n=100. What is the sum when
@@ -372,7 +372,7 @@ m * -1
 > > ~~~
 > >  x = 1/(1^2) + 1/(2^2) + 1/(3^2) + ... + 1/(n^2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > This would be tedious to type out, and impossible for
 > > high values of n.
@@ -383,7 +383,7 @@ m * -1
 > > ~~~
 > > sum(1/(1:100)^2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -397,7 +397,7 @@ m * -1
 > > ~~~
 > > sum(1/(1:1e04)^2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -412,7 +412,7 @@ m * -1
 > > n <- 10000
 > > sum(1/(1:n)^2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -429,7 +429,7 @@ m * -1
 > > }
 > > inverse_sum_of_squares(100)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -443,7 +443,7 @@ m * -1
 > > ~~~
 > > inverse_sum_of_squares(10000)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -458,7 +458,7 @@ m * -1
 > > n <- 10000
 > > inverse_sum_of_squares(n)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 

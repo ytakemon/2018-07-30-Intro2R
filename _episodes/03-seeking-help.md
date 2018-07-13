@@ -25,7 +25,7 @@ namespace (your interactive R session):
 ?function_name
 help(function_name)
 ~~~
-{: .r}
+{: .language-r}
 
 This will load up a help page in RStudio (or as plain text in R by itself).
 
@@ -57,7 +57,7 @@ To seek help on special operators, use quotes:
 ~~~
 ?"+"
 ~~~
-{: .r}
+{: .language-r}
 
 ## Getting help on packages
 
@@ -77,7 +77,7 @@ If you're not sure what package a function is in, or how it's specifically spell
 ~~~
 ??function_name
 ~~~
-{: .r}
+{: .language-r}
 
 ## When you have no idea where to begin
 
@@ -100,7 +100,7 @@ help you ask a question from your peers:
 ~~~
 ?dput
 ~~~
-{: .r}
+{: .language-r}
 
 Will dump the data you're working with into a format so that it can
 be copy and pasted by anyone else into their R session.
@@ -109,26 +109,31 @@ be copy and pasted by anyone else into their R session.
 ~~~
 sessionInfo()
 ~~~
-{: .r}
+{: .language-r}
 
 
 
 ~~~
-R version 3.3.2 (2016-10-31)
-Platform: x86_64-apple-darwin16.1.0 (64-bit)
-Running under: macOS Sierra 10.12.2
+R version 3.5.0 (2018-04-23)
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+Running under: macOS Sierra 10.12.6
+
+Matrix products: default
+BLAS: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
 
 locale:
 [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 
 attached base packages:
-[1] stats     graphics  grDevices utils     datasets  base     
+[1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] checkpoint_0.3.18 stringr_1.1.0     knitr_1.15.1     
+[1] checkpoint_0.4.3 stringr_1.3.1    knitr_1.20      
 
 loaded via a namespace (and not attached):
-[1] magrittr_1.5  tools_3.3.2   stringi_1.1.2 methods_3.3.2 evaluate_0.10
+[1] compiler_3.5.0  magrittr_1.5    tools_3.5.0     stringi_1.2.2  
+[5] evaluate_0.10.1
 ~~~
 {: .output}
 
@@ -146,7 +151,7 @@ your issue.
 > c('d', 'e', 'f')
 > c(1, 2, 'f')
 > ~~~
-> {: .r}
+> {: .language-r}
 > > ## Solution to Challenge 1
 > >
 > > The `c()` function creates a vector, in which all elements are the
@@ -170,7 +175,7 @@ your issue.
 > > help("paste")
 > > ?paste
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 

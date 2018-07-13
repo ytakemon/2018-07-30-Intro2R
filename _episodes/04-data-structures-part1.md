@@ -29,7 +29,7 @@ calico,2.1,1
 black,5.0,0
 tabby,3.2,1
 ~~~
-{: .r}
+{: .language-r}
 
 > ## Tip: Editing Text files in R
 >
@@ -46,7 +46,7 @@ We can load this into R via the following:
 cats <- read.csv(file = "data/feline-data.csv")
 cats
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -74,7 +74,7 @@ them using the `$` operator:
 ~~~
 cats$weight
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -88,7 +88,7 @@ cats$weight
 ~~~
 cats$coat
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -105,7 +105,7 @@ We can do other operations on the columns:
 ## Say we discovered that the scale weighs two Kg light:
 cats$weight + 2
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -119,7 +119,7 @@ cats$weight + 2
 ~~~
 paste("My cat is", cats$coat)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -134,7 +134,7 @@ But what about
 ~~~
 cats$weight + cats$coat
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -164,7 +164,7 @@ data something is:
 ~~~
 typeof(cats$weight)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -179,7 +179,7 @@ There are 5 main types: `double`, `integer`, `complex`, `logical` and `character
 ~~~
 typeof(3.14)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -193,7 +193,7 @@ typeof(3.14)
 ~~~
 typeof(1L)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -207,7 +207,7 @@ typeof(1L)
 ~~~
 typeof(1+1i)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -221,7 +221,7 @@ typeof(1+1i)
 ~~~
 typeof(TRUE)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -235,7 +235,7 @@ typeof(TRUE)
 ~~~
 typeof('banana')
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -256,7 +256,7 @@ A user has added details of another cat. This information is in the file
 ~~~
 file.show("data/feline-data_v2.csv")
 ~~~
-{: .r}
+{: .language-r}
 
 
 ~~~
@@ -266,7 +266,7 @@ black,5.0,0
 tabby,3.2,1
 tabby,2.3 or 2.4,1
 ~~~
-{: .r}
+{: .language-r}
 
 Load the new cats data like before, and check what type of data we find in the
 `weight` column:
@@ -276,7 +276,7 @@ Load the new cats data like before, and check what type of data we find in the
 cats <- read.csv(file="data/feline-data_v2.csv")
 typeof(cats$weight)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -293,7 +293,7 @@ we did on them before, we run into trouble:
 ~~~
 cats$weight + 2
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -323,7 +323,7 @@ We can see that it is a *data.frame* by calling the `class` function on it:
 ~~~
 class(cats)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -351,7 +351,7 @@ And back in RStudio:
 ~~~
 cats <- read.csv(file="data/feline-data.csv")
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -366,7 +366,7 @@ the *vector*.
 my_vector <- vector(length = 3)
 my_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -386,7 +386,7 @@ an empty vector of whatever type you like.
 another_vector <- vector(mode='character', length=3)
 another_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -401,7 +401,7 @@ You can check if something is a vector:
 ~~~
 str(another_vector)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -420,7 +420,7 @@ empty character strings. If we similarly do
 ~~~
 str(cats$weight)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -457,7 +457,7 @@ You can also make vectors with explicit contents with the combine function:
 combine_vector <- c(2,6,3)
 combine_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -472,7 +472,7 @@ Given what we've learned so far, what do you think the following will produce?
 ~~~
 quiz_vector <- c(2,6,'3')
 ~~~
-{: .r}
+{: .language-r}
 
 This is something called *type coercion*, and it is the source of many surprises
 and the reason why we need to be aware of the basic data types and how R will
@@ -485,7 +485,7 @@ type. Consider:
 coercion_vector <- c('a', TRUE)
 coercion_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -500,7 +500,7 @@ coercion_vector
 another_coercion_vector <- c(0, TRUE)
 another_coercion_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -518,7 +518,7 @@ force coercion against this flow using the `as.` functions:
 character_vector_example <- c('0','2','4')
 character_vector_example
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -533,7 +533,7 @@ character_vector_example
 character_coerced_to_numeric <- as.numeric(character_vector_example)
 character_coerced_to_numeric
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -548,7 +548,7 @@ character_coerced_to_numeric
 numeric_coerced_to_logical <- as.logical(character_coerced_to_numeric)
 numeric_coerced_to_logical
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -574,7 +574,7 @@ using the `as.logical` function:
 ~~~
 cats$likes_string
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -589,7 +589,7 @@ cats$likes_string
 cats$likes_string <- as.logical(cats$likes_string)
 cats$likes_string
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -605,7 +605,7 @@ Combine `c()` will also append things to an existing vector:
 ab_vector <- c('a', 'b')
 ab_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -620,7 +620,7 @@ ab_vector
 combine_example <- c(ab_vector, 'SWC')
 combine_example
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -636,7 +636,7 @@ You can also make series of numbers:
 mySeries <- 1:10
 mySeries
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -650,7 +650,7 @@ mySeries
 ~~~
 seq(10)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -664,7 +664,7 @@ seq(10)
 ~~~
 seq(1,10, by=0.1)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -686,7 +686,7 @@ We can ask a few questions about vectors:
 sequence_example <- seq(10)
 head(sequence_example, n=2)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -700,7 +700,7 @@ head(sequence_example, n=2)
 ~~~
 tail(sequence_example, n=4)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -714,7 +714,7 @@ tail(sequence_example, n=4)
 ~~~
 length(sequence_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -728,7 +728,7 @@ length(sequence_example)
 ~~~
 class(sequence_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -742,7 +742,7 @@ class(sequence_example)
 ~~~
 typeof(sequence_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -759,7 +759,7 @@ names_example <- 5:8
 names(names_example) <- c("a", "b", "c", "d")
 names_example
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -774,7 +774,7 @@ a b c d
 ~~~
 names(names_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -797,7 +797,7 @@ names(names_example)
 > > x <- x * 2
 > > names(x) <- LETTERS
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -810,7 +810,7 @@ We said that columns in data.frames were vectors:
 ~~~
 str(cats$weight)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -824,7 +824,7 @@ str(cats$weight)
 ~~~
 str(cats$likes_string)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -839,7 +839,7 @@ These make sense. But what about
 ~~~
 str(cats$coat)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -860,7 +860,7 @@ cats in our study:
 coats <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'black', 'tabby')
 coats
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -875,12 +875,12 @@ coats
 ~~~
 str(coats)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
 ~~~
- chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "black" ...
+ chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "black" "tabby"
 ~~~
 {: .output}
 
@@ -891,7 +891,7 @@ We can turn a vector into a factor like so:
 CATegories <- factor(coats)
 class(CATegories)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -905,7 +905,7 @@ class(CATegories)
 ~~~
 str(CATegories)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -923,7 +923,7 @@ with numbered indices under the hood:
 ~~~
 typeof(coats)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -937,7 +937,7 @@ typeof(coats)
 ~~~
 typeof(CATegories)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -962,7 +962,7 @@ typeof(CATegories)
 > > cats <- read.csv(file="data/feline-data.csv", stringsAsFactors=FALSE)
 > > str(cats$coat)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > Another solution is use the argument `colClasses`
 > > that allow finer control.
@@ -972,7 +972,7 @@ typeof(CATegories)
 > > cats <- read.csv(file="data/feline-data.csv", colClasses=c(NA, NA, "character"))
 > > str(cats$coat)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > Note: new students find the help files difficult to understand; make sure to let them know
 > > that this is typical, and encourage them to take their best guess based on semantic meaning,
@@ -990,7 +990,7 @@ mydata <- c("case", "control", "control", "case")
 factor_ordering_example <- factor(mydata, levels = c("control", "case"))
 str(factor_ordering_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1014,7 +1014,7 @@ want in it:
 list_example <- list(1, "a", TRUE, 1+4i)
 list_example
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1039,7 +1039,7 @@ list_example
 another_list <- list(title = "Research Bazaar", numbers = 1:10, data = TRUE )
 another_list
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1061,7 +1061,7 @@ We can now understand something a bit surprising in our data.frame; what happens
 ~~~
 typeof(cats)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1084,7 +1084,7 @@ we have seen already, each column of data.frame is a vector.
 ~~~
 cats$coat
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1099,7 +1099,7 @@ Levels: black calico tabby
 ~~~
 cats[,1]
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1114,7 +1114,7 @@ Levels: black calico tabby
 ~~~
 typeof(cats[,1])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1128,7 +1128,7 @@ typeof(cats[,1])
 ~~~
 str(cats[,1])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1144,7 +1144,7 @@ thus can be composed of element of different types.
 ~~~
 cats[1,]
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1159,7 +1159,7 @@ cats[1,]
 ~~~
 typeof(cats[1,])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1173,7 +1173,7 @@ typeof(cats[1,])
 ~~~
 str(cats[1,])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1207,7 +1207,7 @@ str(cats[1,])
 > > ~~~
 > > cats[1]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1225,7 +1225,7 @@ str(cats[1,])
 > > ~~~
 > > cats[[1]]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1240,7 +1240,7 @@ str(cats[1,])
 > > ~~~
 > > cats$coat
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1255,7 +1255,7 @@ str(cats[1,])
 > > ~~~
 > > cats["coat"]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1272,7 +1272,7 @@ str(cats[1,])
 > > ~~~
 > > cats[1, 1]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1289,7 +1289,7 @@ str(cats[1,])
 > > ~~~
 > > cats[, 1]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1305,7 +1305,7 @@ str(cats[1,])
 > > ~~~
 > > cats[1, ]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1329,7 +1329,7 @@ Last but not least is the matrix. We can declare a matrix full of zeros:
 matrix_example <- matrix(0, ncol=6, nrow=3)
 matrix_example
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1347,7 +1347,7 @@ And similar to other data structures, we can ask things about our matrix:
 ~~~
 class(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1361,7 +1361,7 @@ class(matrix_example)
 ~~~
 typeof(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1375,7 +1375,7 @@ typeof(matrix_example)
 ~~~
 str(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1389,7 +1389,7 @@ str(matrix_example)
 ~~~
 dim(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1403,7 +1403,7 @@ dim(matrix_example)
 ~~~
 nrow(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1417,7 +1417,7 @@ nrow(matrix_example)
 ~~~
 ncol(matrix_example)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -1443,7 +1443,7 @@ ncol(matrix_example)
 > > matrix_example <- matrix(0, ncol=6, nrow=3)
 > > length(matrix_example)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > 
 > > 
 > > 
@@ -1481,7 +1481,7 @@ ncol(matrix_example)
 > > x <- matrix(1:50, ncol=5, nrow=10)
 > > x <- matrix(1:50, ncol=5, nrow=10, byrow = TRUE) # to fill by row
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -1502,7 +1502,7 @@ ncol(matrix_example)
 > > dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
 > > answer <- list(dataTypes, dataStructures)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > Note: it's nice to make a list in big writing on the board or taped to the wall
 > > listing all of these types and structures - leave it up for the rest of the workshop
 > > to remind people of the importance of these basics.
@@ -1549,6 +1549,6 @@ ncol(matrix_example)
 > > ~~~
 > > matrix(c(4, 1, 9, 5, 10, 7), ncol = 2, byrow = TRUE)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}

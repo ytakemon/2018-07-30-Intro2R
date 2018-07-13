@@ -23,7 +23,7 @@ using the command `ggsave`. As a refresher:
 ~~~
 ggsave("My_most_recent_plot.pdf")
 ~~~
-{: .r}
+{: .language-r}
 
 You can save a plot from within RStudio using the 'Export' button
 in the 'Plot' window. This will give you the option of saving as a
@@ -50,7 +50,7 @@ ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
 
 dev.off()
 ~~~
-{: .r}
+{: .language-r}
 
 Open up this document and have a look.
 
@@ -84,7 +84,7 @@ write.table(aust_subset,
   sep=","
 )
 ~~~
-{: .r}
+{: .language-r}
 
 Let's switch back to the shell to take a look at the data to make sure it looks
 OK:
@@ -93,7 +93,7 @@ OK:
 ~~~
 head cleaned-data/gapminder-aus.csv
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -123,7 +123,7 @@ behaviour.
 ~~~
 ?write.table
 ~~~
-{: .r}
+{: .language-r}
 
 By default R will wrap character vectors with quotation marks
 when writing out to file. It will also write out the row and
@@ -139,7 +139,7 @@ write.table(
   sep=",", quote=FALSE, row.names=FALSE
 )
 ~~~
-{: .r}
+{: .language-r}
 
 Now lets look at the data again using our shell skills:
 
@@ -147,7 +147,7 @@ Now lets look at the data again using our shell skills:
 ~~~
 head cleaned-data/gapminder-aus.csv
 ~~~
-{: .r}
+{: .language-r}
 
 
 

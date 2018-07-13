@@ -67,30 +67,25 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <div class="col-md-6">
 <h3>Monday, July 30th</h3>
 <table class="table table-striped">
-<tr> <td>01:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/">Workshop Overview</a></td> </tr>
-<tr> <td>01:10</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/">Introduction to R and RStudio</a></td> </tr>
-<tr> <td>01:20</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/02-project-intro/">Project management</a> </td> </tr>
-<tr> <td>01:40</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/03-seeking-help/">Seeking help</a> </td> </tr>
-<tr> <td>01:50</td>  <td> <a href="http://swcarpentry.github.io/shell-novice/02-filedir/index.html">Navigating files and directories</a> </td> </tr>
-<tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/15-knitr-markdown">Producing reports with knitr</a> </td> </tr>
-<tr> <td>02:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/04-data-structures-part1/">Understanding data structures</a> </td> </tr>
-<tr> <td>03:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/05-data-structures-part2/">Exploring data frames</a> </td> </tr>
-<tr> <td>03:45</td> <td>Wrap-up</td> </tr>
+<tr> <td>01:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/">Workshop Overview</a> </td></tr>
+<tr> <td>01:10</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/">Introduction to R and RStudio</a> </td></tr>
+<tr> <td>01:20</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/02-project-intro/">Project management</a> </td></tr>
+<tr> <td>01:40</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/03-seeking-help/">Seeking help</a> </td></tr>
+<tr> <td>01:50</td>  <td> <a href="http://swcarpentry.github.io/shell-novice/02-filedir/index.html">Navigating files and directories</a> </td></tr>
+<tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/15-knitr-markdown/">Producing reports with knitr</a> </td></tr>
+<tr> <td>02:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/04-data-structures-part1/">Understanding data structures</a> </td></tr>
+<tr> <td>03:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/05-data-structures-part2/">Exploring data frames</a> </td></tr>
+<tr> <td>03:45</td> <td>Wrap-up</td></tr>
 </table>
+
 <h3>Tuesday, July 31st</h3>
 <table class="table table-striped">
-<tr> <td>09:00</td>  <td> TBD </td> </tr>
-<tr> <td>09:15</td>  <td> TBD </td> </tr>
-<tr> <td>10:15</td>  <td> TBD </td> </tr>
-<tr> <td>10:30</td>  <td> TBD </td> </tr>
-<tr> <td>10:35</td>  <td> TBD </td> </tr>
-<tr> <td>10:45</td>  <td> TBD </td> </tr>
-<tr> <td>11:00</td>  <td> TBD </td> </tr>
-<tr> <td>12:00</td>  <td> TBD </td> </tr>
-<tr> <td>13:00</td>  <td> TBD </td> </tr>
-<tr> <td>14:30</td>  <td> TBD </td> </tr>
-<tr> <td>14:45</td>  <td> TBD </td> </tr>
-<tr> <td>16:15</td>  <td>Wrap-up</td> </tr>
+<tr> <td>01:00</td>  <td> Recap </td> </tr>
+<tr> <td>01:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/07-control-flow/">Control flow</a> </td> </tr>
+<tr> <td>02:00/td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/10-functions/">Creating functions</a> </td> </tr>
+<tr> <td>02:45</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/08-plot-ggplot2/">Publication quality graphics</a> </td> </tr>
+<tr> <td>03:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/11-writing-data/">Writing data</a> </td> </tr>
+<tr> <td>03:45</td>  <td>Wrap-up</td> </tr>
 </table>
 </div>
 </div>

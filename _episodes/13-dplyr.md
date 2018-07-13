@@ -25,7 +25,7 @@ do these operations using the normal base R operations:
 ~~~
 mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -39,7 +39,7 @@ mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
 ~~~
 mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -53,7 +53,7 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 ~~~
 mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -89,7 +89,7 @@ If you have have not installed this package earlier, please do so:
 ~~~
 install.packages('dplyr')
 ~~~
-{: .r}
+{: .language-r}
 
 Now let's load the package:
 
@@ -97,7 +97,7 @@ Now let's load the package:
 ~~~
 library(dplyr)
 ~~~
-{: .r}
+{: .language-r}
 
 ## Using select()
 
@@ -109,7 +109,7 @@ variables you select.
 ~~~
 year_country_gdp <- select(gapminder,year,country,gdpPercap)
 ~~~
-{: .r}
+{: .language-r}
 
 ![](../fig/13-dplyr-fig1.png)
 
@@ -123,7 +123,7 @@ using pipes.
 ~~~
 year_country_gdp <- gapminder %>% select(year,country,gdpPercap)
 ~~~
-{: .r}
+{: .language-r}
 
 To help you understand why we wrote that in that way, let's walk through it step
 by step. First we summon the gapminder dataframe and pass it on, using the pipe
@@ -144,7 +144,7 @@ year_country_gdp_euro <- gapminder %>%
     filter(continent=="Europe") %>%
     select(year,country,gdpPercap)
 ~~~
-{: .r}
+{: .language-r}
 
 > ## Challenge 1
 >
@@ -160,7 +160,7 @@ year_country_gdp_euro <- gapminder %>%
 > >                            filter(continent=="Africa") %>%
 > >                            select(year,country,lifeExp)
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -183,7 +183,7 @@ could have used in filter.
 ~~~
 str(gapminder)
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -203,7 +203,7 @@ str(gapminder)
 ~~~
 str(gapminder %>% group_by(continent))
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -215,8 +215,7 @@ Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variable
  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
  $ gdpPercap: num  779 821 853 836 740 ...
- - attr(*, "vars")=List of 1
-  ..$ : symbol continent
+ - attr(*, "vars")= chr "continent"
  - attr(*, "drop")= logi TRUE
  - attr(*, "indices")=List of 5
   ..$ : int  24 25 26 27 28 29 30 31 32 33 ...
@@ -228,8 +227,7 @@ Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variable
  - attr(*, "biggest_group_size")= int 624
  - attr(*, "labels")='data.frame':	5 obs. of  1 variable:
   ..$ continent: Factor w/ 5 levels "Africa","Americas",..: 1 2 3 4 5
-  ..- attr(*, "vars")=List of 1
-  .. ..$ : symbol continent
+  ..- attr(*, "vars")= chr "continent"
   ..- attr(*, "drop")= logi TRUE
 ~~~
 {: .output}
@@ -256,7 +254,7 @@ gdp_bycontinents <- gapminder %>%
     group_by(continent) %>%
     summarize(mean_gdpPercap=mean(gdpPercap))
 ~~~
-{: .r}
+{: .language-r}
 
 ![](../fig/13-dplyr-fig3.png)
 
@@ -278,16 +276,16 @@ even better.
 > >lifeExp_bycountry %>% 
 > >    filter(mean_lifeExp == min(mean_lifeExp) | mean_lifeExp == max(mean_lifeExp))
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > >
 > >
 > >
 > >~~~
-> ># A tibble: 2 × 2
-> >       country mean_lifeExp
-> >        <fctr>        <dbl>
-> >1      Iceland     76.51142
-> >2 Sierra Leone     36.76917
+> ># A tibble: 2 x 2
+> >  country      mean_lifeExp
+> >  <fct>               <dbl>
+> >1 Iceland              76.5
+> >2 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > Another way to do this is to use the `dplyr` function `arrange()`, which 
@@ -301,15 +299,15 @@ even better.
 > >    arrange(mean_lifeExp) %>%
 > >    head(1)
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > >
 > >
 > >
 > >~~~
-> ># A tibble: 1 × 2
-> >       country mean_lifeExp
-> >        <fctr>        <dbl>
-> >1 Sierra Leone     36.76917
+> ># A tibble: 1 x 2
+> >  country      mean_lifeExp
+> >  <fct>               <dbl>
+> >1 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > >
@@ -320,15 +318,15 @@ even better.
 > >    arrange(desc(mean_lifeExp)) %>%
 > >    head(1)
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > >
 > >
 > >
 > >~~~
-> ># A tibble: 1 × 2
+> ># A tibble: 1 x 2
 > >  country mean_lifeExp
-> >   <fctr>        <dbl>
-> >1 Iceland     76.51142
+> >  <fct>          <dbl>
+> >1 Iceland         76.5
 > >~~~
 > >{: .output}
 > {: .solution}
@@ -343,7 +341,7 @@ gdp_bycontinents_byyear <- gapminder %>%
     group_by(continent,year) %>%
     summarize(mean_gdpPercap=mean(gdpPercap))
 ~~~
-{: .r}
+{: .language-r}
 
 That is already quite powerful, but it gets even better! You're not limited to defining 1 new variable in `summarize()`.
 
@@ -356,7 +354,7 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
               mean_pop=mean(pop),
               sd_pop=sd(pop))
 ~~~
-{: .r}
+{: .language-r}
 
 ## Using mutate()
 
@@ -374,7 +372,7 @@ gdp_pop_bycontinents_byyear <- gapminder %>%
               mean_gdp_billion=mean(gdp_billion),
               sd_gdp_billion=sd(gdp_billion))
 ~~~
-{: .r}
+{: .language-r}
 
 ## Combining `dplyr` and `ggplot2`
 
@@ -392,7 +390,7 @@ az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
 ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
   geom_line() + facet_wrap( ~ country)
 ~~~
-{: .r}
+{: .language-r}
 
 <img src="../fig/rmd-13-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
 
@@ -416,7 +414,7 @@ gapminder %>%
    geom_line() + 
    facet_wrap( ~ country)
 ~~~
-{: .r}
+{: .language-r}
 
 <img src="../fig/rmd-13-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" style="display: block; margin: auto;" />
 
@@ -433,7 +431,7 @@ gapminder %>%
 	geom_line() + 
 	facet_wrap( ~ country)
 ~~~
-{: .r}
+{: .language-r}
 
 <img src="../fig/rmd-13-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
 
@@ -454,7 +452,7 @@ gapminder %>%
 > >    summarize(mean_lifeExp=mean(lifeExp)) %>%
 > >    arrange(desc(mean_lifeExp))
 > >~~~
-> >{: .r}
+> >{: .language-r}
 > {: .solution}
 {: .challenge}
 

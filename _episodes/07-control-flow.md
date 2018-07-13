@@ -36,7 +36,7 @@ if (condition is true) {
   perform alternative action
 }
 ~~~
-{: .r}
+{: .language-r}
 
 Say, for example, that we want R to print a message if a variable `x` has a particular value:
 
@@ -53,7 +53,7 @@ if (x >= 10) {
 
 x
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -81,7 +81,7 @@ if (x >= 10) {
   print("x is less than 5")
 }
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -111,7 +111,7 @@ if (x) {
   "4 equals 3"
 }
 ~~~
-{: .r}
+{: .language-r}
 
 As we can see, the message was not printed because the vector x is `FALSE`
 
@@ -120,7 +120,7 @@ As we can see, the message was not printed because the vector x is `FALSE`
 x <- 4 == 3
 x
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -143,19 +143,19 @@ x
 > > ~~~
 > > gapminder[(gapminder$year == 2002),]
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > Then, we count the number of rows of the data.frame `gapminder` that correspond to the 2002:
 > > 
 > > ~~~
 > > rows2002_number <- nrow(gapminder[(gapminder$year == 2002),])
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > The presence of any record for the year 2002 is equivalent to the request that `rows2002_number` is one or more:
 > > 
 > > ~~~
 > > rows2002_number >= 1
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > Putting all together, we obtain:
 > > 
 > > ~~~
@@ -163,7 +163,7 @@ x
 > >    print("Record(s) for the year 2002 found.")
 > > }
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > All this can be done more quickly with `any()`. The logical condition can be expressed as:
 > > 
@@ -172,7 +172,7 @@ x
 > >    print("Record(s) for the year 2002 found.")
 > > }
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > {: .solution}
 {: .challenge}
@@ -218,7 +218,7 @@ for(iterator in set of values){
   do a thing
 }
 ~~~
-{: .r}
+{: .language-r}
 
 For example:
 
@@ -228,7 +228,7 @@ for(i in 1:10){
   print(i)
 }
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -260,7 +260,7 @@ for(i in 1:5){
   }
 }
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -306,7 +306,7 @@ for(i in 1:5){
 }
 output_vector
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -351,7 +351,7 @@ for(i in 1:5){
 output_vector2 <- as.vector(output_matrix)
 output_vector2
 ~~~
-{: .r}
+{: .language-r}
 
 
 
@@ -374,7 +374,7 @@ output_vector2
 >   do a thing
 > }
 > ~~~
-> {: .r}
+> {: .language-r}
 >
 > As an example, here's a while loop
 > that generates random numbers from a uniform distribution (the `runif()` function)
@@ -407,19 +407,19 @@ output_vector2
 > > ~~~
 > > all(output_vector == output_vector2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > However, all the elements of `output_vector` can be found in `output_vector2`:
 > > 
 > > ~~~
 > > all(output_vector %in% output_vector2)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > and vice versa:
 > > 
 > > ~~~
 > > all(output_vector2 %in% output_vector)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > therefore, the element in `output_vector` and `output_vector2` are just sorted in a different order.
 > > This is because `as.vector()` outputs the elements of an input matrix going over its column.
 > > Taking a look at `output_matrix`, we can notice that we want its elements by rows.
@@ -430,25 +430,25 @@ output_vector2
 > > ~~~
 > > output_vector2 <- as.vector(output_matrix)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > into
 > > 
 > > ~~~
 > > output_vector2 <- as.vector(t(output_matrix))
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > The second solution requires to change
 > > 
 > > ~~~
 > > output_matrix[i, j] <- temp_output
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > > into
 > > 
 > > ~~~
 > > output_matrix[j, i] <- temp_output
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -466,7 +466,7 @@ output_vector2
 > > gapminder <- read.csv("data/gapminder-FiveYearData.csv")
 > > unique(gapminder$continent)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > **Step 2**: We also need to loop over each of these continents and calculate the average life expectancy for each `subset` of data.
 > > We can do that as follows:
@@ -483,7 +483,7 @@ output_vector2
 > >    rm(tmp)
 > > }
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > **Step 3**: The exercise only wants the output printed if the average life expectancy is less than 50 or greater than 50. So we need to add an `if` condition before printing.
 > > So we need to add an `if` condition before printing, which evaluates whether the calculated average life expectancy is above or below a threshold, and print an output conditional on the result.
@@ -494,7 +494,7 @@ output_vector2
 > > 
 > > ~~~
 > > thresholdValue <- 50
-> > > >
+> > 
 > > for( iContinent in unique(gapminder$continent) ){
 > >    tmp <- mean(subset(gapminder, continent==iContinent)$lifeExp)
 > >    
@@ -506,9 +506,8 @@ output_vector2
 > >         } # end if else condition
 > >    rm(tmp)
 > >    } # end for loop
-> > > >
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -541,7 +540,7 @@ output_vector2
 > >     rm(tmp)
 > > }
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -560,7 +559,7 @@ output_vector2
 > > ~~~
 > > grep("^B", unique(gapminder$country))
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > But when we evaluate this command it returns the indices of the factor variable `country` that start with "B."
 > > To get the values, we must add the `value=TRUE` option to the `grep` command:
@@ -569,7 +568,7 @@ output_vector2
 > > ~~~
 > > grep("^B", unique(gapminder$country), value=TRUE)
 > > ~~~
-> > {: .r}
+> > {: .language-r}
 > >
 > > We will now store these countries in a variable called candidateCountries, and then loop over each entry in the variable.
 > > Inside the loop, we evaluate the average life expectancy for each country, and if the average life expectancy is less than 50 we use base-plot to plot the evolution of average life expectancy:
@@ -577,7 +576,7 @@ output_vector2
 > > 
 > > ~~~
 > > candidateCountries <- grep("^B", unique(gapminder$country), value=TRUE)
-> > > >
+> > 
 > > for( iCountry in candidateCountries){
 > >     tmp <- mean(subset(gapminder, country==iCountry)$lifeExp)
 > >     
@@ -598,4 +597,4 @@ output_vector2
 > > > {: .solution}
 > > {: .challenge}
 > > ~~~
-> > {: .r}
+> > {: .language-r}
