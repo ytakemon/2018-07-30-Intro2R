@@ -81,26 +81,14 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <h3>Tuesday, July 31st</h3>
 <table class="table table-striped">
 <tr> <td>01:00</td>  <td>Recap</td></tr>
-<tr> <td>01:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/07-control-flow/">Control flow</a> </td> </tr>
-<tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/10-functions/">Creating functions</a> </td> </tr>
-<tr> <td>02:45</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/08-plot-ggplot2/">Publication quality graphics</a> </td> </tr>
-<tr> <td>03:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/11-writing-data/">Writing data</a> </td> </tr>
+<tr> <td>01:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/07-control-flow/">Control flow</a> </td></tr>
+<tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/10-functions/">Creating functions</a> </td></tr>
+<tr> <td>02:45</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/08-plot-ggplot2/">Publication quality graphics</a> </td></tr>
+<tr> <td>03:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/11-writing-data/">Writing data</a> </td></tr>
 <tr> <td>03:45</td>  <td>Wrap-up</td></tr>
 </table>
 </div>
 </div>
-
-
-{% comment %}
-  Collaborative Notes
-
-  If you want to use an Etherpad, go to
-
-      http://pad.software-carpentry.org/YYYY-MM-DD-site
-
-  where 'YYYY-MM-DD-site' is the identifier for your workshop,
-  e.g., '2015-06-10-esu'.
-{% endcomment %}
 
 {% if page.collaborative_notes %}
 <p id="collaborative_notes">
@@ -108,21 +96,9 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 </p>
 {% endif %}
 
-We will use this <a href="https://drive.google.com/open?id=1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb">Google Drive</a> to get our data and work collabortively in the google doc. The <a href="https://docs.google.com/document/d/1-LaIKEPOCyOmYuAEKDYrRxL8oYS7XRQYZQiVia1PowM/edit?usp=sharing">Google Doc</a> will be used for chatting, taking notes, and sharing URLs and bits of codes.
+We will use this <a href="https://drive.google.com/open?id=1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb">Google Drive</a> to get our data and work collaboratively in the google doc. The <a href="https://docs.google.com/document/d/1-LaIKEPOCyOmYuAEKDYrRxL8oYS7XRQYZQiVia1PowM/edit?usp=sharing">Google Doc</a> will be used for chatting, taking notes, and sharing URLs and bits of codes.
 
 <hr/>
-
-{% comment %}
-  SETUP
-
-  Delete irrelevant sections from the setup instructions.  Each
-  section is inside a 'div' without any classes to make the beginning
-  and end easier to find.
-
-  This is the other place where people frequently make mistakes, so
-  please preview your site before committing, and make sure to run
-  'tools/check' as well.
-{% endcomment %}
 
 <h2 id="setup">Setup</h2>
 
