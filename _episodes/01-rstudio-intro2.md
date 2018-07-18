@@ -27,10 +27,7 @@ output:
     keep_md: yes
 ---
 
-```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("01-")
-```
+
 
 
 ## Motivation
@@ -132,9 +129,18 @@ returns a result.
 
 The simplest thing you could do with R is do arithmetic:
 
-```{r}
+
+~~~
 1 + 100
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 101
+~~~
+{: .output}
 
 And R will print out the answer, with a preceding "[1]". Don't worry about this
 for now, we'll explain that later. For now think of it as indicating output.
@@ -182,26 +188,46 @@ From highest to lowest precedence:
  * Add: `+`
  * Subtract: `-`
 
-```{r}
+
+~~~
 3 + 5 * 2
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 13
+~~~
+{: .output}
 
 Use parentheses to group operations in order to force the order of
 evaluation if it differs from the default, or to make clear what you
 intend.
 
-```{r}
+
+~~~
 (3 + 5) * 2
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 16
+~~~
+{: .output}
 
 This can get unwieldy when not needed, but  clarifies your intentions.
 Remember that others may later read your code.
 
-```{r, eval=FALSE}
+
+~~~
 (3 + (5 * (2 ^ 2))) # hard to read
 3 + 5 * 2 ^ 2       # clear, if you remember the rules
 3 + 5 * (2 ^ 2)     # if you forget some rules, this might help
-```
+~~~
+{: .language-r}
 
 
 The text after each line of code is called a
@@ -210,18 +236,36 @@ The text after each line of code is called a
 
 Really small or large numbers get a scientific notation:
 
-```{r}
+
+~~~
 2/10000
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 2e-04
+~~~
+{: .output}
 
 Which is shorthand for "multiplied by `10^XX`". So `2e-4`
 is shorthand for `2 * 10^(-4)`.
 
 You can write numbers in scientific notation too:
 
-```{r}
+
+~~~
 5e3  # Note the lack of minus here
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 5000
+~~~
+{: .output}
 
 ## Mathematical functions
 
@@ -230,21 +274,57 @@ we simply type its name, followed by  open and closing parentheses.
 Anything we type inside the parentheses is called the function's
 arguments:
 
-```{r}
+
+~~~
 sin(1)  # trigonometry functions
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] 0.841471
+~~~
+{: .output}
+
+
+~~~
 log(1)  # natural logarithm
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] 0
+~~~
+{: .output}
+
+
+~~~
 log10(10) # base-10 logarithm
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] 1
+~~~
+{: .output}
+
+
+~~~
 exp(0.5) # e^(1/2)
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 1.648721
+~~~
+{: .output}
 
 Don't worry about trying to remember every function in R. You
 can simply look them up on Google, or if you can remember the
@@ -265,29 +345,83 @@ illustrate command usage. We'll go through an example later.
 
 We can also do comparison in R:
 
-```{r}
+
+~~~
 1 == 1  # equality (note two equals signs, read as "is equal to")
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
+
+
+~~~
 1 != 2  # inequality (read as "is not equal to")
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
+
+
+~~~
 1 <  2  # less than
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
+
+
+~~~
 1 <= 1  # less than or equal to
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
+
+
+~~~
 1 > 0  # greater than
-```
+~~~
+{: .language-r}
 
-```{r}
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
+
+
+~~~
 1 >= -9 # greater than or equal to
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] TRUE
+~~~
+{: .output}
 
 > ## Tip: Comparing Numbers
 >
@@ -313,16 +447,27 @@ We can also do comparison in R:
 
 We can store values in variables using the assignment operator `<-`, like this:
 
-```{r}
+
+~~~
 x <- 1/40
-```
+~~~
+{: .language-r}
 
 Notice that assignment does not print a value. Instead, we stored it for later
 in something called a **variable**. `x` now contains the **value** `0.025`:
 
-```{r}
+
+~~~
 x
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 0.025
+~~~
+{: .output}
 
 More precisely, the stored value is a *decimal approximation* of
 this fraction called a [floating point number](http://en.wikipedia.org/wiki/Floating_point).
@@ -330,23 +475,36 @@ this fraction called a [floating point number](http://en.wikipedia.org/wiki/Floa
 Look for the `Environment` tab in one of the panes of RStudio, and you will see that `x` and its value
 have appeared. Our variable `x` can be used in place of a number in any calculation that expects a number:
 
-```{r}
+
+~~~
 log(x)
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] -3.688879
+~~~
+{: .output}
 
 Notice also that variables can be reassigned:
 
-```{r}
+
+~~~
 x <- 100
-```
+~~~
+{: .language-r}
 
 `x` used to contain the value 0.025 and and now it has the value 100.
 
 Assignment values can contain the variable being assigned to:
 
-```{r}
+
+~~~
 x <- x + 1 #notice how RStudio updates its description of x on the top right tab
-```
+~~~
+{: .language-r}
 
 The right hand side of the assignment can be any valid R expression.
 The right hand side is *fully evaluated* before the assignment occurs.
@@ -363,9 +521,11 @@ What you use is up to you, but **be consistent**.
 
 It is also possible to use the `=` operator for assignment:
 
-```{r}
+
+~~~
 x = 1/40
-```
+~~~
+{: .language-r}
 
 But this is much less common among R users.  The most important thing is to
 **be consistent** with the operator you use. There are occasionally places
@@ -377,12 +537,47 @@ symbol used in the community. So the recommendation is to use `<-`.
 One final thing to be aware of is that R is *vectorized*, meaning that
 variables and functions can have vectors as values. For example
 
-```{r}
+
+~~~
 1:5
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 1 2 3 4 5
+~~~
+{: .output}
+
+
+
+~~~
 2^(1:5)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1]  2  4  8 16 32
+~~~
+{: .output}
+
+
+
+~~~
 x <- 1:5
 2^x
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1]  2  4  8 16 32
+~~~
+{: .output}
 
 This is incredibly powerful; we will discuss this further in an
 upcoming lesson.
@@ -395,9 +590,19 @@ There are a few useful commands you can use to interact with the R session.
 `ls` will list all of the variables and functions stored in the global environment
 (your working R session):
 
-```{r}
+
+~~~
 ls()
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "fix_fig_path"   "hook_error"     "hook_in"        "hook_out"      
+[5] "knitr_fig_path" "x"             
+~~~
+{: .output}
 
 > ## Tip: hidden objects
 >
@@ -412,22 +617,67 @@ needed to give the parentheses to tell R to call the function.
 
 If we type `ls` by itself, R will print out the source code for that function!
 
-```{r}
+
+~~~
 ls
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+    pattern, sorted = TRUE) 
+{
+    if (!missing(name)) {
+        pos <- tryCatch(name, error = function(e) e)
+        if (inherits(pos, "error")) {
+            name <- substitute(name)
+            if (!is.character(name)) 
+                name <- deparse(name)
+            warning(gettextf("%s converted to character string", 
+                sQuote(name)), domain = NA)
+            pos <- name
+        }
+    }
+    all.names <- .Internal(ls(envir, all.names, sorted))
+    if (!missing(pattern)) {
+        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
+            ll != length(grep("]", pattern, fixed = TRUE))) {
+            if (pattern == "[") {
+                pattern <- "\\["
+                warning("replaced regular expression pattern '[' by  '\\\\['")
+            }
+            else if (length(grep("[^\\\\]\\[<-", pattern))) {
+                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
+                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
+            }
+        }
+        grep(pattern, all.names, value = TRUE)
+    }
+    else all.names
+}
+<bytecode: 0x7fcd0f1634f8>
+<environment: namespace:base>
+~~~
+{: .output}
 
 You can use `rm` to delete objects you no longer need:
 
-```{r}
+
+~~~
 rm(x)
-```
+~~~
+{: .language-r}
 
 If you have lots of things in your environment and want to delete all of them,
 you can pass the results of `ls` to the `rm` function:
 
-```{r}
+
+~~~
 rm(list = ls())
-```
+~~~
+{: .language-r}
 
 In this case we've combined the two. Like the order of operations, anything
 inside the innermost parentheses is evaluated first, and so on.
@@ -438,9 +688,18 @@ use the `=` operator!!
 
 If instead we use `<-`, there will be unintended side effects, or you may get an error message:
 
-```{r, error=TRUE}
+
+~~~
 rm(list <- ls())
-```
+~~~
+{: .language-r}
+
+
+
+~~~
+Error in rm(list <- ls()): ... must contain names or character strings
+~~~
+{: .error}
 
 > ## Tip: Warnings vs. Errors
 >
@@ -472,7 +731,8 @@ network). R and RStudio have functionality for managing packages:
 > ## Challenge 1
 >
 > Which of the following are valid R variable names?
-> ```{r, eval=FALSE}
+> 
+> ~~~
 > min_height
 > max.height
 > _age
@@ -481,29 +741,36 @@ network). R and RStudio have functionality for managing packages:
 > min-length
 > 2widths
 > celsius2kelvin
-> ```
+> ~~~
+> {: .language-r}
 >
 > > ## Solution to challenge 1
 > >
 > > The following can be used as R variables:
-> > ```{r ch1pt1-sol, eval=FALSE}
+> > 
+> > ~~~
 > > min_height
 > > max.height
 > > MaxLength
 > > celsius2kelvin
-> > ```
+> > ~~~
+> > {: .language-r}
 > >
 > > The following creates a hidden variable:
-> > ```{r ch1pt2-sol, eval=FALSE}
+> > 
+> > ~~~
 > > .mass
-> > ```
+> > ~~~
+> > {: .language-r}
 > >
 > > The following will not be able to be used to create a variable
-> > ```{r ch1pt3-sol, eval=FALSE}
+> > 
+> > ~~~
 > > _age
 > > min-length
 > > 2widths
-> > ```
+> > ~~~
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -512,36 +779,46 @@ network). R and RStudio have functionality for managing packages:
 > What will be the value of each  variable  after each
 > statement in the following program?
 >
-> ```{r, eval=FALSE}
+> 
+> ~~~
 > mass <- 47.5
 > age <- 122
 > mass <- mass * 2.3
 > age <- age - 20
-> ```
+> ~~~
+> {: .language-r}
 >
 > > ## Solution to challenge 2
 > >
-> > ```{r ch2pt1-sol}
+> > 
+> > ~~~
 > > mass <- 47.5
-> > ```
-> > This will give a value of `r mass` for the variable mass
+> > ~~~
+> > {: .language-r}
+> > This will give a value of 47.5 for the variable mass
 > >
-> > ```{r ch2pt2-sol}
+> > 
+> > ~~~
 > > age <- 122
-> > ```
-> > This will give a value of `r age` for the variable age
+> > ~~~
+> > {: .language-r}
+> > This will give a value of 122 for the variable age
 > >
-> > ```{r ch2pt3-sol}
+> > 
+> > ~~~
 > > mass <- mass * 2.3
-> > ```
-> > This will multiply the existing value of `r mass/2.3` by 2.3 to give a new value of
-> > `r mass` to the variable mass.
+> > ~~~
+> > {: .language-r}
+> > This will multiply the existing value of 47.5 by 2.3 to give a new value of
+> > 109.25 to the variable mass.
 > >
-> > ```{r ch2pt4-sol}
+> > 
+> > ~~~
 > > age <- age - 20
-> > ```
-> > This will subtract 20 from the existing value of `r age + 20 ` to give a new value
-> > of `r age` to the variable age.
+> > ~~~
+> > {: .language-r}
+> > This will subtract 20 from the existing value of 122 to give a new value
+> > of 102 to the variable age.
 > {: .solution}
 {: .challenge}
 
@@ -554,10 +831,19 @@ network). R and RStudio have functionality for managing packages:
 > > ## Solution to challenge 3
 > >
 > > One way of answering this question in R is to use the `>` to set up the following:
-> > ```{r ch3-sol}
+> > 
+> > ~~~
 > > mass > age
-> >```
-> > This should yield a boolean value of TRUE since `r mass` is greater than `r age`.
+> > ~~~
+> > {: .language-r}
+> > 
+> > 
+> > 
+> > ~~~
+> > [1] TRUE
+> > ~~~
+> > {: .output}
+> > This should yield a boolean value of TRUE since 109.25 is greater than 102.
 > {: .solution}
 {: .challenge}
 
@@ -570,9 +856,11 @@ network). R and RStudio have functionality for managing packages:
 > > ## Solution to challenge 4
 > >
 > > We can use the `rm` command to accomplish this task
-> > ```{r ch4-sol}
+> > 
+> > ~~~
 > > rm(age, mass)
-> > ```
+> > ~~~
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
 
@@ -583,10 +871,12 @@ network). R and RStudio have functionality for managing packages:
 > > ## Solution to challenge 5
 > >
 > > We can use the `install.packages()` command to install the required packages.
-> > ```{r ch5-sol, eval=FALSE}
+> > 
+> > ~~~
 > > install.packages("ggplot2")
 > > install.packages("plyr")
 > > install.packages("gapminder")
-> >```
+> > ~~~
+> > {: .language-r}
 > {: .solution}
 {: .challenge}
