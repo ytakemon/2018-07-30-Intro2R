@@ -22,13 +22,15 @@ keypoints:
 - "Use `ls()` to list the variables in a program."
 - "Use `rm()` to delete objects in a program."
 - "Use `install.packages()` to install packages (libraries)."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
 
 
 ## Motivation
-
 Science is a multi-step process: once you've designed an experiment and collected
 data, the real fun begins! This lesson will teach you how to start this process using
 R and RStudio. We will begin with raw data, perform exploratory analyses, and learn
@@ -594,7 +596,8 @@ ls()
 
 
 ~~~
-[1] "x" "y"
+[1] "fix_fig_path"   "hook_error"     "hook_in"        "hook_out"      
+[5] "knitr_fig_path" "x"             
 ~~~
 {: .output}
 
@@ -651,7 +654,7 @@ function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE,
     }
     else all.names
 }
-<bytecode: 0x7fdd01a6be30>
+<bytecode: 0x7fa88fb292f8>
 <environment: namespace:base>
 ~~~
 {: .output}
@@ -858,19 +861,17 @@ network). R and RStudio have functionality for managing packages:
 > {: .solution}
 {: .challenge}
 
-> ## Challenge 5
->
-> Install the following packages: `ggplot2`, `plyr`, `gapminder`
->
-> > ## Solution to challenge 5
-> >
-> > We can use the `install.packages()` command to install the required packages.
-> > 
-> > ~~~
-> > install.packages("ggplot2")
-> > install.packages("plyr")
-> > install.packages("gapminder")
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
+
+## Download essential packages
+
+Install the following packages: `ggplot2`, `plyr`, `gapminder`
+We can use the `install.packages()` command to install the required packages.
+
+
+~~~
+install.packages("ggplot2")
+install.packages("corrplot")
+install.packages("gapminder")
+install.packages("knitr")
+~~~
+{: .language-r}
