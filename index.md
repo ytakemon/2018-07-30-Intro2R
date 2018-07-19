@@ -69,7 +69,7 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <table class="table table-striped">
 <tr> <td>01:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/">Workshop Overview</a> </td></tr>
 <tr> <td>01:10</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/01-rstudio-intro/">Introduction to R and RStudio</a> </td></tr>
-<tr> <td>01:20</td>  <td> <a href="http://swcarpentry.github.io/shell-novice/02-filedir/index.html">Navigating files and directories</a> </td></tr>
+<tr> <td>01:20</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/02-filedir/">Navigating files and directories</a> </td></tr>
 <tr> <td>01:40</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/02-project-intro/">Project management</a> </td></tr>
 <tr> <td>01:50</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/03-seeking-help/">Seeking help</a> </td></tr>
 <tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/15-knitr-markdown/">Producing reports with knitr</a> </td></tr>

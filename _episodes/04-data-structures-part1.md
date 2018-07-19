@@ -14,30 +14,31 @@ keypoints:
 - "Use `read.csv` to read tabular data in R."
 - "The basic data types in R are double, integer, complex, logical, and character."
 - "Use factors to represent categories in R."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
 
 One of R's most powerful features is its ability to deal with tabular data -
 like what you might already have in a spreadsheet or a CSV. Let's start by
-making a toy dataset in your `data/` directory, called `feline-data.csv`:
+making feline dataset in your `data/` directory, called `feline-data.csv`:
 
 
 ~~~
 coat,weight,likes_string
-calico,2.1,1
-black,5.0,0
-tabby,3.2,1
+calico,2.1,TRUE
+black,5.0,FALSE
+tabby,3.2,TRUE
 ~~~
 {: .language-r}
-
+You can also download this from our [Google Drive](https://drive.google.com/drive/folders/1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb) and save it into the `my_project/data` directory.
 > ## Tip: Editing Text files in R
 >
 > Alternatively, you can create `data/feline-data.csv` using a text editor (Nano),
 > or within RStudio with the **File -> New File -> Text File** menu item.
 {: .callout}
-
-
 
 We can load this into R via the following:
 
@@ -57,7 +58,6 @@ cats
 3  tabby    3.2            1
 ~~~
 {: .output}
-
 
 The `read.csv` function is used for reading in tabular data stored in a text
 file where the columns of data are delimited by commas (csv = comma separated
@@ -248,75 +248,6 @@ Note the `L` suffix to insist that a number is an integer. No matter how
 complicated our analyses become, all data in R is interpreted as one of these
 basic data types. This strictness has some really important consequences.
 
-A user has added details of another cat. This information is in the file
-`data/feline-data_v2.csv`.
-
-
-
-~~~
-file.show("data/feline-data_v2.csv")
-~~~
-{: .language-r}
-
-
-~~~
-coat,weight,likes_string
-calico,2.1,1
-black,5.0,0
-tabby,3.2,1
-tabby,2.3 or 2.4,1
-~~~
-{: .language-r}
-
-Load the new cats data like before, and check what type of data we find in the
-`weight` column:
-
-
-~~~
-cats <- read.csv(file="data/feline-data_v2.csv")
-typeof(cats$weight)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] "integer"
-~~~
-{: .output}
-
-
-Oh no, our weights aren't the double type anymore! If we try to do the same math
-we did on them before, we run into trouble:
-
-
-~~~
-cats$weight + 2
-~~~
-{: .language-r}
-
-
-
-~~~
-Warning in Ops.factor(cats$weight, 2): '+' not meaningful for factors
-~~~
-{: .error}
-
-
-
-~~~
-[1] NA NA NA NA
-~~~
-{: .output}
-
-What happened? When R reads a csv into one of these tables, it insists that
-everything in a column be the same basic type; if it can't understand
-*everything* in the column as a double, then *nobody* in the column gets to be a
-double. The table that R loaded our cats data into is something called a
-*data.frame*, and it is our first example of something called a *data
-structure* - that is, a structure which R knows how to build out of the basic
-data types.
-
 We can see that it is a *data.frame* by calling the `class` function on it:
 
 
@@ -329,6 +260,20 @@ class(cats)
 
 ~~~
 [1] "data.frame"
+~~~
+{: .output}
+
+
+
+~~~
+is.data.frame(cats)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] TRUE
 ~~~
 {: .output}
 
@@ -353,85 +298,42 @@ cats <- read.csv(file="data/feline-data.csv")
 ~~~
 {: .language-r}
 
-
-
-
 ## Vectors and Type Coercion
 
 To better understand this behavior, let's meet another of the data structures:
 the *vector*.
-
-
-~~~
-my_vector <- vector(length = 3)
-my_vector
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] FALSE FALSE FALSE
-~~~
-{: .output}
 
 A vector in R is essentially an ordered list of things, with the special
 condition that *everything in the vector must be the same basic data type*. If
 you don't choose the datatype, it'll default to `logical`; or, you can declare
 an empty vector of whatever type you like.
 
-
-
 ~~~
-another_vector <- vector(mode='character', length=3)
-another_vector
+cats_weight <- cats$weight
+cats_weight
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] "" "" ""
+[1] 2.1 5.0 3.2
 ~~~
 {: .output}
 
-You can check if something is a vector:
 
 
 ~~~
-str(another_vector)
+is.vector(cats_weight)
 ~~~
 {: .language-r}
 
 
 
 ~~~
- chr [1:3] "" "" ""
+[1] TRUE
 ~~~
 {: .output}
-
-The somewhat cryptic output from this command indicates the basic data type
-found in this vector - in this case `chr`, character; an indication of the
-number of things in the vector - actually, the indexes of the vector, in this
-case `[1:3]`; and a few examples of what's actually in the vector - in this case
-empty character strings. If we similarly do
-
-
-~~~
-str(cats$weight)
-~~~
-{: .language-r}
-
-
-
-~~~
- num [1:3] 2.1 5 3.2
-~~~
-{: .output}
-
-we see that that's a vector, too - *the columns of data we load into R
-data.frames are all vectors*, and that's the root of why R forces everything in
-a column to be the same basic data type.
 
 > ## Discussion 1
 >
@@ -451,11 +353,12 @@ a column to be the same basic data type.
 {: .discussion}
 
 You can also make vectors with explicit contents with the combine function:
+Let's create 2 vector, one a numeric vector:
 
 
 ~~~
-combine_vector <- c(2,6,3)
-combine_vector
+c_vector_num <- c(2,6,3)
+c_vector_num
 ~~~
 {: .language-r}
 
@@ -466,11 +369,49 @@ combine_vector
 ~~~
 {: .output}
 
-Given what we've learned so far, what do you think the following will produce?
+~~~
+typeof(c_vector_num)
+~~~
+{: .language-r}
+
 
 
 ~~~
-quiz_vector <- c(2,6,'3')
+[1] "double"
+~~~
+{: .output}
+and a character vector:
+
+~~~
+c_vector_chr <- c("a","b","c")
+c_vector_chr
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "a" "b" "c"
+~~~
+{: .output}
+
+~~~
+typeof(c_vector_chr)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] "character"
+~~~
+{: .output}
+
+Given what we've learned so far, what type of vector do you think the following will produce?
+
+
+~~~
+quiz_vector <- c(2,6,"3")
 ~~~
 {: .language-r}
 
@@ -629,12 +570,12 @@ combine_example
 ~~~
 {: .output}
 
-You can also make series of numbers:
-
+## Generating vector series:
+You can make series of numbers:
 
 ~~~
-mySeries <- 1:10
-mySeries
+num_series <- 1:10
+num_series
 ~~~
 {: .language-r}
 
@@ -679,6 +620,37 @@ seq(1,10, by=0.1)
 ~~~
 {: .output}
 
+You can also make series of letters:
+
+~~~
+letter_series <- letters
+letter_series
+~~~
+{: .language-r}
+
+
+
+~~~
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"
+[18] "r" "s" "t" "u" "v" "w" "x" "y" "z"
+~~~
+{: .output}
+
+
+
+~~~
+LETTER_series <- LETTERS
+LETTER_series
+~~~
+{: .language-r}
+
+
+
+~~~
+ [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q"
+[18] "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+~~~
+{: .output}
 We can ask a few questions about vectors:
 
 
@@ -857,7 +829,7 @@ cats in our study:
 
 
 ~~~
-coats <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'black', 'tabby')
+coats <- c('tabby', 'tuxedo', 'tuxedo', 'black', 'tabby')
 coats
 ~~~
 {: .language-r}
@@ -865,8 +837,7 @@ coats
 
 
 ~~~
-[1] "tabby"         "tortoiseshell" "tortoiseshell" "black"        
-[5] "tabby"        
+[1] "tabby"  "tuxedo" "tuxedo" "black"  "tabby" 
 ~~~
 {: .output}
 
@@ -880,7 +851,7 @@ str(coats)
 
 
 ~~~
- chr [1:5] "tabby" "tortoiseshell" "tortoiseshell" "black" "tabby"
+ chr [1:5] "tabby" "tuxedo" "tuxedo" "black" "tabby"
 ~~~
 {: .output}
 

@@ -13,6 +13,9 @@ keypoints:
 - "Treat generated output as disposable."
 - "Separate function definition and application."
 - "Use version control."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -109,35 +112,11 @@ get shared between projects.
 > [Good Enough Practices for Scientific Computing](https://github.com/swcarpentry/good-enough-practices-in-scientific-computing/blob/gh-pages/good-enough-practices-for-scientific-computing.pdf) gives the following recommendations for project organization:
 >
 > 1. Put each project in its own directory, which is named after the project.
-> 2. Put text documents associated with the project in the `doc` directory.
-> 3. Put raw data and metadata in the `data` directory, and files generated during cleanup and analysis in a `results` directory.
-> 4. Put source for the project's scripts and programs in the `src` directory, and programs brought in from elsewhere or compiled locally in the `bin` directory.
+> 2. Put raw data and metadata in the `data` directory, and files generated during cleanup and analysis in a `results` directory.
+> 3. Put source for the project's scripts and programs in the `scripts` directory, and programs brought in from elsewhere or compiled locally in the `bin` directory.
+> 4. Put generated reports (such as Knitr reports, which will be discussed later) in the `reports` directory.
 > 5. Name all files to reflect their content or function.
 >
-{: .callout}
-
-> ## Tip: ProjectTemplate - a possible solution
->
-> One way to automate the management of projects is to install the third-party package, `ProjectTemplate`.
-> This package will set up an ideal directory structure for project management.
-> This is very useful as it enables you to have your analysis pipeline/workflow organised and structured.
-> Together with the default RStudio project functionality and Git you will be able to keep track of your
-> work as well as be able to share your work with collaborators.
->
-> 1. Install `ProjectTemplate`.
-> 2. Load the library
-> 3. Initialise the project:
->
-> 
-> ~~~
-> install.packages("ProjectTemplate")
-> library(ProjectTemplate)
-> create.project("../my_project", merge.strategy = "allow.non.conflict")
-> ~~~
-> {: .language-r}
->
-> For more information on ProjectTemplate and its functionality visit the
-> home page [ProjectTemplate](http://projecttemplate.net/index.html)
 {: .callout}
 
 ### Separate function definition and application
@@ -153,138 +132,3 @@ of directly executed code. As it matures, reusable chunks get pulled into their
 own functions. It's a good idea to separate these into separate folders; one
 to store useful functions that you'll reuse across analyses and projects, and
 one to store the analysis scripts.
-
-> ## Tip: avoiding duplication
->
-> You may find yourself using data or analysis scripts across several projects.
-> Typically you want to avoid duplication to save space and avoid having to
-> make updates to code in multiple places.
->
-> In this case I find it useful to make "symbolic links", which are essentially
-> shortcuts to files somewhere else on a filesystem. On Linux and OS X you can
-> use the `ln -s` command, and on Windows you can either create a shortcut or
-> use the `mklink` command from the windows terminal.
-{: .callout}
-
-### Save the data in the data directory
-
-Now we have a good directory structure we will now place/save the data file in the `data/` directory.
-
-> ## Challenge 1
-> Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
->
-> 1. Download the file (CTRL + S, right mouse click -> "Save as", or File -> "Save page as")
-> 2. Make sure it's saved under the name `gapminder-FiveYearData.csv`
-> 3. Save the file in the `data/` folder within your project.
->
-> We will load and inspect these data later.
-{: .challenge}
-
-> ## Challenge 2
-> It is useful to get some general idea about the dataset, directly from the
-> command line, before loading it into R. Understanding the dataset better
-> will come handy when making decisions on how to load it in R. Use command-line
-> shell to answer the following questions:
-> 1. What is the size of the file?
-> 2. How many rows of data does it contain?
-> 3. What are the data types of values stored in this file
->
-> > ## Solution to Challenge 2
-> >
-> > By running these commands in the shell:
-> > 
-> > ~~~
-> > ls -lh data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > 
-> > ~~~
-> > -rw-r--r--  1 ytakemon  JAX\Domain Users    80K Jun 27 15:17 data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .output}
-> > The file size is 80K.
-> > 
-> > ~~~
-> > wc -l data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > 
-> > ~~~
-> >     1705 data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .output}
-> > There are 1705 lines and the data looks like:
-> > 
-> > ~~~
-> > head data/gapminder-FiveYearData.csv
-> > ~~~
-> > {: .language-r}
-> > 
-> > 
-> > 
-> > 
-> > ~~~
-> > country,year,pop,continent,lifeExp,gdpPercap
-> > Afghanistan,1952,8425333,Asia,28.801,779.4453145
-> > Afghanistan,1957,9240934,Asia,30.332,820.8530296
-> > Afghanistan,1962,10267083,Asia,31.997,853.10071
-> > Afghanistan,1967,11537966,Asia,34.02,836.1971382
-> > Afghanistan,1972,13079460,Asia,36.088,739.9811058
-> > Afghanistan,1977,14880372,Asia,38.438,786.11336
-> > Afghanistan,1982,12881816,Asia,39.854,978.0114388
-> > Afghanistan,1987,13867957,Asia,40.822,852.3959448
-> > Afghanistan,1992,16317921,Asia,41.674,649.3413952
-> > ~~~
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-> ## Tip: command line in R Studio
->
-> You can quickly open up a shell in RStudio using the **Tools -> Shell...** menu item.
-{: .callout}
-
-### Version Control
-
-We also set up our project to integrate with git, putting it under version control.
-RStudio has a nicer interface to git than shell, but is very limited in what it can
-do, so you will find yourself occasionally needing to use the shell. Let's go
-through and make an initial commit of our template files.
-
-The workspace/history pane has a tab for "Git". We can stage each file by checking the box:
-you will see a green "A" next to stage files and folders, and yellow question marks next to
-files or folders git doesn't know about yet. RStudio also nicely shows you the difference
-between files from different commits.
-
-> ## Tip: versioning disposable output
->
-> Generally you do not want to version disposable output (or read-only data).
-> You should modify the `.gitignore` file to tell git to ignore these files
-> and directories.
-{: .callout}
-
-> ## Challenge 3
->
-> 1. Create a directory within your project called `graphs`.
-> 2. Modify the `.gitignore` file to contain `graphs/`
-> so that this disposable output isn't versioned.
->
-> Add the newly created folders to version control using
-> the git interface.
->
-> > ## Solution to Challenge 3
-> >
-> > This can be done with the command line:
-> > ```
-> > $ mkdir graphs
-> > $ echo "graphs/" >> .gitignore
-> > ```
-> > {: . shell}
-> {: .solution}
-{: .challenge}

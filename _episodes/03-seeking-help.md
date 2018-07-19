@@ -10,6 +10,9 @@ objectives:
 - "To be able to seek help from your peers."
 keypoints:
 - "Use `help()` to get online help in R."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -129,11 +132,13 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
-[1] checkpoint_0.4.3 stringr_1.3.1    knitr_1.20      
+[1] knitr_1.20
 
 loaded via a namespace (and not attached):
-[1] compiler_3.5.0  magrittr_1.5    tools_3.5.0     stringi_1.2.2  
-[5] evaluate_0.10.1
+ [1] compiler_3.5.0  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
+ [5] tools_3.5.0     htmltools_0.3.6 yaml_2.1.19     Rcpp_0.12.17   
+ [9] stringi_1.2.2   rmarkdown_1.9   stringr_1.3.1   digest_0.6.15  
+[13] evaluate_0.10.1
 ~~~
 {: .output}
 
@@ -164,7 +169,7 @@ your issue.
 > ## Challenge 2
 >
 > Look at the help for the `paste` function. You'll need to use this later.
-> What is the difference between the `sep` and `collapse` arguments?
+> How does the `sep` argument work? Try it out!
 >
 > > ## Solution to Challenge 2
 > >
@@ -179,17 +184,8 @@ your issue.
 > {: .solution}
 {: .challenge}
 
-> ## Challenge 3
-> Use help to find a function (and its associated parameters) that you could
-> use to load data from a csv file in which columns are delimited with "\t"
-> (tab) and the decimal point is a "." (period). This check for decimal
-> separator is important, especially if you are working with international
-> colleagues, because different countries have different conventions for the
-> decimal point (i.e. comma vs period).
-> hint: use `??csv` to lookup csv related functions.
-{: .challenge}
 
-## Other ports of call
+## Other resources:
 
 * [Quick R](http://www.statmethods.net/)
 * [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
