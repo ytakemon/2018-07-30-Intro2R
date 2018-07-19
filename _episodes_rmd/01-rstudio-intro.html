@@ -124,7 +124,6 @@ $(document).ready(function () {
 
 <div id="motivation" class="section level2">
 <h2>Motivation</h2>
-<p>Testing my own version of a markdown</p>
 <p>Science is a multi-step process: once you’ve designed an experiment and collected data, the real fun begins! This lesson will teach you how to start this process using R and RStudio. We will begin with raw data, perform exploratory analyses, and learn how to plot results graphically. This example starts with a dataset from <a href="https://www.gapminder.org">gapminder.org</a> containing population information for many countries through time. Can you read the data into R? Can you plot the population for Senegal? Can you calculate the average income for countries on continent of Asia? By the end of these lessons you will be able to do things like plot the populations for all of these countries in under a minute!</p>
 </div>
 <div id="before-starting-the-workshop" class="section level2">
@@ -400,7 +399,7 @@ $(document).ready(function () {
     }
     else all.names
 }
-&lt;bytecode: 0x7fcd0f1634f8&gt;
+&lt;bytecode: 0x7fa88fb292f8&gt;
 &lt;environment: namespace:base&gt;</code></pre>
 <p>{: .output}</p>
 <p>You can use <code>rm</code> to delete objects you no longer need:</p>
@@ -505,18 +504,15 @@ age &lt;- age - 20</code></pre>
 <p>{: .language-r} {: .solution} {: .challenge}</p>
 </blockquote>
 </blockquote>
-<blockquote>
-<h2 id="challenge-5">Challenge 5</h2>
-<p>Install the following packages: <code>ggplot2</code>, <code>plyr</code>, <code>gapminder</code></p>
-<blockquote>
-<h2 id="solution-to-challenge-5">Solution to challenge 5</h2>
-<p>We can use the <code>install.packages()</code> command to install the required packages.</p>
+</div>
+<div id="download-essential-packages" class="section level2">
+<h2>Download essential packages</h2>
+<p>Install the following packages: <code>ggplot2</code>, <code>plyr</code>, <code>gapminder</code> We can use the <code>install.packages()</code> command to install the required packages.</p>
 <pre><code>install.packages(&quot;ggplot2&quot;)
-install.packages(&quot;plyr&quot;)
-install.packages(&quot;gapminder&quot;)</code></pre>
-<p>{: .language-r} {: .solution} {: .challenge}</p>
-</blockquote>
-</blockquote>
+install.packages(&quot;corrplot&quot;)
+install.packages(&quot;gapminder&quot;)
+install.packages(&quot;knitr&quot;)</code></pre>
+<p>{: .language-r}</p>
 </div>
 
 

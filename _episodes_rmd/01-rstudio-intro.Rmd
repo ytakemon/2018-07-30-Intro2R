@@ -34,9 +34,6 @@ knitr_fig_path("01-")
 
 
 ## Motivation
-
-Testing my own version of a markdown
-
 Science is a multi-step process: once you've designed an experiment and collected
 data, the real fun begins! This lesson will teach you how to start this process using
 R and RStudio. We will begin with raw data, perform exploratory analyses, and learn
@@ -576,17 +573,15 @@ network). R and RStudio have functionality for managing packages:
 > {: .solution}
 {: .challenge}
 
-> ## Challenge 5
->
-> Install the following packages: `ggplot2`, `plyr`, `gapminder`
->
-> > ## Solution to challenge 5
-> >
-> > We can use the `install.packages()` command to install the required packages.
-> > ```{r ch5-sol, eval=FALSE}
-> > install.packages("ggplot2")
-> > install.packages("plyr")
-> > install.packages("gapminder")
-> >```
-> {: .solution}
-{: .challenge}
+
+## Download essential packages
+
+Install the following packages: `ggplot2`, `plyr`, `gapminder`
+We can use the `install.packages()` command to install the required packages.
+
+```{r ch5-sol, eval=FALSE}
+install.packages("ggplot2")
+install.packages("corrplot")
+install.packages("gapminder")
+install.packages("knitr")
+```
