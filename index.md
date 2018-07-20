@@ -74,7 +74,8 @@ eventbrite:           # optional: alphanumeric key for Eventbrite registration, 
 <tr> <td>01:50</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/03-seeking-help/">Seeking help</a> </td></tr>
 <tr> <td>02:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/15-knitr-markdown/">Producing reports with knitr</a> </td></tr>
 <tr> <td>02:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/04-data-structures-part1/">Understanding data structures</a> </td></tr>
-<tr> <td>03:15</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/05-data-structures-part2/">Exploring data frames</a> </td></tr>
+<tr> <td>03:00</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/05-data-structures-part2/">Exploring data frames</a> </td></tr>
+<tr> <td>03:30</td>  <td> <a href="https://ytakemon.github.io/2018-07-30-MDIBL-CompAging-Intro2R/06-data-subsetting/">Subsetting Data</a> </td></tr>
 <tr> <td>03:45</td> <td>Wrap-up</td></tr>
 </table>
 

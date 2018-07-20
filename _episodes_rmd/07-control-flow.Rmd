@@ -54,11 +54,9 @@ x <- 11
 if (x >= 10) {
   print("x is greater than or equal to 10")
 }
-
-x
 ```
 
-Let's add other more conditions
+Let's add more conditions
 ```{r}
 x <- 6
 

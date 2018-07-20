@@ -45,15 +45,24 @@ Say, for example, that we want R to print a message if a variable `x` has a part
 
 
 ~~~
-# sample a random number from a Poisson distribution
-# with a mean (lambda) of 8
-
-x <- rpois(1, lambda=8)
+x <- 11
 
 if (x >= 10) {
   print("x is greater than or equal to 10")
 }
+~~~
+{: .language-r}
 
+
+
+~~~
+[1] "x is greater than or equal to 10"
+~~~
+{: .output}
+
+
+
+~~~
 x
 ~~~
 {: .language-r}
@@ -61,20 +70,14 @@ x
 
 
 ~~~
-[1] 8
+[1] 11
 ~~~
 {: .output}
 
-Note you may not get the same output as your neighbour because
-you may be sampling different random numbers from the same distribution.
-
-Let's set a seed so that we all generate the same 'pseudo-random'
-number, and then print more information:
-
+Let's add other more conditions
 
 ~~~
-set.seed(10)
-x <- rpois(1, lambda=8)
+x <- 6
 
 if (x >= 10) {
   print("x is greater than or equal to 10")
@@ -92,16 +95,6 @@ if (x >= 10) {
 [1] "x is greater than 5"
 ~~~
 {: .output}
-
-> ## Tip: pseudo-random numbers
->
-> In the above case, the function `rpois()` generates a random number following a
-> Poisson distribution with a mean (i.e. lambda) of 8. The function `set.seed()`
-> guarantees that all machines will generate the exact same 'pseudo-random'
-> number ([more about pseudo-random numbers](http://en.wikibooks.org/wiki/R_Programming/Random_Number_Generation)).
-> So if we `set.seed(10)`, we see that `x` takes the value 8. You should get the
-> exact same number.
-{: .callout}
 
 **Important:** when R evaluates the condition inside `if()` statements, it is
 looking for a logical element, i.e., `TRUE` or `FALSE`. This can cause some
