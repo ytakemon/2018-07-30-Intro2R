@@ -16,7 +16,7 @@ keypoints:
 source("../bin/chunk-options.R")
 knitr_fig_path("08-")
 # Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header = TRUE)
+gapminder <- read.csv("data/gapminder.csv", header = TRUE)
 ```
 
 Plotting our data is one of the best ways to
@@ -80,6 +80,13 @@ tells `ggplot` we want to visually represent the relationship between **x** and
 
 ```{r lifeExp-vs-gdpPercap-scatter2}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()+
+  scale_x_log10()
+```
+There are also built in axis transformation methods, for example Log10-transformations. Unfortunately not all transformations are built in like a simple log-transformation, in which case we can do this:
+
+```{r lifeExp-vs-gdpPercap-scatter3}
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
   geom_point()
 ```
 
@@ -107,31 +114,16 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 > {: .solution}
 {: .challenge}
 
->
-> ## Challenge 2
->
-> In the previous examples and challenge we've used the `aes` function to tell
-> the scatterplot **geom** about the **x** and **y** locations of each point.
-> Another *aesthetic* property we can modify is the point *color*. Modify the
-> code from the previous challenge to **color** the points by the "continent"
-> column. What trends do you see in the data? Are they what you expected?
->
-> > ## Solution to challenge 2
-> >
-> > In the previous examples and challenge we've used the `aes` function to tell
-> > the scatterplot **geom** about the **x** and **y** locations of each point.
-> > Another *aesthetic* property we can modify is the point *color*. Modify the
-> > code from the previous challenge to **color** the points by the "continent"
-> > column. What trends do you see in the data? Are they what you expected?
-> >
-> > ```{r ch2-sol}
-> > ggplot(data = gapminder, aes(x = year, y = lifeExp, color=continent)) +
-> >   geom_point()
-> > ```
-> >
-> {: .solution}
-{: .challenge}
-
+## Aesthetics 
+```{r lifeExp-vs-gdpPercap-scatter4}
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent)) +
+  geom_point()
+```
+```{r lifeExp-vs-gdpPercap-scatter5}
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent)) +
+  geom_point()+
+  geom_smooth(method = "lm")
+```
 
 ## Layers
 

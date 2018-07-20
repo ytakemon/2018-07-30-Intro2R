@@ -14,13 +14,16 @@ keypoints:
 - "Use `function` to define a new function in R."
 - "Use parameters to pass values into functions."
 - "Load functions into programs using `source`."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
 knitr_fig_path("10-")
 # Silently load in the data so the rest of the lesson works
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+gapminder <- read.csv("data/gapminder.csv", header=TRUE)
 ```
 
 
