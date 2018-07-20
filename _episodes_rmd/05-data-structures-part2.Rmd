@@ -19,6 +19,9 @@ keypoints:
 - "Use `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` and `typeof()` to understand structure of the data frame"
 - "Read in a csv file using `read.csv()`"
 - "Understand `length()` of a data frame"
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r, include=FALSE}
@@ -69,7 +72,7 @@ Now how about adding rows - in this case, we saw last time that the rows of a
 data frame are made of lists:
 
 ```{r}
-newRow <- list("tortoiseshell", 3.3, TRUE, 9)
+newRow <- list("tuxedo", 3.3, TRUE, 9)
 cats <- rbind(cats, newRow)
 ```
 
@@ -88,8 +91,8 @@ those values are not factors. To successfully add a cat with a
 
 ```{r}
 levels(cats$coat)
-levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
-cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+levels(cats$coat) <- c(levels(cats$coat), "tuxedo")
+cats <- rbind(cats, list("tuxedo", 3.3, TRUE, 9))
 ```
 
 Alternatively, we can change a factor column to a character vector; we lose the
@@ -133,6 +136,20 @@ Let's reassign the output to `cats`, so that our changes will be permanent:
 
 ```{r}
 cats <- na.omit(cats)
+```
+## StringsAsFactors argument
+
+You can also by pass all factor related headaches by reading a dataframe and defining a new argument:
+
+```{r}
+cats2 <- read.csv("data/feline-data.csv", stringsAsFactors = FALSE)
+str(cats2)
+```
+
+Now let's compare what happened to the factor column:
+```{r}
+str(cats)
+str(cats2)
 ```
 
 ## Appending data frame
@@ -189,7 +206,7 @@ now, let's use those skills to digest a more realistic dataset. Lets read in the
 gapminder dataset that we downloaded previously:
 
 ```{r}
-gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+gapminder <- read.csv("data/gapminder.csv")
 ```
 
 > ## Miscellaneous Tips
@@ -284,35 +301,13 @@ into a script file so we can come back to it later.
 
 > ## Challenge 2
 >
-> Go to file -> new file -> R script, and write an R script
-> to load in the gapminder dataset. Put it in the `scripts/`
-> directory and add it to version control.
->
-> Run the script using the `source` function, using the file path
-> as its argument (or by pressing the "source" button in RStudio).
->
-> > ## Solution to Challenge 2
-> > The contents of `script/load-gapminder.R`:
-> > ```{r eval = FALSE}
-> > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
-> > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
-> > ```
-> > To run the script and load the data into the `gapminder` variable:
-> > ```{r eval = FALSE}
-> > source(file = "scripts/load-gapminder.R")
-> > ```
-> {: .solution}
-{: .challenge}
-
-> ## Challenge 3
->
 > Read the output of `str(gapminder)` again;
 > this time, use what you've learned about factors, lists and vectors,
 > as well as the output of functions like `colnames` and `dim`
 > to explain what everything that `str` prints out for gapminder means.
 > If there are any parts you can't interpret, discuss with your neighbors!
 >
-> > ## Solution to Challenge 3
+> > ## Solution to Challenge 2
 > >
 > > The object `gapminder` is a data frame with columns
 > > - `country` and `continent` are factors.

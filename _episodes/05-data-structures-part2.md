@@ -19,6 +19,9 @@ keypoints:
 - "Use `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()` and `typeof()` to understand structure of the data frame"
 - "Read in a csv file using `read.csv()`"
 - "Understand `length()` of a data frame"
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -50,9 +53,9 @@ cats
 
 ~~~
     coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
+1 calico    2.1         TRUE
+2  black    5.0        FALSE
+3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -84,9 +87,9 @@ cats
 
 ~~~
     coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
+1 calico    2.1         TRUE
+2  black    5.0        FALSE
+3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -103,9 +106,9 @@ cats
 
 ~~~
     coat weight likes_string age
-1 calico    2.1            1   4
-2  black    5.0            0   5
-3  tabby    3.2            1   8
+1 calico    2.1         TRUE   4
+2  black    5.0        FALSE   5
+3  tabby    3.2         TRUE   8
 ~~~
 {: .output}
 
@@ -114,7 +117,7 @@ data frame are made of lists:
 
 
 ~~~
-newRow <- list("tortoiseshell", 3.3, TRUE, 9)
+newRow <- list("tuxedo", 3.3, TRUE, 9)
 cats <- rbind(cats, newRow)
 ~~~
 {: .language-r}
@@ -122,8 +125,8 @@ cats <- rbind(cats, newRow)
 
 
 ~~~
-Warning in `[<-.factor`(`*tmp*`, ri, value = "tortoiseshell"): invalid
-factor level, NA generated
+Warning in `[<-.factor`(`*tmp*`, ri, value = "tuxedo"): invalid factor
+level, NA generated
 ~~~
 {: .error}
 
@@ -156,8 +159,8 @@ levels(cats$coat)
 
 
 ~~~
-levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
-cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+levels(cats$coat) <- c(levels(cats$coat), "tuxedo")
+cats <- rbind(cats, list("tuxedo", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
 
@@ -177,7 +180,7 @@ str(cats)
 'data.frame':	5 obs. of  4 variables:
  $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
  $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
+ $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
  $ age         : num  4 5 8 9 9
 ~~~
 {: .output}
@@ -196,7 +199,7 @@ str(cats)
 'data.frame':	5 obs. of  4 variables:
  $ coat        : chr  "calico" "black" "tabby" NA ...
  $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: int  1 0 1 1 1
+ $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
  $ age         : num  4 5 8 9 9
 ~~~
 {: .output}
@@ -216,12 +219,12 @@ cats
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-4          <NA>    3.3            1   9
-5 tortoiseshell    3.3            1   9
+    coat weight likes_string age
+1 calico    2.1         TRUE   4
+2  black    5.0        FALSE   5
+3  tabby    3.2         TRUE   8
+4   <NA>    3.3         TRUE   9
+5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -236,11 +239,11 @@ cats[-4,]
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-5 tortoiseshell    3.3            1   9
+    coat weight likes_string age
+1 calico    2.1         TRUE   4
+2  black    5.0        FALSE   5
+3  tabby    3.2         TRUE   8
+5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -260,11 +263,11 @@ na.omit(cats)
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-5 tortoiseshell    3.3            1   9
+    coat weight likes_string age
+1 calico    2.1         TRUE   4
+2  black    5.0        FALSE   5
+3  tabby    3.2         TRUE   8
+5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -275,6 +278,63 @@ Let's reassign the output to `cats`, so that our changes will be permanent:
 cats <- na.omit(cats)
 ~~~
 {: .language-r}
+## StringsAsFactors argument
+
+You can also by pass all factor related headaches by reading a dataframe and defining a new argument:
+
+
+~~~
+cats2 <- read.csv("data/feline-data.csv", stringsAsFactors = FALSE)
+str(cats2)
+~~~
+{: .language-r}
+
+
+
+~~~
+'data.frame':	3 obs. of  3 variables:
+ $ coat        : chr  "calico" "black" "tabby"
+ $ weight      : num  2.1 5 3.2
+ $ likes_string: logi  TRUE FALSE TRUE
+~~~
+{: .output}
+
+Now let's compare what happened to the factor column:
+
+~~~
+str(cats)
+~~~
+{: .language-r}
+
+
+
+~~~
+'data.frame':	4 obs. of  4 variables:
+ $ coat        : chr  "calico" "black" "tabby" "tuxedo"
+ $ weight      : num  2.1 5 3.2 3.3
+ $ likes_string: logi  TRUE FALSE TRUE TRUE
+ $ age         : num  4 5 8 9
+ - attr(*, "na.action")= 'omit' Named int 4
+  ..- attr(*, "names")= chr "4"
+~~~
+{: .output}
+
+
+
+~~~
+str(cats2)
+~~~
+{: .language-r}
+
+
+
+~~~
+'data.frame':	3 obs. of  3 variables:
+ $ coat        : chr  "calico" "black" "tabby"
+ $ weight      : num  2.1 5 3.2
+ $ likes_string: logi  TRUE FALSE TRUE
+~~~
+{: .output}
 
 ## Appending data frame
 
@@ -292,15 +352,15 @@ cats
 
 
 ~~~
-            coat weight likes_string age
-1         calico    2.1            1   4
-2          black    5.0            0   5
-3          tabby    3.2            1   8
-5  tortoiseshell    3.3            1   9
-11        calico    2.1            1   4
-21         black    5.0            0   5
-31         tabby    3.2            1   8
-51 tortoiseshell    3.3            1   9
+     coat weight likes_string age
+1  calico    2.1         TRUE   4
+2   black    5.0        FALSE   5
+3   tabby    3.2         TRUE   8
+5  tuxedo    3.3         TRUE   9
+11 calico    2.1         TRUE   4
+21  black    5.0        FALSE   5
+31  tabby    3.2         TRUE   8
+51 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 But now the row names are unnecessarily complicated. We can remove the rownames,
@@ -316,15 +376,15 @@ cats
 
 
 ~~~
-           coat weight likes_string age
-1        calico    2.1            1   4
-2         black    5.0            0   5
-3         tabby    3.2            1   8
-4 tortoiseshell    3.3            1   9
-5        calico    2.1            1   4
-6         black    5.0            0   5
-7         tabby    3.2            1   8
-8 tortoiseshell    3.3            1   9
+    coat weight likes_string age
+1 calico    2.1         TRUE   4
+2  black    5.0        FALSE   5
+3  tabby    3.2         TRUE   8
+4 tuxedo    3.3         TRUE   9
+5 calico    2.1         TRUE   4
+6  black    5.0        FALSE   5
+7  tabby    3.2         TRUE   8
+8 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -369,7 +429,7 @@ gapminder dataset that we downloaded previously:
 
 
 ~~~
-gapminder <- read.csv("data/gapminder-FiveYearData.csv")
+gapminder <- read.csv("data/gapminder.csv")
 ~~~
 {: .language-r}
 
@@ -412,10 +472,10 @@ str(gapminder)
 ~~~
 'data.frame':	1704 obs. of  6 variables:
  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+ $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
  $ gdpPercap: num  779 821 853 836 740 ...
 ~~~
 {: .output}
@@ -554,7 +614,7 @@ colnames(gapminder)
 
 
 ~~~
-[1] "country"   "year"      "pop"       "continent" "lifeExp"   "gdpPercap"
+[1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"
 ~~~
 {: .output}
 
@@ -577,13 +637,13 @@ head(gapminder)
 
 
 ~~~
-      country year      pop continent lifeExp gdpPercap
-1 Afghanistan 1952  8425333      Asia  28.801  779.4453
-2 Afghanistan 1957  9240934      Asia  30.332  820.8530
-3 Afghanistan 1962 10267083      Asia  31.997  853.1007
-4 Afghanistan 1967 11537966      Asia  34.020  836.1971
-5 Afghanistan 1972 13079460      Asia  36.088  739.9811
-6 Afghanistan 1977 14880372      Asia  38.438  786.1134
+      country continent year lifeExp      pop gdpPercap
+1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ~~~
 {: .output}
 
@@ -592,39 +652,13 @@ into a script file so we can come back to it later.
 
 > ## Challenge 2
 >
-> Go to file -> new file -> R script, and write an R script
-> to load in the gapminder dataset. Put it in the `scripts/`
-> directory and add it to version control.
->
-> Run the script using the `source` function, using the file path
-> as its argument (or by pressing the "source" button in RStudio).
->
-> > ## Solution to Challenge 2
-> > The contents of `script/load-gapminder.R`:
-> > 
-> > ~~~
-> > download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
-> > gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
-> > ~~~
-> > {: .language-r}
-> > To run the script and load the data into the `gapminder` variable:
-> > 
-> > ~~~
-> > source(file = "scripts/load-gapminder.R")
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}
-
-> ## Challenge 3
->
 > Read the output of `str(gapminder)` again;
 > this time, use what you've learned about factors, lists and vectors,
 > as well as the output of functions like `colnames` and `dim`
 > to explain what everything that `str` prints out for gapminder means.
 > If there are any parts you can't interpret, discuss with your neighbors!
 >
-> > ## Solution to Challenge 3
+> > ## Solution to Challenge 2
 > >
 > > The object `gapminder` is a data frame with columns
 > > - `country` and `continent` are factors.
