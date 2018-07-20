@@ -11,6 +11,9 @@ objectives:
 keypoints:
 - "Use `if` and `else` to make choices."
 - "Use `for` to repeat operations."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
