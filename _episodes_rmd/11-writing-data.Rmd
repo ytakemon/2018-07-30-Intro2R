@@ -9,6 +9,9 @@ objectives:
 keypoints:
 - "Save plots from RStudio using the 'Export' button."
 - "Use `write.table` to save tabular data."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r, include=FALSE}
@@ -16,7 +19,7 @@ source("../bin/chunk-options.R")
 knitr_fig_path("11-")
 # Silently load in the data so the rest of the lesson works
 library(ggplot2)
-gapminder <- read.csv("data/gapminder-FiveYearData.csv", header=TRUE)
+gapminder <- read.csv("data/gapminder.csv", header=TRUE)
 # Temporarily create a cleaned-data directory so that the writing examples work
 # The students should have created this in topic 2.
 dir.create("cleaned-data")
@@ -24,14 +27,6 @@ dir.create("cleaned-data")
 
 
 ## Saving plots
-
-You have already seen how to save the most recent plot you create in `ggplot2`,
-using the command `ggsave`. As a refresher:
-
-```{r, eval=FALSE}
-ggsave("My_most_recent_plot.pdf")
-```
-
 You can save a plot from within RStudio using the 'Export' button
 in the 'Plot' window. This will give you the option of saving as a
 .pdf or as .png, .jpg or other image formats.
@@ -84,50 +79,24 @@ only want to focus on the gapminder data for Australia:
 aust_subset <- gapminder[gapminder$country == "Australia",]
 
 write.table(aust_subset,
-  file="cleaned-data/gapminder-aus.csv",
-  sep=","
+  file="gapminder-aus.csv",
+  sep=",",
+  row.names = FALSE,
+  quote = FALSE
 )
 ```
 
-Let's switch back to the shell to take a look at the data to make sure it looks
-OK:
-
-```{r, engine='bash'}
-head cleaned-data/gapminder-aus.csv
-```
-
-Hmm, that's not quite what we wanted. Where did all these
-quotation marks come from? Also the row numbers are
-meaningless.
-
-Let's look at the help file to work out how to change this
-behaviour.
-
-```{r, eval=FALSE}
-?write.table
-```
-
-By default R will wrap character vectors with quotation marks
-when writing out to file. It will also write out the row and
-column names.
-
-Let's fix this:
-
+or directly as a .csv file
 ```{r}
-write.table(
-  gapminder[gapminder$country == "Australia",],
-  file="cleaned-data/gapminder-aus.csv",
-  sep=",", quote=FALSE, row.names=FALSE
+aust_subset <- gapminder[gapminder$country == "Australia",]
+
+write.csv(aust_subset,
+  file="gapminder-aus.csv",
+  row.names = FALSE,
+  quote = FALSE
 )
 ```
 
-Now lets look at the data again using our shell skills:
-
-```{r, engine='bash'}
-head cleaned-data/gapminder-aus.csv
-```
-
-That looks better!
 
 > ## Challenge 2
 >
@@ -135,7 +104,7 @@ That looks better!
 > data to include only data points collected since 1990.
 >
 > Use this script to write out the new subset to a file
-> in the `cleaned-data/` directory.
+> in the  `results/` directory.
 {: .challenge}
 
 ```{r, echo=FALSE}

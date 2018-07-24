@@ -53,9 +53,9 @@ cats
 
 ~~~
     coat weight likes_string
-1 calico    2.1            1
-2  black    5.0            0
-3  tabby    3.2            1
+1 calico    2.1         TRUE
+2  black    5.0        FALSE
+3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -520,7 +520,7 @@ cats$likes_string
 
 
 ~~~
-[1] 1 0 1
+[1]  TRUE FALSE  TRUE
 ~~~
 {: .output}
 

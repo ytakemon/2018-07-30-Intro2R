@@ -6,14 +6,17 @@ questions:
 - "How can I work with subsets of data in R?"
 objectives:
 - "To be able to subset vectors, factors, matrices, lists, and data frames"
-- "To be able to extract individual and multiple elements: by index, by name, using comparison operations"
 - "To be able to skip and remove elements from various data structures."
+- "To be able to extract individual and multiple elements: by index, by name, using comparison operations"
 keypoints:
 - "Indexing in R starts at 1, not 0."
 - "Access individual values by location using `[]`."
-- "Access slices of data using `[low:high]`."
 - "Access arbitrary sets of data using `[c(...)]`."
 - "Use `which` to select subsets of data based on value."
+- "Access slices of data using `[low:high]`."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -809,89 +812,6 @@ named integer(0)
 > {: .solution}
 {: .challenge}
 
-## Handling special values
-
-At some point you will encounter functions in R which cannot handle missing, infinite,
-or undefined data.
-
-There are a number of special functions you can use to filter out this data:
-
- * `is.na` will return all positions in a vector, matrix, or data.frame
-   containing `NA`.
- * likewise, `is.nan`, and `is.infinite` will do the same for `NaN` and `Inf`.
- * `is.finite` will return all positions in a vector, matrix, or data.frame
-   that do not contain `NA`, `NaN` or `Inf`.
- * `na.omit` will filter out all missing values from a vector
-
-## Factor subsetting
-
-Now that we've explored the different ways to subset vectors, how
-do we subset the other data structures?
-
-Factor subsetting works the same way as vector subsetting.
-
-
-~~~
-f <- factor(c("a", "a", "b", "c", "c", "d"))
-f[f == "a"]
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] a a
-Levels: a b c d
-~~~
-{: .output}
-
-
-
-~~~
-f[f %in% c("b", "c")]
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] b c c
-Levels: a b c d
-~~~
-{: .output}
-
-
-
-~~~
-f[1:3]
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] a a b
-Levels: a b c d
-~~~
-{: .output}
-
-An important note is that skipping elements will not remove the level
-even if no more of that category exists in the factor:
-
-
-~~~
-f[-3]
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] a a c c d
-Levels: a b c d
-~~~
-{: .output}
-
 ## Matrix subsetting
 
 Matrices are also subsetted using the `[` function. In this case
@@ -1087,6 +1007,305 @@ instead of their row and column indices.
 > {: .solution}
 {: .challenge}
 
+## Data frames
+
+Remember the data frames are lists underneath the hood, so similar rules
+apply. However they are also two dimensional objects:
+
+`[` with one argument will act the same was as for lists, where each list
+element corresponds to a column. The resulting object will be a data frame:
+
+
+~~~
+head(gapminder[3])
+~~~
+{: .language-r}
+
+
+
+~~~
+  year
+1 1952
+2 1957
+3 1962
+4 1967
+5 1972
+6 1977
+~~~
+{: .output}
+
+Similarly, `[[` will act to extract *a single column*:
+
+
+~~~
+head(gapminder[["lifeExp"]])
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 28.801 30.332 31.997 34.020 36.088 38.438
+~~~
+{: .output}
+
+And `$` provides a convenient shorthand to extract columns by name:
+
+
+~~~
+head(gapminder$year)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 1952 1957 1962 1967 1972 1977
+~~~
+{: .output}
+
+With two arguments, `[` behaves the same way as for matrices:
+
+
+~~~
+gapminder[1:3,]
+~~~
+{: .language-r}
+
+
+
+~~~
+      country continent year lifeExp      pop gdpPercap
+1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+~~~
+{: .output}
+
+If we subset a single row, the result will be a data frame (because
+the elements are mixed types):
+
+
+~~~
+gapminder[3,]
+~~~
+{: .language-r}
+
+
+
+~~~
+      country continent year lifeExp      pop gdpPercap
+3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+~~~
+{: .output}
+
+But for a single column the result will be a vector (this can
+be changed with the third argument, `drop = FALSE`).
+
+> ## Challenge 5
+>
+> Fix each of the following common data frame subsetting errors:
+>
+> 1. Extract observations collected for the year 1957
+>
+>    
+>    ~~~
+>    gapminder[gapminder$year = 1957,]
+>    ~~~
+>    {: .language-r}
+>
+> 2. Extract all columns except 1 through to 4
+>
+>    
+>    ~~~
+>    gapminder[,-1:4]
+>    ~~~
+>    {: .language-r}
+>
+> 3. Extract the rows where the life expectancy is longer the 80 years
+>
+>    
+>    ~~~
+>    gapminder[gapminder$lifeExp > 80]
+>    ~~~
+>    {: .language-r}
+>
+> 4. Extract the first row, and the fourth and fifth columns
+>   (`lifeExp` and `gdpPercap`).
+>
+>    
+>    ~~~
+>    gapminder[1, 4, 5]
+>    ~~~
+>    {: .language-r}
+>
+> 5. Advanced: extract rows that contain information for the years 2002
+>    and 2007
+>
+>    
+>    ~~~
+>    gapminder[gapminder$year == 2002 | 2007,]
+>    ~~~
+>    {: .language-r}
+>
+> > ## Solution to challenge 7
+> >
+> > Fix each of the following common data frame subsetting errors:
+> >
+> > 1. Extract observations collected for the year 1957
+> >
+> >    
+> >    ~~~
+> >    # gapminder[gapminder$year = 1957,]
+> >    gapminder[gapminder$year == 1957,]
+> >    ~~~
+> >    {: .language-r}
+> >
+> > 2. Extract all columns except 1 through to 4
+> >
+> >    
+> >    ~~~
+> >    # gapminder[,-1:4]
+> >    gapminder[,-c(1:4)]
+> >    ~~~
+> >    {: .language-r}
+> >
+> > 3. Extract the rows where the life expectancy is longer the 80 years
+> >
+> >    
+> >    ~~~
+> >    # gapminder[gapminder$lifeExp > 80]
+> >    gapminder[gapminder$lifeExp > 80,]
+> >    ~~~
+> >    {: .language-r}
+> >
+> > 4. Extract the first row, and the fourth and fifth columns
+> >   (`lifeExp` and `gdpPercap`).
+> >
+> >    
+> >    ~~~
+> >    # gapminder[1, 4, 5]
+> >    gapminder[1, c(4, 5)]
+> >    ~~~
+> >    {: .language-r}
+> >
+> > 5. Advanced: extract rows that contain information for the years 2002
+> >    and 2007
+> >
+> >     
+> >     ~~~
+> >     # gapminder[gapminder$year == 2002 | 2007,]
+> >     gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+> >     gapminder[gapminder$year %in% c(2002, 2007),]
+> >     ~~~
+> >     {: .language-r}
+> {: .solution}
+{: .challenge}
+
+> ## Challenge 6
+>
+> 1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
+>
+>
+> 2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
+> and 19 through 23. You can do this in one or two steps.
+>
+> > ## Solution to challenge 8
+> >
+> > 1.  `gapminder` is a data.frame so needs to be subsetted on two dimensions. `gapminder[1:20, ]` subsets the data to give the first 20 rows and all columns.
+> >
+> > 2. 
+> >
+> > 
+> > ~~~
+> > gapminder_small <- gapminder[c(1:9, 19:23),]
+> > ~~~
+> > {: .language-r}
+> {: .solution}
+{: .challenge}
+
+## Handling special values
+
+At some point you will encounter functions in R which cannot handle missing, infinite,
+or undefined data.
+
+There are a number of special functions you can use to filter out this data:
+
+ * `is.na` will return all positions in a vector, matrix, or data.frame
+   containing `NA`.
+ * likewise, `is.nan`, and `is.infinite` will do the same for `NaN` and `Inf`.
+ * `is.finite` will return all positions in a vector, matrix, or data.frame
+   that do not contain `NA`, `NaN` or `Inf`.
+ * `na.omit` will filter out all missing values from a vector
+
+## Factor subsetting
+
+Now that we've explored the different ways to subset vectors, how
+do we subset the other data structures?
+
+Factor subsetting works the same way as vector subsetting.
+
+
+~~~
+f <- factor(c("a", "a", "b", "c", "c", "d"))
+f[f == "a"]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] a a
+Levels: a b c d
+~~~
+{: .output}
+
+
+
+~~~
+f[f %in% c("b", "c")]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] b c c
+Levels: a b c d
+~~~
+{: .output}
+
+
+
+~~~
+f[1:3]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] a a b
+Levels: a b c d
+~~~
+{: .output}
+
+An important note is that skipping elements will not remove the level
+even if no more of that category exists in the factor:
+
+
+~~~
+f[-3]
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] a a c c d
+Levels: a b c d
+~~~
+{: .output}
 
 ## List subsetting
 
@@ -1221,7 +1440,7 @@ xlist$data
 ~~~
 {: .output}
 
-> ## Challenge 5
+> ## Challenge 7
 > Given the following list:
 >
 > 
@@ -1275,7 +1494,7 @@ xlist$data
 {: .challenge}
 
 
-> ## Challenge 6
+> ## Challenge 8
 > Given a linear model:
 >
 > 
@@ -1302,219 +1521,4 @@ xlist$data
 {: .challenge}
 
 
-## Data frames
 
-Remember the data frames are lists underneath the hood, so similar rules
-apply. However they are also two dimensional objects:
-
-`[` with one argument will act the same was as for lists, where each list
-element corresponds to a column. The resulting object will be a data frame:
-
-
-~~~
-head(gapminder[3])
-~~~
-{: .language-r}
-
-
-
-~~~
-       pop
-1  8425333
-2  9240934
-3 10267083
-4 11537966
-5 13079460
-6 14880372
-~~~
-{: .output}
-
-Similarly, `[[` will act to extract *a single column*:
-
-
-~~~
-head(gapminder[["lifeExp"]])
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 28.801 30.332 31.997 34.020 36.088 38.438
-~~~
-{: .output}
-
-And `$` provides a convenient shorthand to extract columns by name:
-
-
-~~~
-head(gapminder$year)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 1952 1957 1962 1967 1972 1977
-~~~
-{: .output}
-
-With two arguments, `[` behaves the same way as for matrices:
-
-
-~~~
-gapminder[1:3,]
-~~~
-{: .language-r}
-
-
-
-~~~
-      country year      pop continent lifeExp gdpPercap
-1 Afghanistan 1952  8425333      Asia  28.801  779.4453
-2 Afghanistan 1957  9240934      Asia  30.332  820.8530
-3 Afghanistan 1962 10267083      Asia  31.997  853.1007
-~~~
-{: .output}
-
-If we subset a single row, the result will be a data frame (because
-the elements are mixed types):
-
-
-~~~
-gapminder[3,]
-~~~
-{: .language-r}
-
-
-
-~~~
-      country year      pop continent lifeExp gdpPercap
-3 Afghanistan 1962 10267083      Asia  31.997  853.1007
-~~~
-{: .output}
-
-But for a single column the result will be a vector (this can
-be changed with the third argument, `drop = FALSE`).
-
-> ## Challenge 7
->
-> Fix each of the following common data frame subsetting errors:
->
-> 1. Extract observations collected for the year 1957
->
->    
->    ~~~
->    gapminder[gapminder$year = 1957,]
->    ~~~
->    {: .language-r}
->
-> 2. Extract all columns except 1 through to 4
->
->    
->    ~~~
->    gapminder[,-1:4]
->    ~~~
->    {: .language-r}
->
-> 3. Extract the rows where the life expectancy is longer the 80 years
->
->    
->    ~~~
->    gapminder[gapminder$lifeExp > 80]
->    ~~~
->    {: .language-r}
->
-> 4. Extract the first row, and the fourth and fifth columns
->   (`lifeExp` and `gdpPercap`).
->
->    
->    ~~~
->    gapminder[1, 4, 5]
->    ~~~
->    {: .language-r}
->
-> 5. Advanced: extract rows that contain information for the years 2002
->    and 2007
->
->    
->    ~~~
->    gapminder[gapminder$year == 2002 | 2007,]
->    ~~~
->    {: .language-r}
->
-> > ## Solution to challenge 7
-> >
-> > Fix each of the following common data frame subsetting errors:
-> >
-> > 1. Extract observations collected for the year 1957
-> >
-> >    
-> >    ~~~
-> >    # gapminder[gapminder$year = 1957,]
-> >    gapminder[gapminder$year == 1957,]
-> >    ~~~
-> >    {: .language-r}
-> >
-> > 2. Extract all columns except 1 through to 4
-> >
-> >    
-> >    ~~~
-> >    # gapminder[,-1:4]
-> >    gapminder[,-c(1:4)]
-> >    ~~~
-> >    {: .language-r}
-> >
-> > 3. Extract the rows where the life expectancy is longer the 80 years
-> >
-> >    
-> >    ~~~
-> >    # gapminder[gapminder$lifeExp > 80]
-> >    gapminder[gapminder$lifeExp > 80,]
-> >    ~~~
-> >    {: .language-r}
-> >
-> > 4. Extract the first row, and the fourth and fifth columns
-> >   (`lifeExp` and `gdpPercap`).
-> >
-> >    
-> >    ~~~
-> >    # gapminder[1, 4, 5]
-> >    gapminder[1, c(4, 5)]
-> >    ~~~
-> >    {: .language-r}
-> >
-> > 5. Advanced: extract rows that contain information for the years 2002
-> >    and 2007
-> >
-> >     
-> >     ~~~
-> >     # gapminder[gapminder$year == 2002 | 2007,]
-> >     gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
-> >     gapminder[gapminder$year %in% c(2002, 2007),]
-> >     ~~~
-> >     {: .language-r}
-> {: .solution}
-{: .challenge}
-
-> ## Challenge 8
->
-> 1. Why does `gapminder[1:20]` return an error? How does it differ from `gapminder[1:20, ]`?
->
->
-> 2. Create a new `data.frame` called `gapminder_small` that only contains rows 1 through 9
-> and 19 through 23. You can do this in one or two steps.
->
-> > ## Solution to challenge 8
-> >
-> > 1.  `gapminder` is a data.frame so needs to be subsetted on two dimensions. `gapminder[1:20, ]` subsets the data to give the first 20 rows and all columns.
-> >
-> > 2. 
-> >
-> > 
-> > ~~~
-> > gapminder_small <- gapminder[c(1:9, 19:23),]
-> > ~~~
-> > {: .language-r}
-> {: .solution}
-{: .challenge}

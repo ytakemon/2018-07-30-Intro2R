@@ -10,6 +10,9 @@ objectives:
 keypoints:
 - "Use `ggplot2` to create plots."
 - "Think about graphics in layers: aesthetics, geometry, statistics, scale transformation, and grouping."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r, include=FALSE}
@@ -191,7 +194,7 @@ lines.
 Ggplot also makes it easy to overlay statistical models over the data. To
 demonstrate we'll go back to our first example:
 
-```{r lifeExp-vs-gdpPercap-scatter3, message=FALSE}
+```{r lifeExp-vs-gdpPercap-scatter9, message=FALSE}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
   geom_point()
 ```
