@@ -15,6 +15,9 @@ keypoints:
 - "Mix reporting written in R Markdown with software written in R."
 - "Specify chunk options to control formatting."
 - "Use `knitr` to convert these documents into PDF and other formats."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -249,7 +252,7 @@ The Markdown and figure documents are then processed by the tool
 [pandoc](http://pandoc.org/), which converts the Markdown file into an
 html file, with the figures embedded.
 
-<img src="../fig/rmd-15-rmd_to_html_fig-1.png" title="plot of chunk rmd_to_html_fig" alt="plot of chunk rmd_to_html_fig" style="display: block; margin: auto auto auto 0;" />
+<img src="../fig/15-rmd_to_html_fig-1.png" style="display: block; margin: auto auto auto 0;" />
 
 
 

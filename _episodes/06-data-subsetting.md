@@ -41,8 +41,8 @@ x
 
 
 ~~~
-  a   b   c   d   e 
-5.4 6.2 7.1 4.8 7.5 
+##   a   b   c   d   e 
+## 5.4 6.2 7.1 4.8 7.5
 ~~~
 {: .output}
 
@@ -63,8 +63,8 @@ x[1]
 
 
 ~~~
-  a 
-5.4 
+##   a 
+## 5.4
 ~~~
 {: .output}
 
@@ -77,8 +77,8 @@ x[4]
 
 
 ~~~
-  d 
-4.8 
+##   d 
+## 4.8
 ~~~
 {: .output}
 
@@ -96,8 +96,8 @@ x[c(1, 3)]
 
 
 ~~~
-  a   c 
-5.4 7.1 
+##   a   c 
+## 5.4 7.1
 ~~~
 {: .output}
 
@@ -112,8 +112,8 @@ x[1:4]
 
 
 ~~~
-  a   b   c   d 
-5.4 6.2 7.1 4.8 
+##   a   b   c   d 
+## 5.4 6.2 7.1 4.8
 ~~~
 {: .output}
 
@@ -127,7 +127,7 @@ the `:` operator creates a sequence of numbers from the left element to the righ
 
 
 ~~~
-[1] 1 2 3 4
+## [1] 1 2 3 4
 ~~~
 {: .output}
 
@@ -141,7 +141,7 @@ c(1, 2, 3, 4)
 
 
 ~~~
-[1] 1 2 3 4
+## [1] 1 2 3 4
 ~~~
 {: .output}
 
@@ -157,8 +157,8 @@ x[c(1,1,3)]
 
 
 ~~~
-  a   a   c 
-5.4 5.4 7.1 
+##   a   a   c 
+## 5.4 5.4 7.1
 ~~~
 {: .output}
 
@@ -173,8 +173,8 @@ x[6]
 
 
 ~~~
-<NA> 
-  NA 
+## <NA> 
+##   NA
 ~~~
 {: .output}
 
@@ -191,7 +191,7 @@ x[0]
 
 
 ~~~
-named numeric(0)
+## named numeric(0)
 ~~~
 {: .output}
 
@@ -215,8 +215,8 @@ x[-2]
 
 
 ~~~
-  a   c   d   e 
-5.4 7.1 4.8 7.5 
+##   a   c   d   e 
+## 5.4 7.1 4.8 7.5
 ~~~
 {: .output}
 
@@ -232,8 +232,8 @@ x[c(-1, -5)]  # or x[-c(1,5)]
 
 
 ~~~
-  b   c   d 
-6.2 7.1 4.8 
+##   b   c   d 
+## 6.2 7.1 4.8
 ~~~
 {: .output}
 
@@ -253,7 +253,7 @@ x[c(-1, -5)]  # or x[-c(1,5)]
 >
 > 
 > ~~~
-> Error in x[-1:3]: only 0's may be mixed with negative subscripts
+> ## Error in x[-1:3]: only 0's may be mixed with negative subscripts
 > ~~~
 > {: .error}
 >
@@ -273,8 +273,8 @@ x[c(-1, -5)]  # or x[-c(1,5)]
 > 
 > 
 > ~~~
->   d   e 
-> 4.8 7.5 
+> ##   d   e 
+> ## 4.8 7.5
 > ~~~
 > {: .output}
 {: .callout}
@@ -293,8 +293,8 @@ x
 
 
 ~~~
-  a   b   c   e 
-5.4 6.2 7.1 7.5 
+##   a   b   c   e 
+## 5.4 6.2 7.1 7.5
 ~~~
 {: .output}
 
@@ -313,8 +313,8 @@ x
 > 
 > 
 > ~~~
->   a   b   c   d   e 
-> 5.4 6.2 7.1 4.8 7.5 
+> ##   a   b   c   d   e 
+> ## 5.4 6.2 7.1 4.8 7.5
 > ~~~
 > {: .output}
 >
@@ -322,8 +322,8 @@ x
 >
 > 
 > ~~~
->   b   c   d 
-> 6.2 7.1 4.8 
+> ##   b   c   d 
+> ## 6.2 7.1 4.8
 > ~~~
 > {: .output}
 >
@@ -340,8 +340,8 @@ x
 > > 
 > > 
 > > ~~~
-> >   b   c   d 
-> > 6.2 7.1 4.8 
+> > ##   b   c   d 
+> > ## 6.2 7.1 4.8
 > > ~~~
 > > {: .output}
 > > 
@@ -353,8 +353,8 @@ x
 > > 
 > > 
 > > ~~~
-> >   b   c   d 
-> > 6.2 7.1 4.8 
+> > ##   b   c   d 
+> > ## 6.2 7.1 4.8
 > > ~~~
 > > {: .output}
 > > 
@@ -366,8 +366,8 @@ x
 > > 
 > > 
 > > ~~~
-> >   b   c   d 
-> > 6.2 7.1 4.8 
+> > ##   b   c   d 
+> > ## 6.2 7.1 4.8
 > > ~~~
 > > {: .output}
 > > 
@@ -379,8 +379,8 @@ x
 > > 
 > > 
 > > ~~~
-> >   b   c   d 
-> > 6.2 7.1 4.8 
+> > ##   b   c   d 
+> > ## 6.2 7.1 4.8
 > > ~~~
 > > {: .output}
 > >
@@ -400,8 +400,8 @@ x[c("a", "c")]
 
 
 ~~~
-  a   c 
-5.4 7.1 
+##   a   c 
+## 5.4 7.1
 ~~~
 {: .output}
 
@@ -422,8 +422,8 @@ x[-which(names(x) == "a")]
 
 
 ~~~
-  b   c   d   e 
-6.2 7.1 4.8 7.5 
+##   b   c   d   e 
+## 6.2 7.1 4.8 7.5
 ~~~
 {: .output}
 
@@ -442,7 +442,7 @@ names(x) == "a"
 
 
 ~~~
-[1]  TRUE FALSE FALSE FALSE FALSE
+## [1]  TRUE FALSE FALSE FALSE FALSE
 ~~~
 {: .output}
 
@@ -460,7 +460,7 @@ which(names(x) == "a")
 
 
 ~~~
-[1] 1
+## [1] 1
 ~~~
 {: .output}
 
@@ -481,8 +481,8 @@ x[-which(names(x) %in% c("a", "c"))]
 
 
 ~~~
-  b   d   e 
-6.2 4.8 7.5 
+##   b   d   e 
+## 6.2 4.8 7.5
 ~~~
 {: .output}
 
@@ -504,8 +504,8 @@ names of `x`, and asks, "Does this element occur in the second argument?".
 > 
 > 
 > ~~~
->   a   b   c   d   e 
-> 5.4 6.2 7.1 4.8 7.5 
+> ##   a   b   c   d   e 
+> ## 5.4 6.2 7.1 4.8 7.5
 > ~~~
 > {: .output}
 >
@@ -559,7 +559,7 @@ names of `x`, and asks, "Does this element occur in the second argument?".
 >
 >
 >~~~
->[1] 1 2 3
+>## [1] 1 2 3
 >~~~
 >{: .output}
 >
@@ -574,8 +574,8 @@ names of `x`, and asks, "Does this element occur in the second argument?".
 >
 >
 >~~~
->a a a 
->1 2 3 
+>## a a a 
+>## 1 2 3
 >~~~
 >{: .output}
 >
@@ -589,8 +589,8 @@ names of `x`, and asks, "Does this element occur in the second argument?".
 >
 >
 >~~~
->a 
->1 
+>## a 
+>## 1
 >~~~
 >{: .output}
 >
@@ -604,8 +604,8 @@ names of `x`, and asks, "Does this element occur in the second argument?".
 >
 >
 >~~~
->a a a 
->1 2 3 
+>## a a a 
+>## 1 2 3
 >~~~
 >{: .output}
 {: .callout}
@@ -632,15 +632,15 @@ names(x) == c('a', 'c')
 
 
 ~~~
-Warning in names(x) == c("a", "c"): longer object length is not a multiple
-of shorter object length
+## Warning in names(x) == c("a", "c"): longer object length is not a multiple
+## of shorter object length
 ~~~
 {: .error}
 
 
 
 ~~~
-[1]  TRUE FALSE  TRUE
+## [1]  TRUE FALSE  TRUE
 ~~~
 {: .output}
 
@@ -681,7 +681,7 @@ names(x) == c('a', 'c', 'e')
 
 
 ~~~
-[1]  TRUE FALSE FALSE
+## [1]  TRUE FALSE FALSE
 ~~~
 {: .output}
 
@@ -701,8 +701,8 @@ x[c(TRUE, TRUE, FALSE, FALSE)]
 
 
 ~~~
-a a 
-1 2 
+## a a 
+## 1 2
 ~~~
 {: .output}
 
@@ -718,8 +718,8 @@ x[c(TRUE, FALSE)]
 
 
 ~~~
-a a 
-1 3 
+## a a 
+## 1 3
 ~~~
 {: .output}
 
@@ -735,7 +735,7 @@ x[x > 7]
 
 
 ~~~
-named integer(0)
+## named integer(0)
 ~~~
 {: .output}
 
@@ -786,8 +786,8 @@ named integer(0)
 > 
 > 
 > ~~~
->   a   b   c   d   e 
-> 5.4 6.2 7.1 4.8 7.5 
+> ##   a   b   c   d   e 
+> ## 5.4 6.2 7.1 4.8 7.5
 > ~~~
 > {: .output}
 >
@@ -805,8 +805,8 @@ named integer(0)
 > > 
 > > 
 > > ~~~
-> >   a   b   d 
-> > 5.4 6.2 4.8 
+> > ##   a   b   d 
+> > ## 5.4 6.2 4.8
 > > ~~~
 > > {: .output}
 > {: .solution}
@@ -829,9 +829,9 @@ m[3:4, c(3,1)]
 
 
 ~~~
-            [,1]       [,2]
-[1,]  1.12493092 -0.8356286
-[2,] -0.04493361  1.5952808
+##             [,1]       [,2]
+## [1,]  1.12493092 -0.8356286
+## [2,] -0.04493361  1.5952808
 ~~~
 {: .output}
 
@@ -847,13 +847,13 @@ m[, c(3,4)]
 
 
 ~~~
-            [,1]        [,2]
-[1,] -0.62124058  0.82122120
-[2,] -2.21469989  0.59390132
-[3,]  1.12493092  0.91897737
-[4,] -0.04493361  0.78213630
-[5,] -0.01619026  0.07456498
-[6,]  0.94383621 -1.98935170
+##             [,1]        [,2]
+## [1,] -0.62124058  0.82122120
+## [2,] -2.21469989  0.59390132
+## [3,]  1.12493092  0.91897737
+## [4,] -0.04493361  0.78213630
+## [5,] -0.01619026  0.07456498
+## [6,]  0.94383621 -1.98935170
 ~~~
 {: .output}
 
@@ -869,7 +869,7 @@ m[3,]
 
 
 ~~~
-[1] -0.8356286  0.5757814  1.1249309  0.9189774
+## [1] -0.8356286  0.5757814  1.1249309  0.9189774
 ~~~
 {: .output}
 
@@ -885,8 +885,8 @@ m[3, , drop=FALSE]
 
 
 ~~~
-           [,1]      [,2]     [,3]      [,4]
-[1,] -0.8356286 0.5757814 1.124931 0.9189774
+##            [,1]      [,2]     [,3]      [,4]
+## [1,] -0.8356286 0.5757814 1.124931 0.9189774
 ~~~
 {: .output}
 
@@ -902,7 +902,7 @@ m[, c(3,6)]
 
 
 ~~~
-Error in m[, c(3, 6)]: subscript out of bounds
+## Error in m[, c(3, 6)]: subscript out of bounds
 ~~~
 {: .error}
 
@@ -926,7 +926,7 @@ m[5]
 
 
 ~~~
-[1] 0.3295078
+## [1] 0.3295078
 ~~~
 {: .output}
 
@@ -944,9 +944,9 @@ matrix(1:6, nrow=2, ncol=3)
 
 
 ~~~
-     [,1] [,2] [,3]
-[1,]    1    3    5
-[2,]    2    4    6
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    2    4    6
 ~~~
 {: .output}
 
@@ -961,9 +961,9 @@ matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
 
 
 ~~~
-     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
 ~~~
 {: .output}
 
@@ -984,10 +984,10 @@ instead of their row and column indices.
 > 
 > 
 > ~~~
->      [,1] [,2] [,3] [,4] [,5] [,6]
-> [1,]    1    4    7   10   13   16
-> [2,]    2    5    8   11   14   17
-> [3,]    3    6    9   12   15   18
+> ##      [,1] [,2] [,3] [,4] [,5] [,6]
+> ## [1,]    1    4    7   10   13   16
+> ## [2,]    2    5    8   11   14   17
+> ## [3,]    3    6    9   12   15   18
 > ~~~
 > {: .output}
 >
@@ -1024,13 +1024,13 @@ head(gapminder[3])
 
 
 ~~~
-  year
-1 1952
-2 1957
-3 1962
-4 1967
-5 1972
-6 1977
+##   year
+## 1 1952
+## 2 1957
+## 3 1962
+## 4 1967
+## 5 1972
+## 6 1977
 ~~~
 {: .output}
 
@@ -1045,7 +1045,7 @@ head(gapminder[["lifeExp"]])
 
 
 ~~~
-[1] 28.801 30.332 31.997 34.020 36.088 38.438
+## [1] 28.801 30.332 31.997 34.020 36.088 38.438
 ~~~
 {: .output}
 
@@ -1060,7 +1060,7 @@ head(gapminder$year)
 
 
 ~~~
-[1] 1952 1957 1962 1967 1972 1977
+## [1] 1952 1957 1962 1967 1972 1977
 ~~~
 {: .output}
 
@@ -1075,10 +1075,10 @@ gapminder[1:3,]
 
 
 ~~~
-      country continent year lifeExp      pop gdpPercap
-1 Afghanistan      Asia 1952  28.801  8425333  779.4453
-2 Afghanistan      Asia 1957  30.332  9240934  820.8530
-3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+##       country continent year lifeExp      pop gdpPercap
+## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
 ~~~
 {: .output}
 
@@ -1094,8 +1094,8 @@ gapminder[3,]
 
 
 ~~~
-      country continent year lifeExp      pop gdpPercap
-3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+##       country continent year lifeExp      pop gdpPercap
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
 ~~~
 {: .output}
 
@@ -1255,8 +1255,8 @@ f[f == "a"]
 
 
 ~~~
-[1] a a
-Levels: a b c d
+## [1] a a
+## Levels: a b c d
 ~~~
 {: .output}
 
@@ -1270,8 +1270,8 @@ f[f %in% c("b", "c")]
 
 
 ~~~
-[1] b c c
-Levels: a b c d
+## [1] b c c
+## Levels: a b c d
 ~~~
 {: .output}
 
@@ -1285,8 +1285,8 @@ f[1:3]
 
 
 ~~~
-[1] a a b
-Levels: a b c d
+## [1] a a b
+## Levels: a b c d
 ~~~
 {: .output}
 
@@ -1302,8 +1302,8 @@ f[-3]
 
 
 ~~~
-[1] a a c c d
-Levels: a b c d
+## [1] a a c c d
+## Levels: a b c d
 ~~~
 {: .output}
 
@@ -1326,8 +1326,8 @@ xlist[1]
 
 
 ~~~
-$a
-[1] "Software Carpentry"
+## $a
+## [1] "Software Carpentry"
 ~~~
 {: .output}
 
@@ -1348,11 +1348,11 @@ xlist[1:2]
 
 
 ~~~
-$a
-[1] "Software Carpentry"
-
-$b
- [1]  1  2  3  4  5  6  7  8  9 10
+## $a
+## [1] "Software Carpentry"
+## 
+## $b
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ~~~
 {: .output}
 
@@ -1368,7 +1368,7 @@ xlist[[1]]
 
 
 ~~~
-[1] "Software Carpentry"
+## [1] "Software Carpentry"
 ~~~
 {: .output}
 
@@ -1385,7 +1385,7 @@ xlist[[1:2]]
 
 
 ~~~
-Error in xlist[[1:2]]: subscript out of bounds
+## Error in xlist[[1:2]]: subscript out of bounds
 ~~~
 {: .error}
 
@@ -1400,7 +1400,7 @@ xlist[[-1]]
 
 
 ~~~
-Error in xlist[[-1]]: attempt to select more than one element in get1index <real>
+## Error in xlist[[-1]]: attempt to select more than one element in get1index <real>
 ~~~
 {: .error}
 
@@ -1415,7 +1415,7 @@ xlist[["a"]]
 
 
 ~~~
-[1] "Software Carpentry"
+## [1] "Software Carpentry"
 ~~~
 {: .output}
 
@@ -1430,13 +1430,13 @@ xlist$data
 
 
 ~~~
-  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-1          5.1         3.5          1.4         0.2  setosa
-2          4.9         3.0          1.4         0.2  setosa
-3          4.7         3.2          1.3         0.2  setosa
-4          4.6         3.1          1.5         0.2  setosa
-5          5.0         3.6          1.4         0.2  setosa
-6          5.4         3.9          1.7         0.4  setosa
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
 ~~~
 {: .output}
 
@@ -1463,7 +1463,7 @@ xlist$data
 > > 
 > > 
 > > ~~~
-> > [1] 2
+> > ## [1] 2
 > > ~~~
 > > {: .output}
 > > 
@@ -1475,7 +1475,7 @@ xlist$data
 > > 
 > > 
 > > ~~~
-> > [1] 2
+> > ## [1] 2
 > > ~~~
 > > {: .output}
 > > 
@@ -1487,7 +1487,7 @@ xlist$data
 > > 
 > > 
 > > ~~~
-> > [1] 2
+> > ## [1] 2
 > > ~~~
 > > {: .output}
 > {: .solution}

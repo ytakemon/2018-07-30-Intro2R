@@ -29,7 +29,7 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("01-")
+opts_chunk$set(fig.path ="../fig/01-")
 ```
 
 

@@ -15,11 +15,14 @@ keypoints:
 - "Mix reporting written in R Markdown with software written in R."
 - "Specify chunk options to control formatting."
 - "Use `knitr` to convert these documents into PDF and other formats."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 ```{r chunk_options, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("15-")
+opts_chunk$set(fig.path ="../fig/15-")
 ```
 
 

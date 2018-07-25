@@ -26,7 +26,7 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("05-")
+opts_chunk$set(fig.path ="../fig/05-")
 ```
 
 
@@ -229,6 +229,8 @@ gapminder <- read.csv("data/gapminder.csv")
 > * You can read directly from excel spreadsheets without
 > converting them to plain text first by using the [readxl](https://cran.r-project.org/web/packages/readxl/index.html) package.
 {: .callout}
+
+The gapminder dataset was provided by the **Gapminder Foundation**, which is a non-profit organization that promotes sustainable global development of the UN Millenium Developmen Goals via incrased use and understanding of statistics and other information about social, economic, and environmental development at national and global levels. 
 
 Let's investigate gapminder a bit; the first thing we should always do is check
 out what the data looks like with `str`:

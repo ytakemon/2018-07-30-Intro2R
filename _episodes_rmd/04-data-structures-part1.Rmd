@@ -21,7 +21,7 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("04-")
+opts_chunk$set(fig.path ="../fig/04-")
 ```
 
 One of R's most powerful features is its ability to deal with tabular data -

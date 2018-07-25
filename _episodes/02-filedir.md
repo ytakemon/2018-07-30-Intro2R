@@ -43,7 +43,7 @@ getwd()
 {: .language-r}
 
 ~~~
-[1] "/Users/nelle"
+## [1] "/Users/nelle"
 ~~~
 {: .output}
 Here, the computer's response is `/Users/nelle`, which is Nelle's **home directory**.
@@ -89,14 +89,14 @@ list.files()
 {: .language-r}
 
 ~~~
- [1] "anaconda"         "Application Data" "Applications"    
- [4] "Compass"          "CompassForSW"     "data"            
- [7] "Desktop"          "Documents"        "Downloads"       
-[10] "Dropbox"          "GitHub"           "id_rsa.pub"      
-[13] "id_rsa.pub.pub"   "igv"              "key"             
-[16] "key.pub"          "Library"          "Movies"          
-[19] "Music"            "MyProject"        "Pictures"        
-[22] "Public"           "Sites"           
+##  [1] "anaconda"         "Application Data" "Applications"    
+##  [4] "Compass"          "CompassForSW"     "data"            
+##  [7] "Desktop"          "Documents"        "Downloads"       
+## [10] "Dropbox"          "GitHub"           "id_rsa.pub"      
+## [13] "id_rsa.pub.pub"   "igv"              "key"             
+## [16] "key.pub"          "Library"          "Movies"          
+## [19] "Music"            "MyProject"        "Pictures"        
+## [22] "Public"           "Sites"
 ~~~
 {: .output}
 `list.files()` prints the names of the files and directories in the current directory. 
@@ -110,7 +110,7 @@ list.files("Desktop")
 {: .language-r}
 
 ~~~
-[1] "Data"    "Files"   "Results"
+## [1] "Data"    "Files"   "Results"
 ~~~
 {: .output}
 `list.files(path)` prints the names of the files and directories at the given path. 
@@ -127,7 +127,7 @@ list.files()
 {: .language-r}
 
 ~~~
-[1] "Data"    "Files"   "Results"
+## [1] "Data"    "Files"   "Results"
 ~~~
 {: .output}
 `setwd(path)` means 'Set working directory' and the path defines where there directory will be set. In this case the Desktop directory. With `list.files` and `getwd()` we can see now that the directory has changed.
@@ -165,13 +165,13 @@ list.files("/Users/nelle/Desktop")
 {: .language-r}
 
 ~~~
-[1] "Data"    "Files"   "Results"
+## [1] "Data"    "Files"   "Results"
 ~~~
 {: .output}
 
 
 
 ~~~
-[1] "Data"    "Files"   "Results"
+## [1] "Data"    "Files"   "Results"
 ~~~
 {: .output}

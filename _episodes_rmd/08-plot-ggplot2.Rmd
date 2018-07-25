@@ -17,7 +17,7 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("08-")
+opts_chunk$set(fig.path ="../fig/08-")
 # Silently load in the data so the rest of the lesson works
 gapminder <- read.csv("data/gapminder.csv", header = TRUE)
 ```
@@ -72,7 +72,7 @@ pass `aes` these columns (e.g. `x = gapminder[, "gdpPercap"]`), this is because
 
 By itself, the call to `ggplot` isn't enough to draw a figure:
 
-```{r}
+```{r blank}
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
 ```
 
@@ -86,7 +86,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point()+
   scale_x_log10()
 ```
-There are also built in axis transformation methods, for example Log10-transformations. Unfortunately not all transformations are built in like a simple log-transformation, in which case we can do this:
+There are also built-in axis transformation methods, for example Log10-transformations. Unfortunately not all transformations are built in like a simple log-transformation, in which case we can do this:
 
 ```{r lifeExp-vs-gdpPercap-scatter3}
 ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
@@ -118,14 +118,49 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 {: .challenge}
 
 ## Aesthetics 
+We can also colour points based on different factors, such as by continent
 ```{r lifeExp-vs-gdpPercap-scatter4}
 ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent)) +
   geom_point()
 ```
+
+## Linear Regression
+Let's add a linear regression line to this plot.
 ```{r lifeExp-vs-gdpPercap-scatter5}
 ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent)) +
   geom_point()+
   geom_smooth(method = "lm")
+```
+Here we see a linear regression line for each continent, but what the general trend is?
+```{r lifeExp-vs-gdpPercap-scatter6}
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
+  geom_point(aes(colour = continent))+
+  geom_smooth(method = "lm", colour="black")
+```
+So, what is the actual equation of this trend line?
+
+```{r linearRegression}
+fit <- lm(lifeExp ~ log(gdpPercap), data = gapminder)
+summary(fit)
+```
+Looking at the p-value, this shows that there is significant positive relationship between life expectacy and log-transformed GDP per capita.
+Let's add the linear regression line equation and its significance to the plot!
+
+To do this we need to extract this information from the `summary()`, and print out `y = ax+b`.
+```{r equation}
+# Extract information to build an equation
+a <- signif(fit$coefficients[[1]], 2)
+b <- signif(fit$coefficients[[2]], 2)
+r2 <- signif(summary(fit)$adj.r.squared,2)
+pval <- signif(summary(fit)$coefficients[2,4], 2)
+eq <- paste0("y= ",a,"x + ", b, ", r2 = ", r2,", pval = ",pval)
+eq
+
+# Create plot and annotate with equation
+ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
+  geom_point(aes(colour = continent))+
+  geom_smooth(method = "lm", colour="black")+
+  annotate("text", x=7, y=80,label = eq, colour = "black")
 ```
 
 ## Layers
@@ -137,6 +172,69 @@ Instead, let's tell `ggplot` to visualize the data as a line plot:
 ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
   geom_line()
 ```
+Instead of adding a `geom_point` layer, we've added a `geom_line` layer. We've
+added the **by** *aesthetic*, which tells `ggplot` to draw a line for each
+country.
+
+We can also combine `geom_point` and `geom_line`
+```{r lifeExp-line2}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()+
+  geom_point()
+```
+
+We see two countires, one in Asia and one in Africa, that show a noticable big drop in life expectancy. 
+Let's try to figure out which countries and years they are:
+
+We can set logical criterias based on what is shown in the graph the year, countinent, and life expectancy.
+```{r LifeExp query}
+gapminder[gapminder$year > 1975 & gapminder$continent %in% c("Asia", "Africa") & gapminder$lifeExp < 35,]
+```
+These correspond to the years when the Cambodian genocide and hte Rwandan genocide occured. 
+These are ways in which visualizing plots leads to insights in the data. 
+
+## Box plots
+The most popular plot besides a scatter plot might be a bar graph, but bar graphs do not show distribution to data within a group very well... 
+Instead, using box plots is a great alternative. Let's make one here:
+```{r boxplot}
+ggplot(gapminder, aes(x= continent, y = log(gdpPercap), fill = continent))+
+  geom_boxplot()
+```
+One common misconception is the middle bar that cuts across each group. This is the **median** of the group distribution, NOT the average.
+
+Now that we can see the distirubtion of log-transformed GDP per capita varies between continents, let's see if any of the continents is significantly different from one another. 
+To test this we will run an one-way Analysis of Variance (ANOVA) model as shown below. 
+
+```{r anova demo}
+fit_anov <- aov(log(gdpPercap)~ continent, data = gapminder)
+summary(fit)
+```
+
+We have a p-value less than  `2 * 10 ^-16^`
+
+```{r anova post hoc demo}
+TukeyHSD(fit_anov, "continent")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Instead of adding a `geom_point` layer, we've added a `geom_line` layer. We've
 added the **by** *aesthetic*, which tells `ggplot` to draw a line for each

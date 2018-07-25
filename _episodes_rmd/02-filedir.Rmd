@@ -28,7 +28,7 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("02-")
+opts_chunk$set(fig.path ="../fig/02-")
 ```
 
 ## Working Directories

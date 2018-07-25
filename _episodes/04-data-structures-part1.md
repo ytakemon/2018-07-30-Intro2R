@@ -52,10 +52,10 @@ cats
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1         TRUE
-2  black    5.0        FALSE
-3  tabby    3.2         TRUE
+##     coat weight likes_string
+## 1 calico    2.1         TRUE
+## 2  black    5.0        FALSE
+## 3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -79,7 +79,7 @@ cats$weight
 
 
 ~~~
-[1] 2.1 5.0 3.2
+## [1] 2.1 5.0 3.2
 ~~~
 {: .output}
 
@@ -93,8 +93,8 @@ cats$coat
 
 
 ~~~
-[1] calico black  tabby 
-Levels: black calico tabby
+## [1] calico black  tabby 
+## Levels: black calico tabby
 ~~~
 {: .output}
 
@@ -110,7 +110,7 @@ cats$weight + 2
 
 
 ~~~
-[1] 4.1 7.0 5.2
+## [1] 4.1 7.0 5.2
 ~~~
 {: .output}
 
@@ -124,7 +124,7 @@ paste("My cat is", cats$coat)
 
 
 ~~~
-[1] "My cat is calico" "My cat is black"  "My cat is tabby" 
+## [1] "My cat is calico" "My cat is black"  "My cat is tabby"
 ~~~
 {: .output}
 
@@ -139,15 +139,15 @@ cats$weight + cats$coat
 
 
 ~~~
-Warning in Ops.factor(cats$weight, cats$coat): '+' not meaningful for
-factors
+## Warning in Ops.factor(cats$weight, cats$coat): '+' not meaningful for
+## factors
 ~~~
 {: .error}
 
 
 
 ~~~
-[1] NA NA NA
+## [1] NA NA NA
 ~~~
 {: .output}
 
@@ -169,7 +169,7 @@ typeof(cats$weight)
 
 
 ~~~
-[1] "double"
+## [1] "double"
 ~~~
 {: .output}
 
@@ -184,7 +184,7 @@ typeof(3.14)
 
 
 ~~~
-[1] "double"
+## [1] "double"
 ~~~
 {: .output}
 
@@ -198,7 +198,7 @@ typeof(1L)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -212,7 +212,7 @@ typeof(1+1i)
 
 
 ~~~
-[1] "complex"
+## [1] "complex"
 ~~~
 {: .output}
 
@@ -226,7 +226,7 @@ typeof(TRUE)
 
 
 ~~~
-[1] "logical"
+## [1] "logical"
 ~~~
 {: .output}
 
@@ -240,7 +240,7 @@ typeof('banana')
 
 
 ~~~
-[1] "character"
+## [1] "character"
 ~~~
 {: .output}
 
@@ -259,7 +259,7 @@ class(cats)
 
 
 ~~~
-[1] "data.frame"
+## [1] "data.frame"
 ~~~
 {: .output}
 
@@ -273,7 +273,7 @@ is.data.frame(cats)
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -317,7 +317,7 @@ cats_weight
 
 
 ~~~
-[1] 2.1 5.0 3.2
+## [1] 2.1 5.0 3.2
 ~~~
 {: .output}
 
@@ -331,7 +331,7 @@ is.vector(cats_weight)
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -365,7 +365,7 @@ c_vector_num
 
 
 ~~~
-[1] 2 6 3
+## [1] 2 6 3
 ~~~
 {: .output}
 
@@ -377,7 +377,7 @@ typeof(c_vector_num)
 
 
 ~~~
-[1] "double"
+## [1] "double"
 ~~~
 {: .output}
 and a character vector:
@@ -391,7 +391,7 @@ c_vector_chr
 
 
 ~~~
-[1] "a" "b" "c"
+## [1] "a" "b" "c"
 ~~~
 {: .output}
 
@@ -403,7 +403,7 @@ typeof(c_vector_chr)
 
 
 ~~~
-[1] "character"
+## [1] "character"
 ~~~
 {: .output}
 
@@ -431,7 +431,7 @@ coercion_vector
 
 
 ~~~
-[1] "a"    "TRUE"
+## [1] "a"    "TRUE"
 ~~~
 {: .output}
 
@@ -446,7 +446,7 @@ another_coercion_vector
 
 
 ~~~
-[1] 0 1
+## [1] 0 1
 ~~~
 {: .output}
 
@@ -464,7 +464,7 @@ character_vector_example
 
 
 ~~~
-[1] "0" "2" "4"
+## [1] "0" "2" "4"
 ~~~
 {: .output}
 
@@ -479,7 +479,7 @@ character_coerced_to_numeric
 
 
 ~~~
-[1] 0 2 4
+## [1] 0 2 4
 ~~~
 {: .output}
 
@@ -494,7 +494,7 @@ numeric_coerced_to_logical
 
 
 ~~~
-[1] FALSE  TRUE  TRUE
+## [1] FALSE  TRUE  TRUE
 ~~~
 {: .output}
 
@@ -520,7 +520,7 @@ cats$likes_string
 
 
 ~~~
-[1]  TRUE FALSE  TRUE
+## [1]  TRUE FALSE  TRUE
 ~~~
 {: .output}
 
@@ -535,7 +535,7 @@ cats$likes_string
 
 
 ~~~
-[1]  TRUE FALSE  TRUE
+## [1]  TRUE FALSE  TRUE
 ~~~
 {: .output}
 
@@ -551,7 +551,7 @@ ab_vector
 
 
 ~~~
-[1] "a" "b"
+## [1] "a" "b"
 ~~~
 {: .output}
 
@@ -566,7 +566,7 @@ combine_example
 
 
 ~~~
-[1] "a"   "b"   "SWC"
+## [1] "a"   "b"   "SWC"
 ~~~
 {: .output}
 
@@ -582,7 +582,7 @@ num_series
 
 
 ~~~
- [1]  1  2  3  4  5  6  7  8  9 10
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ~~~
 {: .output}
 
@@ -596,7 +596,7 @@ seq(10)
 
 
 ~~~
- [1]  1  2  3  4  5  6  7  8  9 10
+##  [1]  1  2  3  4  5  6  7  8  9 10
 ~~~
 {: .output}
 
@@ -610,13 +610,13 @@ seq(1,10, by=0.1)
 
 
 ~~~
- [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3
-[15]  2.4  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7
-[29]  3.8  3.9  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1
-[43]  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5
-[57]  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9
-[71]  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3
-[85]  9.4  9.5  9.6  9.7  9.8  9.9 10.0
+##  [1]  1.0  1.1  1.2  1.3  1.4  1.5  1.6  1.7  1.8  1.9  2.0  2.1  2.2  2.3
+## [15]  2.4  2.5  2.6  2.7  2.8  2.9  3.0  3.1  3.2  3.3  3.4  3.5  3.6  3.7
+## [29]  3.8  3.9  4.0  4.1  4.2  4.3  4.4  4.5  4.6  4.7  4.8  4.9  5.0  5.1
+## [43]  5.2  5.3  5.4  5.5  5.6  5.7  5.8  5.9  6.0  6.1  6.2  6.3  6.4  6.5
+## [57]  6.6  6.7  6.8  6.9  7.0  7.1  7.2  7.3  7.4  7.5  7.6  7.7  7.8  7.9
+## [71]  8.0  8.1  8.2  8.3  8.4  8.5  8.6  8.7  8.8  8.9  9.0  9.1  9.2  9.3
+## [85]  9.4  9.5  9.6  9.7  9.8  9.9 10.0
 ~~~
 {: .output}
 
@@ -631,8 +631,8 @@ letter_series
 
 
 ~~~
- [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"
-[18] "r" "s" "t" "u" "v" "w" "x" "y" "z"
+##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q"
+## [18] "r" "s" "t" "u" "v" "w" "x" "y" "z"
 ~~~
 {: .output}
 
@@ -647,8 +647,8 @@ LETTER_series
 
 
 ~~~
- [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q"
-[18] "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
+##  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q"
+## [18] "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
 ~~~
 {: .output}
 We can ask a few questions about vectors:
@@ -663,7 +663,7 @@ head(sequence_example, n=2)
 
 
 ~~~
-[1] 1 2
+## [1] 1 2
 ~~~
 {: .output}
 
@@ -677,7 +677,7 @@ tail(sequence_example, n=4)
 
 
 ~~~
-[1]  7  8  9 10
+## [1]  7  8  9 10
 ~~~
 {: .output}
 
@@ -691,7 +691,7 @@ length(sequence_example)
 
 
 ~~~
-[1] 10
+## [1] 10
 ~~~
 {: .output}
 
@@ -705,7 +705,7 @@ class(sequence_example)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -719,7 +719,7 @@ typeof(sequence_example)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -736,8 +736,8 @@ names_example
 
 
 ~~~
-a b c d 
-5 6 7 8 
+## a b c d 
+## 5 6 7 8
 ~~~
 {: .output}
 
@@ -751,7 +751,7 @@ names(names_example)
 
 
 ~~~
-[1] "a" "b" "c" "d"
+## [1] "a" "b" "c" "d"
 ~~~
 {: .output}
 
@@ -787,7 +787,7 @@ str(cats$weight)
 
 
 ~~~
- num [1:3] 2.1 5 3.2
+##  num [1:3] 2.1 5 3.2
 ~~~
 {: .output}
 
@@ -801,7 +801,7 @@ str(cats$likes_string)
 
 
 ~~~
- logi [1:3] TRUE FALSE TRUE
+##  logi [1:3] TRUE FALSE TRUE
 ~~~
 {: .output}
 
@@ -816,7 +816,7 @@ str(cats$coat)
 
 
 ~~~
- Factor w/ 3 levels "black","calico",..: 2 1 3
+##  Factor w/ 3 levels "black","calico",..: 2 1 3
 ~~~
 {: .output}
 
@@ -837,7 +837,7 @@ coats
 
 
 ~~~
-[1] "tabby"  "tuxedo" "tuxedo" "black"  "tabby" 
+## [1] "tabby"  "tuxedo" "tuxedo" "black"  "tabby"
 ~~~
 {: .output}
 
@@ -851,7 +851,7 @@ str(coats)
 
 
 ~~~
- chr [1:5] "tabby" "tuxedo" "tuxedo" "black" "tabby"
+##  chr [1:5] "tabby" "tuxedo" "tuxedo" "black" "tabby"
 ~~~
 {: .output}
 
@@ -867,7 +867,7 @@ class(CATegories)
 
 
 ~~~
-[1] "factor"
+## [1] "factor"
 ~~~
 {: .output}
 
@@ -881,7 +881,7 @@ str(CATegories)
 
 
 ~~~
- Factor w/ 3 levels "black","tabby",..: 2 3 3 1 2
+##  Factor w/ 3 levels "black","tabby",..: 2 3 3 1 2
 ~~~
 {: .output}
 
@@ -899,7 +899,7 @@ typeof(coats)
 
 
 ~~~
-[1] "character"
+## [1] "character"
 ~~~
 {: .output}
 
@@ -913,7 +913,7 @@ typeof(CATegories)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -966,7 +966,7 @@ str(factor_ordering_example)
 
 
 ~~~
- Factor w/ 2 levels "control","case": 2 1 1 2
+##  Factor w/ 2 levels "control","case": 2 1 1 2
 ~~~
 {: .output}
 
@@ -990,17 +990,17 @@ list_example
 
 
 ~~~
-[[1]]
-[1] 1
-
-[[2]]
-[1] "a"
-
-[[3]]
-[1] TRUE
-
-[[4]]
-[1] 1+4i
+## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] "a"
+## 
+## [[3]]
+## [1] TRUE
+## 
+## [[4]]
+## [1] 1+4i
 ~~~
 {: .output}
 
@@ -1015,14 +1015,14 @@ another_list
 
 
 ~~~
-$title
-[1] "Research Bazaar"
-
-$numbers
- [1]  1  2  3  4  5  6  7  8  9 10
-
-$data
-[1] TRUE
+## $title
+## [1] "Research Bazaar"
+## 
+## $numbers
+##  [1]  1  2  3  4  5  6  7  8  9 10
+## 
+## $data
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -1037,7 +1037,7 @@ typeof(cats)
 
 
 ~~~
-[1] "list"
+## [1] "list"
 ~~~
 {: .output}
 
@@ -1060,8 +1060,8 @@ cats$coat
 
 
 ~~~
-[1] calico black  tabby 
-Levels: black calico tabby
+## [1] calico black  tabby 
+## Levels: black calico tabby
 ~~~
 {: .output}
 
@@ -1075,8 +1075,8 @@ cats[,1]
 
 
 ~~~
-[1] calico black  tabby 
-Levels: black calico tabby
+## [1] calico black  tabby 
+## Levels: black calico tabby
 ~~~
 {: .output}
 
@@ -1090,7 +1090,7 @@ typeof(cats[,1])
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -1104,7 +1104,7 @@ str(cats[,1])
 
 
 ~~~
- Factor w/ 3 levels "black","calico",..: 2 1 3
+##  Factor w/ 3 levels "black","calico",..: 2 1 3
 ~~~
 {: .output}
 
@@ -1120,8 +1120,8 @@ cats[1,]
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1         TRUE
+##     coat weight likes_string
+## 1 calico    2.1         TRUE
 ~~~
 {: .output}
 
@@ -1135,7 +1135,7 @@ typeof(cats[1,])
 
 
 ~~~
-[1] "list"
+## [1] "list"
 ~~~
 {: .output}
 
@@ -1149,10 +1149,10 @@ str(cats[1,])
 
 
 ~~~
-'data.frame':	1 obs. of  3 variables:
- $ coat        : Factor w/ 3 levels "black","calico",..: 2
- $ weight      : num 2.1
- $ likes_string: logi TRUE
+## 'data.frame':	1 obs. of  3 variables:
+##  $ coat        : Factor w/ 3 levels "black","calico",..: 2
+##  $ weight      : num 2.1
+##  $ likes_string: logi TRUE
 ~~~
 {: .output}
 
@@ -1183,10 +1183,10 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> >     coat
-> > 1 calico
-> > 2  black
-> > 3  tabby
+> > ##     coat
+> > ## 1 calico
+> > ## 2  black
+> > ## 3  tabby
 > > ~~~
 > > {: .output}
 > > We can think of a data frame as a list of vectors. The single brace `[1]`
@@ -1201,8 +1201,8 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico black  tabby 
-> > Levels: black calico tabby
+> > ## [1] calico black  tabby 
+> > ## Levels: black calico tabby
 > > ~~~
 > > {: .output}
 > > The double brace `[[1]]` returns the contents of the list item. In this case
@@ -1216,8 +1216,8 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico black  tabby 
-> > Levels: black calico tabby
+> > ## [1] calico black  tabby 
+> > ## Levels: black calico tabby
 > > ~~~
 > > {: .output}
 > > This example uses the `$` character to address items by name. _coat_ is the
@@ -1231,10 +1231,10 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> >     coat
-> > 1 calico
-> > 2  black
-> > 3  tabby
+> > ##     coat
+> > ## 1 calico
+> > ## 2  black
+> > ## 3  tabby
 > > ~~~
 > > {: .output}
 > > Here we are using a single brace `["coat"]` replacing the index number with
@@ -1248,8 +1248,8 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico
-> > Levels: black calico tabby
+> > ## [1] calico
+> > ## Levels: black calico tabby
 > > ~~~
 > > {: .output}
 > > This example uses a single brace, but this time we provide row and column
@@ -1265,8 +1265,8 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > [1] calico black  tabby 
-> > Levels: black calico tabby
+> > ## [1] calico black  tabby 
+> > ## Levels: black calico tabby
 > > ~~~
 > > {: .output}
 > > Like the previous example we use single braces and provide row and column
@@ -1281,8 +1281,8 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> >     coat weight likes_string
-> > 1 calico    2.1         TRUE
+> > ##     coat weight likes_string
+> > ## 1 calico    2.1         TRUE
 > > ~~~
 > > {: .output}
 > > Again we use the single brace with row and column coordinates. The column
@@ -1305,10 +1305,10 @@ matrix_example
 
 
 ~~~
-     [,1] [,2] [,3] [,4] [,5] [,6]
-[1,]    0    0    0    0    0    0
-[2,]    0    0    0    0    0    0
-[3,]    0    0    0    0    0    0
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    0    0    0    0    0    0
+## [2,]    0    0    0    0    0    0
+## [3,]    0    0    0    0    0    0
 ~~~
 {: .output}
 
@@ -1323,7 +1323,7 @@ class(matrix_example)
 
 
 ~~~
-[1] "matrix"
+## [1] "matrix"
 ~~~
 {: .output}
 
@@ -1337,7 +1337,7 @@ typeof(matrix_example)
 
 
 ~~~
-[1] "double"
+## [1] "double"
 ~~~
 {: .output}
 
@@ -1351,7 +1351,7 @@ str(matrix_example)
 
 
 ~~~
- num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
+##  num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
 ~~~
 {: .output}
 
@@ -1365,7 +1365,7 @@ dim(matrix_example)
 
 
 ~~~
-[1] 3 6
+## [1] 3 6
 ~~~
 {: .output}
 
@@ -1379,7 +1379,7 @@ nrow(matrix_example)
 
 
 ~~~
-[1] 3
+## [1] 3
 ~~~
 {: .output}
 
@@ -1393,7 +1393,7 @@ ncol(matrix_example)
 
 
 ~~~
-[1] 6
+## [1] 6
 ~~~
 {: .output}
 
@@ -1419,7 +1419,7 @@ ncol(matrix_example)
 > > 
 > > 
 > > ~~~
-> > [1] 18
+> > ## [1] 18
 > > ~~~
 > > {: .output}
 > >
@@ -1487,10 +1487,10 @@ ncol(matrix_example)
 > Consider the R output of the matrix below:
 > 
 > ~~~
->      [,1] [,2]
-> [1,]    4    1
-> [2,]    9    5
-> [3,]   10    7
+> ##      [,1] [,2]
+> ## [1,]    4    1
+> ## [2,]    9    5
+> ## [3,]   10    7
 > ~~~
 > {: .output}
 > What was the correct command used to write this matrix? Examine
@@ -1507,10 +1507,10 @@ ncol(matrix_example)
 > > Consider the R output of the matrix below:
 > > 
 > > ~~~
-> >      [,1] [,2]
-> > [1,]    4    1
-> > [2,]    9    5
-> > [3,]   10    7
+> > ##      [,1] [,2]
+> > ## [1,]    4    1
+> > ## [2,]    9    5
+> > ## [3,]   10    7
 > > ~~~
 > > {: .output}
 > > What was the correct command used to write this matrix? Examine

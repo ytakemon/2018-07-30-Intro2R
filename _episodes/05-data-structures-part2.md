@@ -52,10 +52,10 @@ cats
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1         TRUE
-2  black    5.0        FALSE
-3  tabby    3.2         TRUE
+##     coat weight likes_string
+## 1 calico    2.1         TRUE
+## 2  black    5.0        FALSE
+## 3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -70,7 +70,7 @@ cats <- cbind(cats, age)
 
 
 ~~~
-Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
+## Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 3, 4
 ~~~
 {: .error}
 
@@ -86,10 +86,10 @@ cats
 
 
 ~~~
-    coat weight likes_string
-1 calico    2.1         TRUE
-2  black    5.0        FALSE
-3  tabby    3.2         TRUE
+##     coat weight likes_string
+## 1 calico    2.1         TRUE
+## 2  black    5.0        FALSE
+## 3  tabby    3.2         TRUE
 ~~~
 {: .output}
 
@@ -105,10 +105,10 @@ cats
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1         TRUE   4
-2  black    5.0        FALSE   5
-3  tabby    3.2         TRUE   8
+##     coat weight likes_string age
+## 1 calico    2.1         TRUE   4
+## 2  black    5.0        FALSE   5
+## 3  tabby    3.2         TRUE   8
 ~~~
 {: .output}
 
@@ -125,8 +125,8 @@ cats <- rbind(cats, newRow)
 
 
 ~~~
-Warning in `[<-.factor`(`*tmp*`, ri, value = "tuxedo"): invalid factor
-level, NA generated
+## Warning in `[<-.factor`(`*tmp*`, ri, value = "tuxedo"): invalid factor
+## level, NA generated
 ~~~
 {: .error}
 
@@ -152,7 +152,7 @@ levels(cats$coat)
 
 
 ~~~
-[1] "black"  "calico" "tabby" 
+## [1] "black"  "calico" "tabby"
 ~~~
 {: .output}
 
@@ -177,11 +177,11 @@ str(cats)
 
 
 ~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
- $ age         : num  4 5 8 9 9
+## 'data.frame':	5 obs. of  4 variables:
+##  $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
+##  $ weight      : num  2.1 5 3.2 3.3 3.3
+##  $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
+##  $ age         : num  4 5 8 9 9
 ~~~
 {: .output}
 
@@ -196,11 +196,11 @@ str(cats)
 
 
 ~~~
-'data.frame':	5 obs. of  4 variables:
- $ coat        : chr  "calico" "black" "tabby" NA ...
- $ weight      : num  2.1 5 3.2 3.3 3.3
- $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
- $ age         : num  4 5 8 9 9
+## 'data.frame':	5 obs. of  4 variables:
+##  $ coat        : chr  "calico" "black" "tabby" NA ...
+##  $ weight      : num  2.1 5 3.2 3.3 3.3
+##  $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
+##  $ age         : num  4 5 8 9 9
 ~~~
 {: .output}
 
@@ -219,12 +219,12 @@ cats
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1         TRUE   4
-2  black    5.0        FALSE   5
-3  tabby    3.2         TRUE   8
-4   <NA>    3.3         TRUE   9
-5 tuxedo    3.3         TRUE   9
+##     coat weight likes_string age
+## 1 calico    2.1         TRUE   4
+## 2  black    5.0        FALSE   5
+## 3  tabby    3.2         TRUE   8
+## 4   <NA>    3.3         TRUE   9
+## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -239,11 +239,11 @@ cats[-4,]
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1         TRUE   4
-2  black    5.0        FALSE   5
-3  tabby    3.2         TRUE   8
-5 tuxedo    3.3         TRUE   9
+##     coat weight likes_string age
+## 1 calico    2.1         TRUE   4
+## 2  black    5.0        FALSE   5
+## 3  tabby    3.2         TRUE   8
+## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -263,11 +263,11 @@ na.omit(cats)
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1         TRUE   4
-2  black    5.0        FALSE   5
-3  tabby    3.2         TRUE   8
-5 tuxedo    3.3         TRUE   9
+##     coat weight likes_string age
+## 1 calico    2.1         TRUE   4
+## 2  black    5.0        FALSE   5
+## 3  tabby    3.2         TRUE   8
+## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -292,10 +292,10 @@ str(cats2)
 
 
 ~~~
-'data.frame':	3 obs. of  3 variables:
- $ coat        : chr  "calico" "black" "tabby"
- $ weight      : num  2.1 5 3.2
- $ likes_string: logi  TRUE FALSE TRUE
+## 'data.frame':	3 obs. of  3 variables:
+##  $ coat        : chr  "calico" "black" "tabby"
+##  $ weight      : num  2.1 5 3.2
+##  $ likes_string: logi  TRUE FALSE TRUE
 ~~~
 {: .output}
 
@@ -309,13 +309,13 @@ str(cats)
 
 
 ~~~
-'data.frame':	4 obs. of  4 variables:
- $ coat        : chr  "calico" "black" "tabby" "tuxedo"
- $ weight      : num  2.1 5 3.2 3.3
- $ likes_string: logi  TRUE FALSE TRUE TRUE
- $ age         : num  4 5 8 9
- - attr(*, "na.action")= 'omit' Named int 4
-  ..- attr(*, "names")= chr "4"
+## 'data.frame':	4 obs. of  4 variables:
+##  $ coat        : chr  "calico" "black" "tabby" "tuxedo"
+##  $ weight      : num  2.1 5 3.2 3.3
+##  $ likes_string: logi  TRUE FALSE TRUE TRUE
+##  $ age         : num  4 5 8 9
+##  - attr(*, "na.action")= 'omit' Named int 4
+##   ..- attr(*, "names")= chr "4"
 ~~~
 {: .output}
 
@@ -329,10 +329,10 @@ str(cats2)
 
 
 ~~~
-'data.frame':	3 obs. of  3 variables:
- $ coat        : chr  "calico" "black" "tabby"
- $ weight      : num  2.1 5 3.2
- $ likes_string: logi  TRUE FALSE TRUE
+## 'data.frame':	3 obs. of  3 variables:
+##  $ coat        : chr  "calico" "black" "tabby"
+##  $ weight      : num  2.1 5 3.2
+##  $ likes_string: logi  TRUE FALSE TRUE
 ~~~
 {: .output}
 
@@ -352,15 +352,15 @@ cats
 
 
 ~~~
-     coat weight likes_string age
-1  calico    2.1         TRUE   4
-2   black    5.0        FALSE   5
-3   tabby    3.2         TRUE   8
-5  tuxedo    3.3         TRUE   9
-11 calico    2.1         TRUE   4
-21  black    5.0        FALSE   5
-31  tabby    3.2         TRUE   8
-51 tuxedo    3.3         TRUE   9
+##      coat weight likes_string age
+## 1  calico    2.1         TRUE   4
+## 2   black    5.0        FALSE   5
+## 3   tabby    3.2         TRUE   8
+## 5  tuxedo    3.3         TRUE   9
+## 11 calico    2.1         TRUE   4
+## 21  black    5.0        FALSE   5
+## 31  tabby    3.2         TRUE   8
+## 51 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 But now the row names are unnecessarily complicated. We can remove the rownames,
@@ -376,15 +376,15 @@ cats
 
 
 ~~~
-    coat weight likes_string age
-1 calico    2.1         TRUE   4
-2  black    5.0        FALSE   5
-3  tabby    3.2         TRUE   8
-4 tuxedo    3.3         TRUE   9
-5 calico    2.1         TRUE   4
-6  black    5.0        FALSE   5
-7  tabby    3.2         TRUE   8
-8 tuxedo    3.3         TRUE   9
+##     coat weight likes_string age
+## 1 calico    2.1         TRUE   4
+## 2  black    5.0        FALSE   5
+## 3  tabby    3.2         TRUE   8
+## 4 tuxedo    3.3         TRUE   9
+## 5 calico    2.1         TRUE   4
+## 6  black    5.0        FALSE   5
+## 7  tabby    3.2         TRUE   8
+## 8 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 
@@ -458,6 +458,8 @@ gapminder <- read.csv("data/gapminder.csv")
 > converting them to plain text first by using the [readxl](https://cran.r-project.org/web/packages/readxl/index.html) package.
 {: .callout}
 
+The gapminder dataset was provided by the **Gapminder Foundation**, which is a non-profit organization that promotes sustainable global development of the UN Millenium Developmen Goals via incrased use and understanding of statistics and other information about social, economic, and environmental development at national and global levels. 
+
 Let's investigate gapminder a bit; the first thing we should always do is check
 out what the data looks like with `str`:
 
@@ -470,13 +472,13 @@ str(gapminder)
 
 
 ~~~
-'data.frame':	1704 obs. of  6 variables:
- $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
- $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
- $ gdpPercap: num  779 821 853 836 740 ...
+## 'data.frame':	1704 obs. of  6 variables:
+##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...
 ~~~
 {: .output}
 
@@ -491,7 +493,7 @@ typeof(gapminder$year)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -505,7 +507,7 @@ typeof(gapminder$country)
 
 
 ~~~
-[1] "integer"
+## [1] "integer"
 ~~~
 {: .output}
 
@@ -519,7 +521,7 @@ str(gapminder$country)
 
 
 ~~~
- Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 ~~~
 {: .output}
 
@@ -536,7 +538,7 @@ length(gapminder)
 
 
 ~~~
-[1] 6
+## [1] 6
 ~~~
 {: .output}
 
@@ -553,7 +555,7 @@ typeof(gapminder)
 
 
 ~~~
-[1] "list"
+## [1] "list"
 ~~~
 {: .output}
 
@@ -569,7 +571,7 @@ nrow(gapminder)
 
 
 ~~~
-[1] 1704
+## [1] 1704
 ~~~
 {: .output}
 
@@ -583,7 +585,7 @@ ncol(gapminder)
 
 
 ~~~
-[1] 6
+## [1] 6
 ~~~
 {: .output}
 
@@ -598,7 +600,7 @@ dim(gapminder)
 
 
 ~~~
-[1] 1704    6
+## [1] 1704    6
 ~~~
 {: .output}
 
@@ -614,7 +616,7 @@ colnames(gapminder)
 
 
 ~~~
-[1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"
+## [1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"
 ~~~
 {: .output}
 
@@ -637,13 +639,13 @@ head(gapminder)
 
 
 ~~~
-      country continent year lifeExp      pop gdpPercap
-1 Afghanistan      Asia 1952  28.801  8425333  779.4453
-2 Afghanistan      Asia 1957  30.332  9240934  820.8530
-3 Afghanistan      Asia 1962  31.997 10267083  853.1007
-4 Afghanistan      Asia 1967  34.020 11537966  836.1971
-5 Afghanistan      Asia 1972  36.088 13079460  739.9811
-6 Afghanistan      Asia 1977  38.438 14880372  786.1134
+##       country continent year lifeExp      pop gdpPercap
+## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ~~~
 {: .output}
 

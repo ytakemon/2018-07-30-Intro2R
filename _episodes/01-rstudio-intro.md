@@ -135,7 +135,7 @@ The simplest thing you could do with R is do arithmetic:
 
 
 ~~~
-[1] 101
+## [1] 101
 ~~~
 {: .output}
 
@@ -194,7 +194,7 @@ From highest to lowest precedence:
 
 
 ~~~
-[1] 13
+## [1] 13
 ~~~
 {: .output}
 
@@ -211,7 +211,7 @@ intend.
 
 
 ~~~
-[1] 16
+## [1] 16
 ~~~
 {: .output}
 
@@ -242,7 +242,7 @@ Really small or large numbers get a scientific notation:
 
 
 ~~~
-[1] 2e-04
+## [1] 2e-04
 ~~~
 {: .output}
 
@@ -260,7 +260,7 @@ You can write numbers in scientific notation too:
 
 
 ~~~
-[1] 5000
+## [1] 5000
 ~~~
 {: .output}
 
@@ -280,7 +280,7 @@ sin(1)  # trigonometry functions
 
 
 ~~~
-[1] 0.841471
+## [1] 0.841471
 ~~~
 {: .output}
 
@@ -293,7 +293,7 @@ log(1)  # natural logarithm
 
 
 ~~~
-[1] 0
+## [1] 0
 ~~~
 {: .output}
 
@@ -306,7 +306,7 @@ log10(10) # base-10 logarithm
 
 
 ~~~
-[1] 1
+## [1] 1
 ~~~
 {: .output}
 
@@ -319,7 +319,7 @@ exp(0.5) # e^(1/2)
 
 
 ~~~
-[1] 1.648721
+## [1] 1.648721
 ~~~
 {: .output}
 
@@ -351,7 +351,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -364,7 +364,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -377,7 +377,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -390,7 +390,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -403,7 +403,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -416,7 +416,7 @@ We can also do comparison in R:
 
 
 ~~~
-[1] TRUE
+## [1] TRUE
 ~~~
 {: .output}
 
@@ -462,7 +462,7 @@ x
 
 
 ~~~
-[1] 0.025
+## [1] 0.025
 ~~~
 {: .output}
 
@@ -481,7 +481,7 @@ log(x)
 
 
 ~~~
-[1] -3.688879
+## [1] -3.688879
 ~~~
 {: .output}
 
@@ -543,7 +543,7 @@ variables and functions can have vectors as values. For example
 
 
 ~~~
-[1] 1 2 3 4 5
+## [1] 1 2 3 4 5
 ~~~
 {: .output}
 
@@ -557,7 +557,7 @@ variables and functions can have vectors as values. For example
 
 
 ~~~
-[1]  2  4  8 16 32
+## [1]  2  4  8 16 32
 ~~~
 {: .output}
 
@@ -572,7 +572,7 @@ x <- 1:5
 
 
 ~~~
-[1]  2  4  8 16 32
+## [1]  2  4  8 16 32
 ~~~
 {: .output}
 
@@ -596,8 +596,8 @@ ls()
 
 
 ~~~
-[1] "fix_fig_path"   "hook_error"     "hook_in"        "hook_out"      
-[5] "knitr_fig_path" "x"             
+## [1] "fix_fig_path" "hook_error"   "hook_in"      "hook_out"    
+## [5] "x"
 ~~~
 {: .output}
 
@@ -623,39 +623,39 @@ ls
 
 
 ~~~
-function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
-    pattern, sorted = TRUE) 
-{
-    if (!missing(name)) {
-        pos <- tryCatch(name, error = function(e) e)
-        if (inherits(pos, "error")) {
-            name <- substitute(name)
-            if (!is.character(name)) 
-                name <- deparse(name)
-            warning(gettextf("%s converted to character string", 
-                sQuote(name)), domain = NA)
-            pos <- name
-        }
-    }
-    all.names <- .Internal(ls(envir, all.names, sorted))
-    if (!missing(pattern)) {
-        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
-            ll != length(grep("]", pattern, fixed = TRUE))) {
-            if (pattern == "[") {
-                pattern <- "\\["
-                warning("replaced regular expression pattern '[' by  '\\\\['")
-            }
-            else if (length(grep("[^\\\\]\\[<-", pattern))) {
-                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
-                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
-            }
-        }
-        grep(pattern, all.names, value = TRUE)
-    }
-    else all.names
-}
-<bytecode: 0x7ff5305af6e8>
-<environment: namespace:base>
+## function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+##     pattern, sorted = TRUE) 
+## {
+##     if (!missing(name)) {
+##         pos <- tryCatch(name, error = function(e) e)
+##         if (inherits(pos, "error")) {
+##             name <- substitute(name)
+##             if (!is.character(name)) 
+##                 name <- deparse(name)
+##             warning(gettextf("%s converted to character string", 
+##                 sQuote(name)), domain = NA)
+##             pos <- name
+##         }
+##     }
+##     all.names <- .Internal(ls(envir, all.names, sorted))
+##     if (!missing(pattern)) {
+##         if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
+##             ll != length(grep("]", pattern, fixed = TRUE))) {
+##             if (pattern == "[") {
+##                 pattern <- "\\["
+##                 warning("replaced regular expression pattern '[' by  '\\\\['")
+##             }
+##             else if (length(grep("[^\\\\]\\[<-", pattern))) {
+##                 pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
+##                 warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
+##             }
+##         }
+##         grep(pattern, all.names, value = TRUE)
+##     }
+##     else all.names
+## }
+## <bytecode: 0x7fea20da10e8>
+## <environment: namespace:base>
 ~~~
 {: .output}
 
@@ -694,7 +694,7 @@ rm(list <- ls())
 
 
 ~~~
-Error in rm(list <- ls()): ... must contain names or character strings
+## Error in rm(list <- ls()): ... must contain names or character strings
 ~~~
 {: .error}
 
@@ -837,7 +837,7 @@ network). R and RStudio have functionality for managing packages:
 > > 
 > > 
 > > ~~~
-> > [1] TRUE
+> > ## [1] TRUE
 > > ~~~
 > > {: .output}
 > > This should yield a boolean value of TRUE since 109.25 is greater than 102.

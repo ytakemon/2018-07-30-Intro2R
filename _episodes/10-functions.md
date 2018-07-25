@@ -14,6 +14,9 @@ keypoints:
 - "Use `function` to define a new function in R."
 - "Use parameters to pass values into functions."
 - "Load functions into programs using `source`."
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 
@@ -100,7 +103,7 @@ fahr_to_kelvin(32)
 
 
 ~~~
-[1] 273.15
+## [1] 273.15
 ~~~
 {: .output}
 
@@ -114,7 +117,7 @@ fahr_to_kelvin(212)
 
 
 ~~~
-[1] 373.15
+## [1] 373.15
 ~~~
 {: .output}
 
@@ -230,7 +233,7 @@ calcGDP(head(gapminder))
 
 
 ~~~
-[1]  6567086330  7585448670  8758855797  9648014150  9678553274 11697659231
+## [1]  6567086330  7585448670  8758855797  9648014150  9678553274 11697659231
 ~~~
 {: .output}
 
@@ -285,13 +288,13 @@ head(calcGDP(gapminder, year=2007))
 
 
 ~~~
-       country year      pop continent lifeExp  gdpPercap          gdp
-12 Afghanistan 2007 31889923      Asia  43.828   974.5803  31079291949
-24     Albania 2007  3600523    Europe  76.423  5937.0295  21376411360
-36     Algeria 2007 33333216    Africa  72.301  6223.3675 207444851958
-48      Angola 2007 12420476    Africa  42.731  4797.2313  59583895818
-60   Argentina 2007 40301927  Americas  75.320 12779.3796 515033625357
-72   Australia 2007 20434176   Oceania  81.235 34435.3674 703658358894
+##        country continent year lifeExp      pop  gdpPercap          gdp
+## 12 Afghanistan      Asia 2007  43.828 31889923   974.5803  31079291949
+## 24     Albania    Europe 2007  76.423  3600523  5937.0295  21376411360
+## 36     Algeria    Africa 2007  72.301 33333216  6223.3675 207444851958
+## 48      Angola    Africa 2007  42.731 12420476  4797.2313  59583895818
+## 60   Argentina  Americas 2007  75.320 40301927 12779.3796 515033625357
+## 72   Australia   Oceania 2007  81.235 20434176 34435.3674 703658358894
 ~~~
 {: .output}
 
@@ -306,19 +309,19 @@ calcGDP(gapminder, country="Australia")
 
 
 ~~~
-     country year      pop continent lifeExp gdpPercap          gdp
-61 Australia 1952  8691212   Oceania  69.120  10039.60  87256254102
-62 Australia 1957  9712569   Oceania  70.330  10949.65 106349227169
-63 Australia 1962 10794968   Oceania  70.930  12217.23 131884573002
-64 Australia 1967 11872264   Oceania  71.100  14526.12 172457986742
-65 Australia 1972 13177000   Oceania  71.930  16788.63 221223770658
-66 Australia 1977 14074100   Oceania  73.490  18334.20 258037329175
-67 Australia 1982 15184200   Oceania  74.740  19477.01 295742804309
-68 Australia 1987 16257249   Oceania  76.320  21888.89 355853119294
-69 Australia 1992 17481977   Oceania  77.560  23424.77 409511234952
-70 Australia 1997 18565243   Oceania  78.830  26997.94 501223252921
-71 Australia 2002 19546792   Oceania  80.370  30687.75 599847158654
-72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
+##      country continent year lifeExp      pop gdpPercap          gdp
+## 61 Australia   Oceania 1952  69.120  8691212  10039.60  87256254102
+## 62 Australia   Oceania 1957  70.330  9712569  10949.65 106349227169
+## 63 Australia   Oceania 1962  70.930 10794968  12217.23 131884573002
+## 64 Australia   Oceania 1967  71.100 11872264  14526.12 172457986742
+## 65 Australia   Oceania 1972  71.930 13177000  16788.63 221223770658
+## 66 Australia   Oceania 1977  73.490 14074100  18334.20 258037329175
+## 67 Australia   Oceania 1982  74.740 15184200  19477.01 295742804309
+## 68 Australia   Oceania 1987  76.320 16257249  21888.89 355853119294
+## 69 Australia   Oceania 1992  77.560 17481977  23424.77 409511234952
+## 70 Australia   Oceania 1997  78.830 18565243  26997.94 501223252921
+## 71 Australia   Oceania 2002  80.370 19546792  30687.75 599847158654
+## 72 Australia   Oceania 2007  81.235 20434176  34435.37 703658358894
 ~~~
 {: .output}
 
@@ -333,8 +336,8 @@ calcGDP(gapminder, year=2007, country="Australia")
 
 
 ~~~
-     country year      pop continent lifeExp gdpPercap          gdp
-72 Australia 2007 20434176   Oceania  81.235  34435.37 703658358894
+##      country continent year lifeExp      pop gdpPercap          gdp
+## 72 Australia   Oceania 2007  81.235 20434176  34435.37 703658358894
 ~~~
 {: .output}
 
@@ -441,7 +444,7 @@ which is much better than in our first attempt where we got a vector of numbers.
 > 
 > 
 > ~~~
-> [1] "Write programs for people not computers"
+> ## [1] "Write programs for people not computers"
 > ~~~
 > {: .output}
 >
@@ -478,7 +481,7 @@ which is much better than in our first attempt where we got a vector of numbers.
 > > 
 > > 
 > > ~~~
-> > [1] "*** Write programs for people not computers ***"
+> > ## [1] "*** Write programs for people not computers ***"
 > > ~~~
 > > {: .output}
 > {: .solution}

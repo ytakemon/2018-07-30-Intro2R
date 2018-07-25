@@ -56,7 +56,7 @@ if (x >= 10) {
 
 
 ~~~
-[1] "x is greater than or equal to 10"
+## [1] "x is greater than or equal to 10"
 ~~~
 {: .output}
 
@@ -78,7 +78,7 @@ if (x >= 10) {
 
 
 ~~~
-[1] "x is greater than 5"
+## [1] "x is greater than 5"
 ~~~
 {: .output}
 
@@ -96,7 +96,7 @@ x
 
 
 ~~~
-[1] FALSE
+## [1] FALSE
 ~~~
 {: .output}
 
@@ -164,8 +164,8 @@ Did anyone get a warning message like this?
 
 
 ~~~
-Warning in if (gapminder$year == 2012) {: the condition has length > 1 and
-only the first element will be used
+## Warning in if (gapminder$year == 2012) {: the condition has length > 1 and
+## only the first element will be used
 ~~~
 {: .error}
 
@@ -215,16 +215,16 @@ for(i in 1:10){
 
 
 ~~~
-[1] 1
-[1] 2
-[1] 3
-[1] 4
-[1] 5
-[1] 6
-[1] 7
-[1] 8
-[1] 9
-[1] 10
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5
+## [1] 6
+## [1] 7
+## [1] 8
+## [1] 9
+## [1] 10
 ~~~
 {: .output}
 
@@ -247,31 +247,31 @@ for(i in 1:5){
 
 
 ~~~
-[1] "1 a"
-[1] "1 b"
-[1] "1 c"
-[1] "1 d"
-[1] "1 e"
-[1] "2 a"
-[1] "2 b"
-[1] "2 c"
-[1] "2 d"
-[1] "2 e"
-[1] "3 a"
-[1] "3 b"
-[1] "3 c"
-[1] "3 d"
-[1] "3 e"
-[1] "4 a"
-[1] "4 b"
-[1] "4 c"
-[1] "4 d"
-[1] "4 e"
-[1] "5 a"
-[1] "5 b"
-[1] "5 c"
-[1] "5 d"
-[1] "5 e"
+## [1] "1 a"
+## [1] "1 b"
+## [1] "1 c"
+## [1] "1 d"
+## [1] "1 e"
+## [1] "2 a"
+## [1] "2 b"
+## [1] "2 c"
+## [1] "2 d"
+## [1] "2 e"
+## [1] "3 a"
+## [1] "3 b"
+## [1] "3 c"
+## [1] "3 d"
+## [1] "3 e"
+## [1] "4 a"
+## [1] "4 b"
+## [1] "4 c"
+## [1] "4 d"
+## [1] "4 e"
+## [1] "5 a"
+## [1] "5 b"
+## [1] "5 c"
+## [1] "5 d"
+## [1] "5 e"
 ~~~
 {: .output}
 
@@ -293,9 +293,9 @@ output_vector
 
 
 ~~~
- [1] "1 a" "1 b" "1 c" "1 d" "1 e" "2 a" "2 b" "2 c" "2 d" "2 e" "3 a"
-[12] "3 b" "3 c" "3 d" "3 e" "4 a" "4 b" "4 c" "4 d" "4 e" "5 a" "5 b"
-[23] "5 c" "5 d" "5 e"
+##  [1] "1 a" "1 b" "1 c" "1 d" "1 e" "2 a" "2 b" "2 c" "2 d" "2 e" "3 a"
+## [12] "3 b" "3 c" "3 d" "3 e" "4 a" "4 b" "4 c" "4 d" "4 e" "5 a" "5 b"
+## [23] "5 c" "5 d" "5 e"
 ~~~
 {: .output}
 
