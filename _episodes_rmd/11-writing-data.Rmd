@@ -16,15 +16,10 @@ output:
 
 ```{r, include=FALSE}
 source("../bin/chunk-options.R")
-opts_chunk$set(fig.path ="../fig/11-")
+opts_chunk$set(fig.path ="../fig/08-")
 # Silently load in the data so the rest of the lesson works
-library(ggplot2)
-gapminder <- read.csv("data/gapminder.csv", header=TRUE)
-# Temporarily create a cleaned-data directory so that the writing examples work
-# The students should have created this in topic 2.
-dir.create("cleaned-data")
+gapminder <- read.csv("data/gapminder.csv", header = TRUE)
 ```
-
 
 ## Saving plots
 You can save a plot from within RStudio using the 'Export' button
@@ -43,24 +38,14 @@ In this case you can use a more flexible approach. The function
 using the arguments to this function.
 
 ```{r, eval=FALSE}
-pdf("Life_Exp_vs_time.pdf", width=12, height=4)
-ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
-  geom_line()
+pdf("Hclust_corplot_mtcars.pdf", width=5, height=5)
+corrplot(cor_mtcars, order = "hclust", addrect = 3)
 
 # You then have to make sure to turn off the pdf device!
-
 dev.off()
 ```
 
 Open up this document and have a look.
-
-> ## Challenge 1
->
-> Rewrite your 'pdf' command to print a second
-> page in the pdf, showing a facet plot (hint: use `facet_grid`)
-> of the same data with one panel per continent.
-{: .challenge}
-
 
 The commands `jpeg`, `png` etc. are used similarly to produce
 documents in different formats.
@@ -75,7 +60,7 @@ very similar to `read.table` from before.
 Let's create a data-cleaning script, for this analysis, we
 only want to focus on the gapminder data for Australia:
 
-```{r}
+```{r, eval=FALSE}
 aust_subset <- gapminder[gapminder$country == "Australia",]
 
 write.table(aust_subset,
@@ -87,7 +72,8 @@ write.table(aust_subset,
 ```
 
 or directly as a .csv file
-```{r}
+
+```{r, eval=FALSE}
 aust_subset <- gapminder[gapminder$country == "Australia",]
 
 write.csv(aust_subset,
@@ -95,20 +81,4 @@ write.csv(aust_subset,
   row.names = FALSE,
   quote = FALSE
 )
-```
-
-
-> ## Challenge 2
->
-> Write a data-cleaning script file that subsets the gapminder
-> data to include only data points collected since 1990.
->
-> Use this script to write out the new subset to a file
-> in the  `results/` directory.
-{: .challenge}
-
-```{r, echo=FALSE}
-# We remove after rendering the lesson, because we don't want this in the lesson
-# repository
-unlink("cleaned-data", recursive=TRUE)
 ```

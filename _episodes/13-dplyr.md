@@ -30,7 +30,7 @@ mean(gapminder[gapminder$continent == "Africa", "gdpPercap"])
 
 
 ~~~
-[1] 2193.755
+## [1] 2193.755
 ~~~
 {: .output}
 
@@ -44,7 +44,7 @@ mean(gapminder[gapminder$continent == "Americas", "gdpPercap"])
 
 
 ~~~
-[1] 7136.11
+## [1] 7136.11
 ~~~
 {: .output}
 
@@ -58,7 +58,7 @@ mean(gapminder[gapminder$continent == "Asia", "gdpPercap"])
 
 
 ~~~
-[1] 7902.15
+## [1] 7902.15
 ~~~
 {: .output}
 
@@ -188,13 +188,13 @@ str(gapminder)
 
 
 ~~~
-'data.frame':	1704 obs. of  6 variables:
- $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
- $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
- $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
- $ gdpPercap: num  779 821 853 836 740 ...
+## 'data.frame':	1704 obs. of  6 variables:
+##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...
 ~~~
 {: .output}
 
@@ -208,27 +208,27 @@ str(gapminder %>% group_by(continent))
 
 
 ~~~
-Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variables:
- $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
- $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
- $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
- $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
- $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
- $ gdpPercap: num  779 821 853 836 740 ...
- - attr(*, "vars")= chr "continent"
- - attr(*, "drop")= logi TRUE
- - attr(*, "indices")=List of 5
-  ..$ : int  24 25 26 27 28 29 30 31 32 33 ...
-  ..$ : int  48 49 50 51 52 53 54 55 56 57 ...
-  ..$ : int  0 1 2 3 4 5 6 7 8 9 ...
-  ..$ : int  12 13 14 15 16 17 18 19 20 21 ...
-  ..$ : int  60 61 62 63 64 65 66 67 68 69 ...
- - attr(*, "group_sizes")= int  624 300 396 360 24
- - attr(*, "biggest_group_size")= int 624
- - attr(*, "labels")='data.frame':	5 obs. of  1 variable:
-  ..$ continent: Factor w/ 5 levels "Africa","Americas",..: 1 2 3 4 5
-  ..- attr(*, "vars")= chr "continent"
-  ..- attr(*, "drop")= logi TRUE
+## Classes 'grouped_df', 'tbl_df', 'tbl' and 'data.frame':	1704 obs. of  6 variables:
+##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+##  $ gdpPercap: num  779 821 853 836 740 ...
+##  - attr(*, "vars")= chr "continent"
+##  - attr(*, "drop")= logi TRUE
+##  - attr(*, "indices")=List of 5
+##   ..$ : int  24 25 26 27 28 29 30 31 32 33 ...
+##   ..$ : int  48 49 50 51 52 53 54 55 56 57 ...
+##   ..$ : int  0 1 2 3 4 5 6 7 8 9 ...
+##   ..$ : int  12 13 14 15 16 17 18 19 20 21 ...
+##   ..$ : int  60 61 62 63 64 65 66 67 68 69 ...
+##  - attr(*, "group_sizes")= int  624 300 396 360 24
+##  - attr(*, "biggest_group_size")= int 624
+##  - attr(*, "labels")='data.frame':	5 obs. of  1 variable:
+##   ..$ continent: Factor w/ 5 levels "Africa","Americas",..: 1 2 3 4 5
+##   ..- attr(*, "vars")= chr "continent"
+##   ..- attr(*, "drop")= logi TRUE
 ~~~
 {: .output}
 You will notice that the structure of the dataframe where we used `group_by()`
@@ -281,11 +281,11 @@ even better.
 > >
 > >
 > >~~~
-> ># A tibble: 2 x 2
-> >  country      mean_lifeExp
-> >  <fct>               <dbl>
-> >1 Iceland              76.5
-> >2 Sierra Leone         36.8
+> >## # A tibble: 2 x 2
+> >##   country      mean_lifeExp
+> >##   <fct>               <dbl>
+> >## 1 Iceland              76.5
+> >## 2 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > Another way to do this is to use the `dplyr` function `arrange()`, which 
@@ -304,10 +304,10 @@ even better.
 > >
 > >
 > >~~~
-> ># A tibble: 1 x 2
-> >  country      mean_lifeExp
-> >  <fct>               <dbl>
-> >1 Sierra Leone         36.8
+> >## # A tibble: 1 x 2
+> >##   country      mean_lifeExp
+> >##   <fct>               <dbl>
+> >## 1 Sierra Leone         36.8
 > >~~~
 > >{: .output}
 > >
@@ -323,10 +323,10 @@ even better.
 > >
 > >
 > >~~~
-> ># A tibble: 1 x 2
-> >  country mean_lifeExp
-> >  <fct>          <dbl>
-> >1 Iceland         76.5
+> >## # A tibble: 1 x 2
+> >##   country mean_lifeExp
+> >##   <fct>          <dbl>
+> >## 1 Iceland         76.5
 > >~~~
 > >{: .output}
 > {: .solution}
@@ -392,7 +392,7 @@ ggplot(data = az.countries, aes(x = year, y = lifeExp, color = continent)) +
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-13-unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-16](../fig/13-unnamed-chunk-16-1.png)
 
 This code makes the right plot but it also creates some variables (`starts.with`
 and `az.countries`) that we might not have any other uses for. Just as we used
@@ -416,7 +416,7 @@ gapminder %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-13-unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-17](../fig/13-unnamed-chunk-17-1.png)
 
 Using `dplyr` functions also helps us simplify things, for example we could
 combine the first two steps:
@@ -433,7 +433,7 @@ gapminder %>%
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-13-unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" style="display: block; margin: auto;" />
+![plot of chunk unnamed-chunk-18](../fig/13-unnamed-chunk-18-1.png)
 
 > ## Advanced Challenge
 >

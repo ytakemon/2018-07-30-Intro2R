@@ -89,14 +89,18 @@ list.files()
 {: .language-r}
 
 ~~~
-##  [1] "anaconda"         "Application Data" "Applications"    
-##  [4] "Compass"          "CompassForSW"     "data"            
-##  [7] "Desktop"          "Documents"        "Downloads"       
-## [10] "Dropbox"          "GitHub"           "id_rsa.pub"      
-## [13] "id_rsa.pub.pub"   "igv"              "key"             
-## [16] "key.pub"          "Library"          "Movies"          
-## [19] "Music"            "MyProject"        "Pictures"        
-## [22] "Public"           "Sites"
+##  [1] "anaconda"                  "Application Data"         
+##  [3] "Applications"              "Compass"                  
+##  [5] "CompassForSW"              "data"                     
+##  [7] "Desktop"                   "Documents"                
+##  [9] "Downloads"                 "Dropbox"                  
+## [11] "GitHub"                    "Hclust_corplot_mtcars.pdf"
+## [13] "id_rsa.pub"                "id_rsa.pub.pub"           
+## [15] "igv"                       "key"                      
+## [17] "key.pub"                   "Library"                  
+## [19] "Movies"                    "Music"                    
+## [21] "MyProject"                 "Pictures"                 
+## [23] "Public"                    "Sites"
 ~~~
 {: .output}
 `list.files()` prints the names of the files and directories in the current directory. 

@@ -16,7 +16,6 @@ output:
 
 
 
-
 ## Saving plots
 You can save a plot from within RStudio using the 'Export' button
 in the 'Plot' window. This will give you the option of saving as a
@@ -35,25 +34,15 @@ using the arguments to this function.
 
 
 ~~~
-pdf("Life_Exp_vs_time.pdf", width=12, height=4)
-ggplot(data=gapminder, aes(x=year, y=lifeExp, colour=country)) +
-  geom_line()
+pdf("Hclust_corplot_mtcars.pdf", width=5, height=5)
+corrplot(cor_mtcars, order = "hclust", addrect = 3)
 
 # You then have to make sure to turn off the pdf device!
-
 dev.off()
 ~~~
 {: .language-r}
 
 Open up this document and have a look.
-
-> ## Challenge 1
->
-> Rewrite your 'pdf' command to print a second
-> page in the pdf, showing a facet plot (hint: use `facet_grid`)
-> of the same data with one panel per continent.
-{: .challenge}
-
 
 The commands `jpeg`, `png` etc. are used similarly to produce
 documents in different formats.
@@ -83,6 +72,7 @@ write.table(aust_subset,
 
 or directly as a .csv file
 
+
 ~~~
 aust_subset <- gapminder[gapminder$country == "Australia",]
 
@@ -93,15 +83,3 @@ write.csv(aust_subset,
 )
 ~~~
 {: .language-r}
-
-
-> ## Challenge 2
->
-> Write a data-cleaning script file that subsets the gapminder
-> data to include only data points collected since 1990.
->
-> Use this script to write out the new subset to a file
-> in the  `results/` directory.
-{: .challenge}
-
-

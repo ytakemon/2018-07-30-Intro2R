@@ -596,8 +596,7 @@ ls()
 
 
 ~~~
-## [1] "fix_fig_path" "hook_error"   "hook_in"      "hook_out"    
-## [5] "x"
+## [1] "x" "y"
 ~~~
 {: .output}
 
@@ -654,7 +653,7 @@ ls
 ##     }
 ##     else all.names
 ## }
-## <bytecode: 0x7fea20da10e8>
+## <bytecode: 0x7fdadbb2ec30>
 ## <environment: namespace:base>
 ~~~
 {: .output}

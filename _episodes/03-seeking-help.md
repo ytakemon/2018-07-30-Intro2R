@@ -132,13 +132,11 @@ sessionInfo()
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] knitr_1.20
+## [1] checkpoint_0.4.3 stringr_1.3.1    knitr_1.20      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] compiler_3.5.0  backports_1.1.2 magrittr_1.5    rprojroot_1.3-2
-##  [5] tools_3.5.0     htmltools_0.3.6 yaml_2.1.19     Rcpp_0.12.17   
-##  [9] stringi_1.2.2   rmarkdown_1.9   stringr_1.3.1   digest_0.6.15  
-## [13] evaluate_0.10.1
+## [1] compiler_3.5.0  magrittr_1.5    tools_3.5.0     stringi_1.2.2  
+## [5] evaluate_0.10.1
 ~~~
 {: .output}
 
