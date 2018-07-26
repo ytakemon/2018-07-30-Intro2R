@@ -44,7 +44,7 @@ You can also download this from our [Google Drive](https://drive.google.com/driv
 We can load this into R via the following:
 
 ```{r}
-cats <- read.csv(file = "data/feline-data.csv")
+cats <- read.csv(file = "data/feline-data.csv", stringsAsFactors = FALSE)
 cats
 ```
 
@@ -69,12 +69,11 @@ We can do other operations on the columns:
 ```{r}
 ## Say we discovered that the scale weighs two Kg light:
 cats$weight + 2
-paste("My cat is", cats$coat)
 ```
 
 But what about
 
-```{r}
+```{r, eval=FALSE}
 cats$weight + cats$coat
 ```
 
@@ -110,25 +109,6 @@ We can see that it is a *data.frame* by calling the `class` function on it:
 ```{r}
 class(cats)
 is.data.frame(cats)
-```
-
-In order to successfully use our data in R, we need to understand what the basic
-data structures are, and how they behave. For now, let's remove that extra line
-from our cats data and reload it, while we investigate this behavior further:
-
-feline-data.csv:
-
-```
-coat,weight,likes_string
-calico,2.1,1
-black,5.0,0
-tabby,3.2,1
-```
-
-And back in RStudio:
-
-```{r, eval=FALSE}
-cats <- read.csv(file="data/feline-data.csv")
 ```
 
 ## Vectors and Type Coercion
@@ -311,6 +291,25 @@ These make sense. But what about
 str(cats$coat)
 ```
 
+## Matrices
+We can declare a matrix full of zeros:
+
+```{r}
+matrix_example <- matrix(0, ncol=6, nrow=3)
+matrix_example
+```
+
+And similar to other data structures, we can ask things about our matrix:
+
+```{r}
+class(matrix_example)
+typeof(matrix_example)
+str(matrix_example)
+dim(matrix_example)
+nrow(matrix_example)
+ncol(matrix_example)
+```
+
 ## Factors
 
 Another important data structure is called a *factor*. Factors usually look like
@@ -491,26 +490,6 @@ str(cats[1,])
 > values in the first row.
 > {: .solution}
 {: .challenge}
-
-## Matrices
-
-Last but not least is the matrix. We can declare a matrix full of zeros:
-
-```{r}
-matrix_example <- matrix(0, ncol=6, nrow=3)
-matrix_example
-```
-
-And similar to other data structures, we can ask things about our matrix:
-
-```{r}
-class(matrix_example)
-typeof(matrix_example)
-str(matrix_example)
-dim(matrix_example)
-nrow(matrix_example)
-ncol(matrix_example)
-```
 
 > ## Challenge 4
 >

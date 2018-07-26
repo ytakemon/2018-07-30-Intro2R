@@ -157,7 +157,7 @@ prompt.
 > ## Tip: Cancelling commands
 >
 > If you're using R from the commandline instead of from within RStudio,
-> you need to use `Ctrl+C` instead of `Esc` to cancel the command. This
+> you need to use `Esc` instead of `Ctrl+C` to cancel the command. This
 > applies to Mac users as well!
 >
 > Cancelling a command isn't only useful for killing incomplete commands:
@@ -576,7 +576,7 @@ network). R and RStudio have functionality for managing packages:
 
 ## Download essential packages
 
-Install the following packages: `ggplot2`, `plyr`, `gapminder`
+Install the following packages: `ggplot2`, `corrplot`, `gapminder`, `knitr`
 We can use the `install.packages()` command to install the required packages.
 
 ```{r ch5-sol, eval=FALSE}

@@ -44,7 +44,7 @@ We can load this into R via the following:
 
 
 ~~~
-cats <- read.csv(file = "data/feline-data.csv")
+cats <- read.csv(file = "data/feline-data.csv", stringsAsFactors = FALSE)
 cats
 ~~~
 {: .language-r}
@@ -93,8 +93,7 @@ cats$coat
 
 
 ~~~
-## [1] calico black  tabby 
-## Levels: black calico tabby
+## [1] "calico" "black"  "tabby"
 ~~~
 {: .output}
 
@@ -114,20 +113,6 @@ cats$weight + 2
 ~~~
 {: .output}
 
-
-
-~~~
-paste("My cat is", cats$coat)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] "My cat is calico" "My cat is black"  "My cat is tabby"
-~~~
-{: .output}
-
 But what about
 
 
@@ -135,21 +120,6 @@ But what about
 cats$weight + cats$coat
 ~~~
 {: .language-r}
-
-
-
-~~~
-## Warning in Ops.factor(cats$weight, cats$coat): '+' not meaningful for
-## factors
-~~~
-{: .error}
-
-
-
-~~~
-## [1] NA NA NA
-~~~
-{: .output}
 
 Understanding what happened here is key to successfully analyzing data in R.
 
@@ -276,27 +246,6 @@ is.data.frame(cats)
 ## [1] TRUE
 ~~~
 {: .output}
-
-In order to successfully use our data in R, we need to understand what the basic
-data structures are, and how they behave. For now, let's remove that extra line
-from our cats data and reload it, while we investigate this behavior further:
-
-feline-data.csv:
-
-```
-coat,weight,likes_string
-calico,2.1,1
-black,5.0,0
-tabby,3.2,1
-```
-
-And back in RStudio:
-
-
-~~~
-cats <- read.csv(file="data/feline-data.csv")
-~~~
-{: .language-r}
 
 ## Vectors and Type Coercion
 
@@ -816,7 +765,112 @@ str(cats$coat)
 
 
 ~~~
-##  Factor w/ 3 levels "black","calico",..: 2 1 3
+##  chr [1:3] "calico" "black" "tabby"
+~~~
+{: .output}
+
+## Matrices
+We can declare a matrix full of zeros:
+
+
+~~~
+matrix_example <- matrix(0, ncol=6, nrow=3)
+matrix_example
+~~~
+{: .language-r}
+
+
+
+~~~
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    0    0    0    0    0    0
+## [2,]    0    0    0    0    0    0
+## [3,]    0    0    0    0    0    0
+~~~
+{: .output}
+
+And similar to other data structures, we can ask things about our matrix:
+
+
+~~~
+class(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+## [1] "matrix"
+~~~
+{: .output}
+
+
+
+~~~
+typeof(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+## [1] "double"
+~~~
+{: .output}
+
+
+
+~~~
+str(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+##  num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
+~~~
+{: .output}
+
+
+
+~~~
+dim(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+## [1] 3 6
+~~~
+{: .output}
+
+
+
+~~~
+nrow(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+## [1] 3
+~~~
+{: .output}
+
+
+
+~~~
+ncol(matrix_example)
+~~~
+{: .language-r}
+
+
+
+~~~
+## [1] 6
 ~~~
 {: .output}
 
@@ -1060,8 +1114,7 @@ cats$coat
 
 
 ~~~
-## [1] calico black  tabby 
-## Levels: black calico tabby
+## [1] "calico" "black"  "tabby"
 ~~~
 {: .output}
 
@@ -1075,8 +1128,7 @@ cats[,1]
 
 
 ~~~
-## [1] calico black  tabby 
-## Levels: black calico tabby
+## [1] "calico" "black"  "tabby"
 ~~~
 {: .output}
 
@@ -1090,7 +1142,7 @@ typeof(cats[,1])
 
 
 ~~~
-## [1] "integer"
+## [1] "character"
 ~~~
 {: .output}
 
@@ -1104,7 +1156,7 @@ str(cats[,1])
 
 
 ~~~
-##  Factor w/ 3 levels "black","calico",..: 2 1 3
+##  chr [1:3] "calico" "black" "tabby"
 ~~~
 {: .output}
 
@@ -1150,7 +1202,7 @@ str(cats[1,])
 
 ~~~
 ## 'data.frame':	1 obs. of  3 variables:
-##  $ coat        : Factor w/ 3 levels "black","calico",..: 2
+##  $ coat        : chr "calico"
 ##  $ weight      : num 2.1
 ##  $ likes_string: logi TRUE
 ~~~
@@ -1201,8 +1253,7 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > ## [1] calico black  tabby 
-> > ## Levels: black calico tabby
+> > ## [1] "calico" "black"  "tabby"
 > > ~~~
 > > {: .output}
 > > The double brace `[[1]]` returns the contents of the list item. In this case
@@ -1216,8 +1267,7 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > ## [1] calico black  tabby 
-> > ## Levels: black calico tabby
+> > ## [1] "calico" "black"  "tabby"
 > > ~~~
 > > {: .output}
 > > This example uses the `$` character to address items by name. _coat_ is the
@@ -1248,8 +1298,7 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > ## [1] calico
-> > ## Levels: black calico tabby
+> > ## [1] "calico"
 > > ~~~
 > > {: .output}
 > > This example uses a single brace, but this time we provide row and column
@@ -1265,8 +1314,7 @@ str(cats[1,])
 > > 
 > > 
 > > ~~~
-> > ## [1] calico black  tabby 
-> > ## Levels: black calico tabby
+> > ## [1] "calico" "black"  "tabby"
 > > ~~~
 > > {: .output}
 > > Like the previous example we use single braces and provide row and column
@@ -1290,112 +1338,6 @@ str(cats[1,])
 > values in the first row.
 > {: .solution}
 {: .challenge}
-
-## Matrices
-
-Last but not least is the matrix. We can declare a matrix full of zeros:
-
-
-~~~
-matrix_example <- matrix(0, ncol=6, nrow=3)
-matrix_example
-~~~
-{: .language-r}
-
-
-
-~~~
-##      [,1] [,2] [,3] [,4] [,5] [,6]
-## [1,]    0    0    0    0    0    0
-## [2,]    0    0    0    0    0    0
-## [3,]    0    0    0    0    0    0
-~~~
-{: .output}
-
-And similar to other data structures, we can ask things about our matrix:
-
-
-~~~
-class(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] "matrix"
-~~~
-{: .output}
-
-
-
-~~~
-typeof(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] "double"
-~~~
-{: .output}
-
-
-
-~~~
-str(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-##  num [1:3, 1:6] 0 0 0 0 0 0 0 0 0 0 ...
-~~~
-{: .output}
-
-
-
-~~~
-dim(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] 3 6
-~~~
-{: .output}
-
-
-
-~~~
-nrow(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] 3
-~~~
-{: .output}
-
-
-
-~~~
-ncol(matrix_example)
-~~~
-{: .language-r}
-
-
-
-~~~
-## [1] 6
-~~~
-{: .output}
 
 > ## Challenge 4
 >
