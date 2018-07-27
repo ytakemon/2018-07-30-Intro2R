@@ -23,7 +23,7 @@ output:
 
 One of R's most powerful features is its ability to deal with tabular data -
 like what you might already have in a spreadsheet or a CSV. Let's start by
-making feline dataset in your `data/` directory, called `feline-data.csv`:
+making feline data set in your `data/` directory, called `feline-data.csv`:
 
 
 ~~~
@@ -33,7 +33,8 @@ black,5.0,FALSE
 tabby,3.2,TRUE
 ~~~
 {: .language-r}
-You can also download this from our [Google Drive](https://drive.google.com/drive/folders/1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb) and save it into the `my_project/data` directory.
+You can also download this from our [Google Drive](https://drive.google.com/drive/folders/1g4yI-JSKs7N1_-TQ-EvuILMdJ6gjvCSb) and save it into the `Intro2R/data` directory.
+
 > ## Tip: Editing Text files in R
 >
 > Alternatively, you can create `data/feline-data.csv` using a text editor (Nano),
@@ -67,7 +68,7 @@ are delimited by a character other than commas or tabs, you can use the more
 general and flexible `read.table` function.
 
 
-We can begin exploring our dataset right away, pulling out columns by specifying
+We can begin exploring our data set right away, pulling out columns by specifying
 them using the `$` operator:
 
 
@@ -257,6 +258,7 @@ condition that *everything in the vector must be the same basic data type*. If
 you don't choose the datatype, it'll default to `logical`; or, you can declare
 an empty vector of whatever type you like.
 
+
 ~~~
 cats_weight <- cats$weight
 cats_weight
@@ -329,7 +331,9 @@ typeof(c_vector_num)
 ## [1] "double"
 ~~~
 {: .output}
+
 and a character vector:
+
 
 ~~~
 c_vector_chr <- c("a","b","c")
@@ -454,11 +458,10 @@ may well be to blame; make sure everything is the same type in your vectors and
 your columns of data.frames, or you will get nasty surprises!
 
 But coercion can also be very useful! For example, in our `cats` data
-`likes_string` is numeric, but we know that the 1s and 0s actually represent
-`TRUE` and `FALSE` (a common way of representing them). We should use the
-`logical` datatype here, which has two states: `TRUE` or `FALSE`, which is
-exactly what our data represents. We can 'coerce' this column to be `logical` by
-using the `as.logical` function:
+`likes_string` is logical, but we know that the TRUEs and FALSEs actually represent
+`1` and `0` (another way of representing them). We should use the
+`numeric` datatype here. We can 'coerce' this column to be `numeric` by
+using the `as.logical` function and vice versa.
 
 
 ~~~
@@ -522,6 +525,7 @@ combine_example
 ## Generating vector series:
 You can make series of numbers:
 
+
 ~~~
 num_series <- 1:10
 num_series
@@ -571,6 +575,7 @@ seq(1,10, by=0.1)
 
 You can also make series of letters:
 
+
 ~~~
 letter_series <- letters
 letter_series
@@ -600,7 +605,13 @@ LETTER_series
 ## [18] "R" "S" "T" "U" "V" "W" "X" "Y" "Z"
 ~~~
 {: .output}
+
 We can ask a few questions about vectors:
+*`head`: by default will show top 6
+*`tail`: by default will show last 6
+*`length`
+*`class`
+*`typeof`
 
 
 ~~~
@@ -878,7 +889,7 @@ ncol(matrix_example)
 
 Another important data structure is called a *factor*. Factors usually look like
 character data, but are typically used to represent categorical information. For
-example, let's make a vector of strings labelling cat colorations for all the
+example, let's make a vector of strings labeling cat colorations for all the
 cats in our study:
 
 
