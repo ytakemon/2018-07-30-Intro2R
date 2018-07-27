@@ -212,7 +212,7 @@ using the `as.logical` function and vice versa.
 
 ```{r}
 cats$likes_string
-cats$likes_string <- as.logical(cats$likes_string)
+cats$likes_string <- as.numeric(cats$likes_string)
 cats$likes_string
 ```
 
@@ -246,11 +246,12 @@ LETTER_series
 ```
 
 We can ask a few questions about vectors:
-*`head`: by default will show top 6
-*`tail`: by default will show last 6
-*`length`
-*`class`
-*`typeof`
+
+* `head`: by default will show top 6
+* `tail`: by default will show last 6
+* `length`
+* `class`
+* `typeof`
 
 ```{r}
 sequence_example <- seq(10)

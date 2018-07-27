@@ -122,14 +122,6 @@ cats <- rbind(cats, newRow)
 ~~~
 {: .language-r}
 
-
-
-~~~
-## Warning in `[<-.factor`(`*tmp*`, ri, value = "tuxedo"): invalid factor
-## level, NA generated
-~~~
-{: .error}
-
 ## Factors
 
 Another thing to look out for has emerged - when R creates a factor, it only
@@ -137,7 +129,7 @@ allows whatever is originally there when our data was first loaded, which was
 'black', 'calico' and 'tabby' in our case. Anything new that doesn't fit into
 one of these categories is rejected as nonsense (becomes NA).
 
-The warning is telling us that we unsuccessfully added 'tortoiseshell' to our
+The warning is telling us that we unsuccessfully added 'tuxedo' to our
 *coat* factor, but 3.3 (a numeric), TRUE (a logical), and 9 (a numeric) were
 successfully added to *weight*, *likes_string*, and *age*, respectfully, since
 those values are not factors. To successfully add a cat with a
@@ -152,7 +144,7 @@ levels(cats$coat)
 
 
 ~~~
-## [1] "black"  "calico" "tabby"
+## NULL
 ~~~
 {: .output}
 
@@ -163,6 +155,14 @@ levels(cats$coat) <- c(levels(cats$coat), "tuxedo")
 cats <- rbind(cats, list("tuxedo", 3.3, TRUE, 9))
 ~~~
 {: .language-r}
+
+
+
+~~~
+## Warning in `[<-.factor`(`*tmp*`, ri, value = structure(c("calico",
+## "black", : invalid factor level, NA generated
+~~~
+{: .error}
 
 Alternatively, we can change a factor column to a character vector; we lose the
 handy categories of the factor, but can subsequently add any word we want to the
@@ -178,7 +178,7 @@ str(cats)
 
 ~~~
 ## 'data.frame':	5 obs. of  4 variables:
-##  $ coat        : Factor w/ 4 levels "black","calico",..: 2 1 3 NA 4
+##  $ coat        : Factor w/ 1 level "tuxedo": NA NA NA 1 1
 ##  $ weight      : num  2.1 5 3.2 3.3 3.3
 ##  $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
 ##  $ age         : num  4 5 8 9 9
@@ -197,7 +197,7 @@ str(cats)
 
 ~~~
 ## 'data.frame':	5 obs. of  4 variables:
-##  $ coat        : chr  "calico" "black" "tabby" NA ...
+##  $ coat        : chr  NA NA NA "tuxedo" ...
 ##  $ weight      : num  2.1 5 3.2 3.3 3.3
 ##  $ likes_string: logi  TRUE FALSE TRUE TRUE TRUE
 ##  $ age         : num  4 5 8 9 9
@@ -220,10 +220,10 @@ cats
 
 ~~~
 ##     coat weight likes_string age
-## 1 calico    2.1         TRUE   4
-## 2  black    5.0        FALSE   5
-## 3  tabby    3.2         TRUE   8
-## 4   <NA>    3.3         TRUE   9
+## 1   <NA>    2.1         TRUE   4
+## 2   <NA>    5.0        FALSE   5
+## 3   <NA>    3.2         TRUE   8
+## 4 tuxedo    3.3         TRUE   9
 ## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
@@ -240,9 +240,9 @@ cats[-4,]
 
 ~~~
 ##     coat weight likes_string age
-## 1 calico    2.1         TRUE   4
-## 2  black    5.0        FALSE   5
-## 3  tabby    3.2         TRUE   8
+## 1   <NA>    2.1         TRUE   4
+## 2   <NA>    5.0        FALSE   5
+## 3   <NA>    3.2         TRUE   8
 ## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
@@ -264,9 +264,7 @@ na.omit(cats)
 
 ~~~
 ##     coat weight likes_string age
-## 1 calico    2.1         TRUE   4
-## 2  black    5.0        FALSE   5
-## 3  tabby    3.2         TRUE   8
+## 4 tuxedo    3.3         TRUE   9
 ## 5 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
@@ -309,13 +307,13 @@ str(cats)
 
 
 ~~~
-## 'data.frame':	4 obs. of  4 variables:
-##  $ coat        : chr  "calico" "black" "tabby" "tuxedo"
-##  $ weight      : num  2.1 5 3.2 3.3
-##  $ likes_string: logi  TRUE FALSE TRUE TRUE
-##  $ age         : num  4 5 8 9
-##  - attr(*, "na.action")= 'omit' Named int 4
-##   ..- attr(*, "names")= chr "4"
+## 'data.frame':	2 obs. of  4 variables:
+##  $ coat        : chr  "tuxedo" "tuxedo"
+##  $ weight      : num  3.3 3.3
+##  $ likes_string: logi  TRUE TRUE
+##  $ age         : num  9 9
+##  - attr(*, "na.action")= 'omit' Named int  1 2 3
+##   ..- attr(*, "names")= chr  "1" "2" "3"
 ~~~
 {: .output}
 
@@ -353,13 +351,9 @@ cats
 
 ~~~
 ##      coat weight likes_string age
-## 1  calico    2.1         TRUE   4
-## 2   black    5.0        FALSE   5
-## 3   tabby    3.2         TRUE   8
+## 4  tuxedo    3.3         TRUE   9
 ## 5  tuxedo    3.3         TRUE   9
-## 11 calico    2.1         TRUE   4
-## 21  black    5.0        FALSE   5
-## 31  tabby    3.2         TRUE   8
+## 41 tuxedo    3.3         TRUE   9
 ## 51 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
@@ -377,14 +371,10 @@ cats
 
 ~~~
 ##     coat weight likes_string age
-## 1 calico    2.1         TRUE   4
-## 2  black    5.0        FALSE   5
-## 3  tabby    3.2         TRUE   8
+## 1 tuxedo    3.3         TRUE   9
+## 2 tuxedo    3.3         TRUE   9
+## 3 tuxedo    3.3         TRUE   9
 ## 4 tuxedo    3.3         TRUE   9
-## 5 calico    2.1         TRUE   4
-## 6  black    5.0        FALSE   5
-## 7  tabby    3.2         TRUE   8
-## 8 tuxedo    3.3         TRUE   9
 ~~~
 {: .output}
 

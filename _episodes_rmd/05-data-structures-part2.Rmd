@@ -44,7 +44,7 @@ data are consistent in type throughout the column. As such, if we want to add a
 new column, we need to start by making a new vector:
 
 ```{r, echo = FALSE}
-cats <- read.csv("data/feline-data.csv")
+cats <- read.csv("data/feline-data.csv", stringsAsFactors = FALSE)
 ```
 
 ```{r}
@@ -83,11 +83,11 @@ allows whatever is originally there when our data was first loaded, which was
 'black', 'calico' and 'tabby' in our case. Anything new that doesn't fit into
 one of these categories is rejected as nonsense (becomes NA).
 
-The warning is telling us that we unsuccessfully added 'tortoiseshell' to our
+The warning is telling us that we unsuccessfully added 'tuxedo' to our
 *coat* factor, but 3.3 (a numeric), TRUE (a logical), and 9 (a numeric) were
 successfully added to *weight*, *likes_string*, and *age*, respectfully, since
 those values are not factors. To successfully add a cat with a
-'tortoiseshell' *coat*, explicitly add 'tortoiseshell' as a *level* in the factor:
+'tuxedo' *coat*, explicitly add 'tuxedo' as a *level* in the factor:
 
 ```{r}
 levels(cats$coat)

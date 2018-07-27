@@ -479,7 +479,7 @@ cats$likes_string
 
 
 ~~~
-cats$likes_string <- as.logical(cats$likes_string)
+cats$likes_string <- as.numeric(cats$likes_string)
 cats$likes_string
 ~~~
 {: .language-r}
@@ -487,7 +487,7 @@ cats$likes_string
 
 
 ~~~
-## [1]  TRUE FALSE  TRUE
+## [1] 1 0 1
 ~~~
 {: .output}
 
@@ -607,11 +607,12 @@ LETTER_series
 {: .output}
 
 We can ask a few questions about vectors:
-*`head`: by default will show top 6
-*`tail`: by default will show last 6
-*`length`
-*`class`
-*`typeof`
+
+* `head`: by default will show top 6
+* `tail`: by default will show last 6
+* `length`
+* `class`
+* `typeof`
 
 
 ~~~
@@ -761,7 +762,7 @@ str(cats$likes_string)
 
 
 ~~~
-##  logi [1:3] TRUE FALSE TRUE
+##  num [1:3] 1 0 1
 ~~~
 {: .output}
 
@@ -1184,7 +1185,7 @@ cats[1,]
 
 ~~~
 ##     coat weight likes_string
-## 1 calico    2.1         TRUE
+## 1 calico    2.1            1
 ~~~
 {: .output}
 
@@ -1215,7 +1216,7 @@ str(cats[1,])
 ## 'data.frame':	1 obs. of  3 variables:
 ##  $ coat        : chr "calico"
 ##  $ weight      : num 2.1
-##  $ likes_string: logi TRUE
+##  $ likes_string: num 1
 ~~~
 {: .output}
 
@@ -1341,7 +1342,7 @@ str(cats[1,])
 > > 
 > > ~~~
 > > ##     coat weight likes_string
-> > ## 1 calico    2.1         TRUE
+> > ## 1 calico    2.1            1
 > > ~~~
 > > {: .output}
 > > Again we use the single brace with row and column coordinates. The column
