@@ -52,7 +52,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter](../fig/08-lifeExp-vs-gdpPercap-scatter-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter-1.png)<!-- -->
 
 So the first thing we do is call the `ggplot` function. This function lets R
 know that we're creating a new plot, and any of the arguments we give the
@@ -77,7 +77,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
 ~~~
 {: .language-r}
 
-![plot of chunk blank](../fig/08-blank-1.png)
+![](../fig/08-blank-1.png)<!-- -->
 
 We need to tell `ggplot` how we want to visually represent the data, which we
 do by adding a new **geom** layer. In our example, we used `geom_point`, which
@@ -92,7 +92,7 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter2](../fig/08-lifeExp-vs-gdpPercap-scatter2-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter2-1.png)<!-- -->
 
 There are also built-in axis transformation methods, for example Log10-transformations. Unfortunately not all transformations are built in like a simple log-transformation, in which case we can do this:
 
@@ -103,7 +103,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter3](../fig/08-lifeExp-vs-gdpPercap-scatter3-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter3-1.png)<!-- -->
 
 > ## Challenge 1
 >
@@ -130,7 +130,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 > > ~~~
 > > {: .language-r}
 > > 
-> > ![plot of chunk ch1-sol](../fig/08-ch1-sol-1.png)
+> > ![](../fig/08-ch1-sol-1.png)<!-- -->
 > >
 > {: .solution}
 {: .challenge}
@@ -146,7 +146,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter4](../fig/08-lifeExp-vs-gdpPercap-scatter4-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter4-1.png)<!-- -->
 
 ## Linear Regression
 
@@ -160,7 +160,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp, colour = continent
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter5](../fig/08-lifeExp-vs-gdpPercap-scatter5-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter5-1.png)<!-- -->
 
 Here we see a linear regression line for each continent, but what is the over all global trend? Let's redraw that regression line to represent the global trend.
 
@@ -172,7 +172,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-vs-gdpPercap-scatter6](../fig/08-lifeExp-vs-gdpPercap-scatter6-1.png)
+![](../fig/08-lifeExp-vs-gdpPercap-scatter6-1.png)<!-- -->
 
 So, what is the actual equation of this trend line? What is the slope? correlation? p-value?
 We can calculate the linear model using the `lm` function. The format is `y-axis ~ x-axis, data`, and show to show the summary of the model we use the `summary` function of the `lm` output.
@@ -211,7 +211,7 @@ summary(fit)
 Looking at the p-value, this shows that there is significant positive relationship between life expectancy and log-transformed GDP per capita.
 Let's add the linear regression line equation and its significance to the plot!
 
-To do this we need to extract this information from the `summary()`, and print out `y = ax+b`.
+To do this we need to extract this information from the `summary()`, and print out $y=a+bx$.
 
 ~~~
 # Extract information to build an equation
@@ -219,7 +219,7 @@ a <- signif(fit$coefficients[[1]], 2)
 b <- signif(fit$coefficients[[2]], 2)
 r2 <- signif(summary(fit)$adj.r.squared,2)
 pval <- signif(summary(fit)$coefficients[2,4], 2)
-eq <- paste0("y= ",a,"x + ", b, ", r2 = ", r2,", pval = ",pval)
+eq <- paste("y = ",a," + ", b, "x , r^2 = ", r2,", pval = ",pval)
 eq
 ~~~
 {: .language-r}
@@ -227,7 +227,7 @@ eq
 
 
 ~~~
-## [1] "y= -9.1x + 8.4, r2 = 0.65, pval = 0"
+## [1] "y =  -9.1  +  8.4 x , r^2 =  0.65 , pval =  0"
 ~~~
 {: .output}
 
@@ -242,7 +242,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk equation](../fig/08-equation-1.png)
+![](../fig/08-equation-1.png)<!-- -->
 
 ## Layers
 
@@ -256,7 +256,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-line](../fig/08-lifeExp-line-1.png)
+![](../fig/08-lifeExp-line-1.png)<!-- -->
 Instead of adding a `geom_point` layer, we've added a `geom_line` layer. We've
 added the **by** *aesthetic*, which tells `ggplot` to draw a line for each
 country.
@@ -270,7 +270,7 @@ ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
 ~~~
 {: .language-r}
 
-![plot of chunk lifeExp-line2](../fig/08-lifeExp-line2-1.png)
+![](../fig/08-lifeExp-line2-1.png)<!-- -->
 
 We see two countries, one in Asia and one in Africa, that show a noticeable big drop in life expectancy. 
 Let's try to figure out which countries and years they are:
@@ -296,7 +296,7 @@ These correspond to the years when the Cambodian genocide and the Rwandan genoci
 These are ways in which visualizing plots leads to insights in the data. 
 
 ## Box plots
-The most popular plot besides a scatter plot might be a bar graph, but bar graphs do not show distribution to data within a group very well... 
+The most popular plot besides a scatter plot might be a bar graph, but bar graphs do not show distribution of data within a group very well... 
 Instead, using box plots is a great alternative. Let's make one here:
 
 
@@ -306,7 +306,7 @@ ggplot(gapminder, aes(x= continent, y = log(gdpPercap), fill = continent))+
 ~~~
 {: .language-r}
 
-![plot of chunk boxplot](../fig/08-boxplot-1.png)
+![](../fig/08-boxplot-1.png)<!-- -->
 
 One common misconception is the middle bar that cuts across each group. This is the **median** of the group distribution, NOT the average. The edge of the boxes in a box plots show the quartile ranges. 
 
@@ -321,7 +321,7 @@ ggplot(gapminder, aes(x= continent, y = log(gdpPercap), fill = continent))+
 ~~~
 {: .language-r}
 
-![plot of chunk violin plot](../fig/08-violin plot-1.png)
+![](../fig/08-violin plot-1.png)<!-- -->
 
 We can also combine this with a box plot to get quartile information and make the box plot smaller so its within the violin curves.
 
@@ -333,7 +333,7 @@ ggplot(gapminder, aes(x= continent, y = log(gdpPercap), fill = continent))+
 ~~~
 {: .language-r}
 
-![plot of chunk violin and box plots](../fig/08-violin and box plots-1.png)
+![](../fig/08-violin and box plots-1.png)<!-- -->
 
 Now that we can see the distribution of log-transformed GDP per capita varies between continents, let's see if any of the continents are significantly different from another. To test this we will run an one-way Analysis of Variance (ANOVA) model as shown below. 
 
@@ -368,7 +368,7 @@ summary(fit)
 ~~~
 {: .output}
 
-We have a p-value less than 2*10^-16^ and we reject the null hypothesis. As a result we can move onto a post-hoc test to see which continents are significant from each other using `TukeyHSD` to compute the Tukey Honest Significant Differences.
+We have a p-value less than $2*10^-16^$ and we reject the null hypothesis. As a result we can move onto a post-hoc test to see which continents are significant from each other using `TukeyHSD` to compute the Tukey Honest Significant Differences.
 
 
 ~~~
@@ -427,7 +427,7 @@ ggplot(data = AZcountries, aes(x = year, y = lifeExp, color=continent)) +
 ~~~
 {: .language-r}
 
-![plot of chunk facets](../fig/08-facets-1.png)
+![](../fig/08-facets-1.png)<!-- -->
 
 ## Changing axis labels and adding a title
 
@@ -444,7 +444,7 @@ ggplot(data = gapminder, aes(x = log(gdpPercap), y = lifeExp)) +
 ~~~
 {: .language-r}
 
-![plot of chunk title demo](../fig/08-title demo-1.png)
+![](../fig/08-title demo-1.png)<!-- -->
 
 ## Heatmap 
 
@@ -532,7 +532,7 @@ corrplot(cor_mtcars, method = "circle")
 ~~~
 {: .language-r}
 
-![plot of chunk quick heatmap](../fig/08-quick heatmap-1.png)
+![](../fig/08-quick heatmap-1.png)<!-- -->
 
 In this heat map both size and colour corresponds to the Pearson coefficient. There are also other methods we can explore:
 
@@ -542,7 +542,7 @@ corrplot(cor_mtcars, method = "square")
 ~~~
 {: .language-r}
 
-![plot of chunk square heatmap](../fig/08-square heatmap-1.png)
+![](../fig/08-square heatmap-1.png)<!-- -->
 
 
 ~~~
@@ -550,7 +550,7 @@ corrplot(cor_mtcars, method = "number")
 ~~~
 {: .language-r}
 
-![plot of chunk num heatmap](../fig/08-num heatmap-1.png)
+![](../fig/08-num heatmap-1.png)<!-- -->
 
 Heat maps are redundant, and we can eliminate this by taking a slice of the map.
 
@@ -560,14 +560,14 @@ corrplot(cor_mtcars, type = "upper")
 ~~~
 {: .language-r}
 
-![plot of chunk heatmap slice](../fig/08-heatmap slice-1.png)
+![](../fig/08-heatmap slice-1.png)<!-- -->
 
 ~~~
 corrplot(cor_mtcars, type = "lower")
 ~~~
 {: .language-r}
 
-![plot of chunk heatmap slice](../fig/08-heatmap slice-2.png)
+![](../fig/08-heatmap slice-2.png)<!-- -->
 
 We can also mix together shapes and numbers (or any two combinations of methods) to increase the amount of information we can represent in a heat map.
 
@@ -577,7 +577,7 @@ corrplot.mixed(cor_mtcars, lower = "number", upper = "circle")
 ~~~
 {: .language-r}
 
-![plot of chunk mixing heatmaps](../fig/08-mixing heatmaps-1.png)
+![](../fig/08-mixing heatmaps-1.png)<!-- -->
 
 The correlation matrix can be reordered according to the correlation coefficient. This is important to identify the hidden structure and pattern in the matrix. There are multiple methods avaialble for clustering, but we will only use the k-means hierarchical clustering method here:
 
@@ -587,7 +587,7 @@ corrplot(cor_mtcars, order = "hclust")
 ~~~
 {: .language-r}
 
-![plot of chunk heatmap hclust](../fig/08-heatmap hclust-1.png)
+![](../fig/08-heatmap hclust-1.png)<!-- -->
 
 We can also direct corrplot to identify the two distinct groups we can see by eye.
 
@@ -597,7 +597,7 @@ corrplot(cor_mtcars, order = "hclust", addrect = 2)
 ~~~
 {: .language-r}
 
-![plot of chunk heatmap hclust group2](../fig/08-heatmap hclust group2-1.png)
+![](../fig/08-heatmap hclust group2-1.png)<!-- -->
 
 And also groups that might not be immediately clear to us.
 
@@ -607,7 +607,7 @@ corrplot(cor_mtcars, order = "hclust", addrect = 3)
 ~~~
 {: .language-r}
 
-![plot of chunk heatmap hclust group3](../fig/08-heatmap hclust group3-1.png)
+![](../fig/08-heatmap hclust group3-1.png)<!-- -->
 
 This is a taste of what you can do with `ggplot2` and other plotting resources. R Studio provides a
 really useful [cheat sheet][cheat] of the different layers available, and more
@@ -615,6 +615,7 @@ extensive documentation is available on the [ggplot2 website][ggplot-doc].
 Finally, if you have no idea how to change something, a quick Google search will
 usually send you to a relevant question and answer on Stack Overflow with reusable
 code to modify!
-
 [cheat]: http://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
 [ggplot-doc]: http://docs.ggplot2.org/current/
+
+[sample gallery of ggplots!](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
